@@ -8,13 +8,13 @@ public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private float height; //Поле не может быть null, Значение поля должно быть больше 0
+    private Float height; //Поле не может быть null, Значение поля должно быть больше 0
     private java.time.LocalDateTime birthday; //Поле не может быть null
     private Color eyeColor; //Поле не может быть null
     private Color hairColor; //Поле может быть null
     private Location location; //Поле не может быть null
 
-    public Person(int id, String name, Coordinates coordinates, LocalDate creationDate, float height,
+    public Person(int id, String name, Coordinates coordinates, LocalDate creationDate, Float height,
             LocalDateTime birthday, Color eyeColor, Color hairColor, Location location) {
         this.id = id;
         this.name = name;
@@ -53,7 +53,7 @@ public class Person {
     public float getHeight() {
         return height;
     }
-    public void setHeight(float height) {
+    public void setHeight(Float height) {
         this.height = height;
     }
     public java.time.LocalDateTime getBirthday() {

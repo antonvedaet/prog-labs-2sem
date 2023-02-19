@@ -15,5 +15,4 @@ public class App {
         cHandler.printPersonList();
     }
     //TODO: CollectionHandler - done
-
 }

@@ -10,28 +10,28 @@ public class CollectionHandler {
         collection = new LinkedList<>();
     }
 
-    public Boolean addPerson(Person p){
-        collection.add(p);
+    public Boolean addPerson(Person person){
+        collection.add(person);
         return true;
     }
 
-    public Boolean removePerson(Person p){
-        collection.remove(p);
+    public Boolean removePerson(Person person){
+        collection.remove(person);
         return true;
     }
 
     public void printPersonList(){
-        IOHandler n  = new IOHandler();
-        for (Person p : collection){
-            n.write("id: " + p.getId());
-            n.write("name: " + p.getName());
-            n.write("coordinates: " + p.getCoordinates());
-            n.write("creation_date: " + p.getCreationDate());
-            n.write("height: " + p.getHeight());
-            n.write("birthday: " + p.getBirthday());
-            n.write("eye_color: " + p.getEyeColor());
-            n.write("hair_color: " + p.getHairColor());
-            n.write("location: " + p.getLocation());
+        IOHandler ioHandler  = new IOHandler();
+        for (Person person : collection){
+            ioHandler.write("id: " + person.getId());
+            ioHandler.write("name: " + person.getName());
+            ioHandler.write("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
+            ioHandler.write("creation_date: " + person.getCreationDate());
+            ioHandler.write("height: " + person.getHeight());
+            ioHandler.write("birthday: " + person.getBirthday());
+            ioHandler.write("eye_color: " + person.getEyeColor());
+            ioHandler.write("hair_color: " + person.getHairColor());
+            ioHandler.write("location: " + person.getLocation());
         }
     }
 }
