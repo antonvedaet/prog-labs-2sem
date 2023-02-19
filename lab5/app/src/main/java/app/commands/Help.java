@@ -1,4 +1,5 @@
 package app.commands;
+import app.exceptions.ElementAmountException;
 
 public class Help extends AbstractCommand {
 
@@ -8,8 +9,11 @@ public class Help extends AbstractCommand {
     
     @Override
     public boolean execute(String arg){
-        //команду help сделай
-        //ок?
-        return true;
+        try{
+            if(!arg.isEmpty()) throw new ElementAmountException();
+        } catch (ElementAmountException e) {
+            return true;
+        } 
+        return false;
     }
 }

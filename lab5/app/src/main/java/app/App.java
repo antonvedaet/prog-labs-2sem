@@ -1,6 +1,7 @@
 package app;
 import app.data.*;
 import app.utils.*;
+import app.commands.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -13,6 +14,7 @@ public class App {
         CollectionHandler cHandler = new CollectionHandler();
         cHandler.addPerson(p);
         cHandler.printPersonList();
+
     }
     //TODO: CollectionHandler - done
 }

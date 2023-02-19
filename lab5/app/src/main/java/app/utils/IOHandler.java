@@ -1,7 +1,10 @@
 package app.utils;
 
 public class IOHandler {
-    public void write(Object o){
+    public static void println(Object o){
         System.out.println(o);
+    }
+    public static void print(Object o){
+        System.out.print(o);
     }
 }

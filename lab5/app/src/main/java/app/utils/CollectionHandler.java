@@ -21,17 +21,16 @@ public class CollectionHandler {
     }
 
     public void printPersonList(){
-        IOHandler ioHandler  = new IOHandler();
         for (Person person : collection){
-            ioHandler.write("id: " + person.getId());
-            ioHandler.write("name: " + person.getName());
-            ioHandler.write("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
-            ioHandler.write("creation_date: " + person.getCreationDate());
-            ioHandler.write("height: " + person.getHeight());
-            ioHandler.write("birthday: " + person.getBirthday());
-            ioHandler.write("eye_color: " + person.getEyeColor());
-            ioHandler.write("hair_color: " + person.getHairColor());
-            ioHandler.write("location: " + person.getLocation());
+            IOHandler.println("id: " + person.getId());
+            IOHandler.println("name: " + person.getName());
+            IOHandler.println("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
+            IOHandler.println("creation_date: " + person.getCreationDate());
+            IOHandler.println("height: " + person.getHeight());
+            IOHandler.println("birthday: " + person.getBirthday());
+            IOHandler.println("eye_color: " + person.getEyeColor());
+            IOHandler.println("hair_color: " + person.getHairColor());
+            IOHandler.println("location: " + person.getLocation());
         }
     }
 }
