@@ -19,6 +19,9 @@ public class CollectionHandler {
         collection.remove(person);
         return true;
     }
+    private int generateNextId(){
+        return collection.size() + 1;
+    }
 
     public void printPersonList(){
         for (Person person : collection){
@@ -33,4 +36,5 @@ public class CollectionHandler {
             IOHandler.println("location: " + person.getLocation());
         }
     }
+    //WIP 
 }
