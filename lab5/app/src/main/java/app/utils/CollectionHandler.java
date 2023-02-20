@@ -1,13 +1,17 @@
 package app.utils;
+import java.time.LocalDate;
 import java.util.LinkedList;
+
 import app.data.Person;
 
 public class CollectionHandler {
     LinkedList<Person> collection;
+    private LocalDate initDate;
 
     
     public CollectionHandler() {
         collection = new LinkedList<>();
+        initDate = LocalDate.now();
     }
 
     public Boolean addPerson(Person person){
@@ -19,8 +23,16 @@ public class CollectionHandler {
         collection.remove(person);
         return true;
     }
-    private int generateNextId(){
+    public int generateNextId(){
         return collection.size() + 1;
+    }
+
+    public int getSize(){
+        return collection.size();
+    }
+
+    public LocalDate getInitDate() {
+        return initDate;
     }
 
     public void printPersonList(){
