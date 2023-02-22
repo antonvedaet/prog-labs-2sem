@@ -9,7 +9,6 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    id "io.freefair.lombok" version "6.6.2"
     id "java"
     id 'java-library'
     id 'application'
@@ -25,16 +24,18 @@ dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
 }
 
-testing {
-    suites {
-        // Configure the built-in test suite
-        test {
-            // Use JUnit4 test framework
-            useJUnit('4.13.2')
-        }
+task testing {
+    doLast {
+        println 'Running tests...'
     }
 }
-application {
+task application {
     // Define the main class for the application.
     mainClassName = 'app.App'
+}
+
+task runApp(type: JavaExec) {
+    main = 'app.App'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
 }
