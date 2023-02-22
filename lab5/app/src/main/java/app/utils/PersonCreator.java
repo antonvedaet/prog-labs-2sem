@@ -65,6 +65,9 @@ public class PersonCreator {
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             bdayCreate();
+        }catch (java.time.format.DateTimeParseException e){
+            IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            bdayCreate();
         }
         return time; 
     }
