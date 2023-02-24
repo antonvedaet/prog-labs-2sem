@@ -27,8 +27,8 @@ public class PersonCreator {
     }
 
     public Coordinates coordinatesCreate(){
-        int x = 0;
-        long y = 0;
+        int x=0;
+        long y=0;
         try{
             IOHandler.println("Координаты:\nВведите долготу: ");
             x = scanner.nextInt();
@@ -36,6 +36,7 @@ public class PersonCreator {
             y = scanner.nextLong();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            scanner.nextLine();
             coordinatesCreate();
         }
         return new Coordinates(x, y); 
@@ -48,8 +49,10 @@ public class PersonCreator {
             height = scanner.nextFloat();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            scanner.nextLine();
             heightCreate();
         }
+        scanner.nextLine();
         return height; 
     }
 
@@ -58,7 +61,6 @@ public class PersonCreator {
         String inputTime = "";
         LocalDateTime time = null; 
         try{
-            scanner.nextLine();
             IOHandler.println("Введите дату и время рождения(год-месяц-день час:минуты): ");
             inputTime = scanner.nextLine();
             time = LocalDateTime.parse(inputTime, formatter);
@@ -72,14 +74,10 @@ public class PersonCreator {
         return time; 
     }
 
-    // public LocalDateTime eyeColorChoose(){
-    //     DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    //     String inputTime = "";
-    //     LocalDateTime time = null; 
+    // public Color eyeColorChoose(){
+    //     Color color;
     //     try{
     //         IOHandler.println("Введите дату и время рождения(\"год-месяц-день час:минуты\"): ");
-    //         inputTime = scanner.nextLine();
-    //         time = LocalDateTime.parse(inputTime, formatter);
     //     }catch (InputMismatchException e){
     //         IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
     //         eyeColorChoose();
@@ -93,7 +91,7 @@ public class PersonCreator {
         Double z = 0D;
         String name = " ";
         try{
-            IOHandler.println("Введите координаты и название местоположения:\n Введите долготу: ");
+            IOHandler.println("Введите координаты и название местоположения:\nВведите долготу: ");
             x = scanner.nextInt();
             IOHandler.println("Введите широту: ");
             y = scanner.nextDouble();
@@ -103,6 +101,7 @@ public class PersonCreator {
             name = scanner.nextLine();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            scanner.nextLine();
             locationCreate();
         }
         return new Location(x, y, z, name); 
