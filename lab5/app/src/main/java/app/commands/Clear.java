@@ -1,5 +1,4 @@
 package app.commands;
-import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;

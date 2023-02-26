@@ -1,14 +1,16 @@
 package app.commands;
+import java.util.Collections;
+
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
 
-public class Shuffle extends AbstractCommand{
+public class Reorder extends AbstractCommand{
 
     CollectionHandler collectionHandler;
 
-    public Shuffle(CollectionHandler collectionHandler) {
-        super("shuffle", "перемешать коллекцию в случайном порядке");
+    public Reorder(CollectionHandler collectionHandler) {
+        super("reorder", "отсортировать коллекцию в обратном порядке");
         this.collectionHandler = collectionHandler;
     }
     
@@ -26,7 +28,7 @@ public class Shuffle extends AbstractCommand{
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            collectionHandler.shuffle();
+            collectionHandler.reorder();
         }
     }
 }

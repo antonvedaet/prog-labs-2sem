@@ -23,6 +23,7 @@ public class App {
         AbstractCommand clear = new Clear(collectionHandler);
         AbstractCommand shuffle = new Shuffle(collectionHandler);
         AbstractCommand save = new Save(collectionHandler, fileManager);
+        AbstractCommand reorder = new Reorder(collectionHandler);
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -35,6 +36,7 @@ public class App {
         map.put(clear.getName(), clear);
         map.put(shuffle.getName(), shuffle);
         map.put(save.getName(), save);
+        map.put(reorder.getName(), reorder);
 
 
         while(true){

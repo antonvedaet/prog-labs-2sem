@@ -25,16 +25,9 @@ public class CollectionHandler {
         collection.remove(person);
         return true;
     }
-    public int generateNextId(){
-        return  idCounter++;
-    }
 
     public int getSize(){
         return collection.size();
-    }
-
-    public void shuffle(){
-        Collections.shuffle(collection);
     }
 
     public LocalDate getInitDate() {
@@ -47,6 +40,18 @@ public class CollectionHandler {
 
     public void clear(){
         collection.clear();
+    }
+
+    public void shuffle(){
+        Collections.shuffle(collection);
+    }
+
+    public int generateNextId(){
+        return  idCounter++;
+    }
+
+    public void reorder(){
+        Collections.reverse(collection);
     }
 
     public void loadCollection(){
