@@ -1,13 +1,10 @@
 package app.commands;
 import app.exceptions.ElementAmountException;
-import app.utils.CollectionHandler;
 import app.utils.IOHandler;
 
-public class Show extends AbstractCommand {
-    CollectionHandler collectionHandler;
-    public Show(CollectionHandler collectionHandler) {
-        super("show", "вывести все элементы коллекции");
-        this.collectionHandler = collectionHandler;
+public class Exit extends AbstractCommand {
+    public Exit() {
+        super("exit", "выйти из программы");
     }
     
     @Override
@@ -20,11 +17,10 @@ public class Show extends AbstractCommand {
         } 
         return false;
     }
-
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            collectionHandler.printPersonList();
+            System.exit(0);
         }
-    }
+    }//WIP
 }

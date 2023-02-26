@@ -1,12 +1,15 @@
 package app.commands;
+import app.data.Person;
 import app.exceptions.ElementAmountException;
-import app.utils.CollectionHandler;
 import app.utils.IOHandler;
+import app.utils.CollectionHandler;
 
-public class Show extends AbstractCommand {
+public class Clear extends AbstractCommand{
+
     CollectionHandler collectionHandler;
-    public Show(CollectionHandler collectionHandler) {
-        super("show", "вывести все элементы коллекции");
+
+    public Clear(CollectionHandler collectionHandler) {
+        super("clear", "очистить коллекцию");
         this.collectionHandler = collectionHandler;
     }
     
@@ -24,7 +27,9 @@ public class Show extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            collectionHandler.printPersonList();
+            for(Person person :  collectionHandler.getCollection()){
+                collectionHandler.removePerson(person);
+            }
         }
     }
 }

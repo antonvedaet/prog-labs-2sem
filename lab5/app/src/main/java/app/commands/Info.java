@@ -15,13 +15,14 @@ public class Info extends AbstractCommand{
     @Override
     public boolean argCheck(String arg){
         try{
-            if(arg==" )") throw new ElementAmountException();
+            if(!arg.equals("placeholderArg")) throw new ElementAmountException();
             return true;
         } catch (ElementAmountException e) {
             IOHandler.println("Некорректное кол-во аргументов");
         } 
         return false;
     }
+
     @Override
     public void execute(String arg){
         if(argCheck(arg)){

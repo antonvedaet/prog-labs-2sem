@@ -1,12 +1,14 @@
 package app.commands;
 import app.exceptions.ElementAmountException;
-import app.utils.CollectionHandler;
 import app.utils.IOHandler;
+import app.utils.CollectionHandler;
 
-public class Show extends AbstractCommand {
+public class Shuffle extends AbstractCommand{
+
     CollectionHandler collectionHandler;
-    public Show(CollectionHandler collectionHandler) {
-        super("show", "вывести все элементы коллекции");
+
+    public Shuffle(CollectionHandler collectionHandler) {
+        super("shuffle", "перемешать коллецию в случайном порядке");
         this.collectionHandler = collectionHandler;
     }
     
@@ -24,7 +26,7 @@ public class Show extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            collectionHandler.printPersonList();
+            collectionHandler.shuffle();
         }
     }
 }

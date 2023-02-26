@@ -1,7 +1,7 @@
 package app.utils;
 import app.data.Coordinates;
 import app.data.Location;
-
+import app.data.Color;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
@@ -74,16 +74,31 @@ public class PersonCreator {
         return time; 
     }
 
-    // public Color eyeColorChoose(){
-    //     Color color;
-    //     try{
-    //         IOHandler.println("Введите дату и время рождения(\"год-месяц-день час:минуты\"): ");
-    //     }catch (InputMismatchException e){
-    //         IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
-    //         eyeColorChoose();
-    //     }
-    //     return color; 
-    // }
+    public Color eyeColorChoose(){
+        Color color = null;
+        
+        try{
+            IOHandler.println("Выберите цвет глаз из предложенных: GREEN, BLACK, WHITE, BROWN");
+            color = Color.valueOf(scanner.nextLine().toUpperCase());
+        }catch (IllegalArgumentException e){
+            IOHandler.println("Нету такого цвета");
+            eyeColorChoose();
+        }
+        return color; 
+    }
+
+    public Color hairColorChoose(){
+        Color color = null;
+        
+        try{
+            IOHandler.println("Выберите цвет волос из предложенных: GREEN, BLACK, BLUE, ORANGE, BROWN");
+            color = Color.valueOf(scanner.nextLine().toUpperCase());
+        }catch (IllegalArgumentException e){
+            IOHandler.println("Нету такого цвета");
+            eyeColorChoose();
+        }
+        return color; 
+    }
 
     public Location locationCreate(){
         Integer x = 0;
@@ -97,7 +112,8 @@ public class PersonCreator {
             y = scanner.nextDouble();
             IOHandler.println("Введите высоту: ");
             z = scanner.nextDouble();
-            IOHandler.println("Введите долготу: ");
+            scanner.nextLine();
+            IOHandler.println("Введите название: ");
             name = scanner.nextLine();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
@@ -106,5 +122,6 @@ public class PersonCreator {
         }
         return new Location(x, y, z, name); 
     }
-    //WIP
+    
+    
 }
