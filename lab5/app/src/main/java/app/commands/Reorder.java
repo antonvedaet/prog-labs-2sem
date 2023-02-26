@@ -1,6 +1,4 @@
 package app.commands;
-import java.util.Collections;
-
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;

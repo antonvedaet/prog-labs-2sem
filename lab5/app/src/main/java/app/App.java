@@ -18,12 +18,13 @@ public class App {
         AbstractCommand show = new Show(collectionHandler);
         AbstractCommand add = new Add(personCreator, collectionHandler);
         AbstractCommand exit = new Exit();
-        AbstractCommand remove_by_id = new RemoveById(collectionHandler);
+        AbstractCommand removeById = new RemoveById(collectionHandler);
         AbstractCommand update = new Update(personCreator, collectionHandler);
         AbstractCommand clear = new Clear(collectionHandler);
         AbstractCommand shuffle = new Shuffle(collectionHandler);
         AbstractCommand save = new Save(collectionHandler, fileManager);
         AbstractCommand reorder = new Reorder(collectionHandler);
+        AbstractCommand countLessThanHeight = new CountLessThanHeight(collectionHandler);
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -31,13 +32,13 @@ public class App {
         map.put(show.getName(), show);
         map.put(add.getName(), add);
         map.put(exit.getName(), exit);
-        map.put(remove_by_id.getName(), remove_by_id);
+        map.put(removeById.getName(), removeById);
         map.put(update.getName(), update);
         map.put(clear.getName(), clear);
         map.put(shuffle.getName(), shuffle);
         map.put(save.getName(), save);
         map.put(reorder.getName(), reorder);
-
+        map.put(countLessThanHeight.getName(), countLessThanHeight);
 
         while(true){
             IOHandler.print("> ");
