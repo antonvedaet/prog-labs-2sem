@@ -25,6 +25,7 @@ public class App {
         AbstractCommand save = new Save(collectionHandler, fileManager);
         AbstractCommand reorder = new Reorder(collectionHandler);
         AbstractCommand countLessThanHeight = new CountLessThanHeight(collectionHandler);
+        
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -39,6 +40,9 @@ public class App {
         map.put(save.getName(), save);
         map.put(reorder.getName(), reorder);
         map.put(countLessThanHeight.getName(), countLessThanHeight);
+
+        AbstractCommand executeScript = new ExecuteScript(map);
+        map.put(executeScript.getName(), executeScript);
 
         while(true){
             IOHandler.print("> ");
