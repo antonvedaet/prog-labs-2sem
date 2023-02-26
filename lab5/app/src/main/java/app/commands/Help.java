@@ -17,6 +17,7 @@ public class Help extends AbstractCommand {
         } 
         return false;
     }
+    
     @Override
     public void execute(String arg){
         if(argCheck(arg)){

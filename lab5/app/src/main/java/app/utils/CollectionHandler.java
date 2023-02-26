@@ -45,11 +45,15 @@ public class CollectionHandler {
         return collection;
     }
 
+    public void clear(){
+        collection.clear();
+    }
+
     public void loadCollection(){
         FileManager fileManager = new FileManager();
         Person[] persons;
         try{
-           persons = fileManager.readFromFile("collection.json");
+           persons = fileManager.readFromFile();
            for (Person person : persons) {
             addPerson(person);
             generateNextId();

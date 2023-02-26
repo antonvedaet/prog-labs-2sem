@@ -27,9 +27,7 @@ public class Clear extends AbstractCommand{
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            for(Person person :  collectionHandler.getCollection()){
-                collectionHandler.removePerson(person);
-            }
+            collectionHandler.clear();
         }
     }
 }

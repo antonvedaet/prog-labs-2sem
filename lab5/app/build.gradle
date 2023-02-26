@@ -37,8 +37,16 @@ task application {
     mainClassName = 'app.App'
 }
 
-task runApp(type: JavaExec) {
+run {
     main = 'app.App'
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
+    environment 'JAVA_VAR', 'collection.json'
 }
+
+
+// task runApp(type: JavaExec) {
+//     main = 'app.App'
+//     classpath = sourceSets.main.runtimeClasspath
+//     standardInput = System.in
+// }

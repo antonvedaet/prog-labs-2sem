@@ -1,8 +1,6 @@
 package app;
 import app.utils.*;
 import app.commands.*;
-import app.data.Person;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -37,6 +35,7 @@ public class App {
         map.put(clear.getName(), clear);
         map.put(shuffle.getName(), shuffle);
         map.put(save.getName(), save);
+
 
         while(true){
             IOHandler.print("> ");
