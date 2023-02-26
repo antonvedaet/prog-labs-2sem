@@ -1,4 +1,5 @@
 package app.utils;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Collections;
@@ -44,6 +45,21 @@ public class CollectionHandler {
         return collection;
     }
 
+    public void loadCollection(){
+        FileManager fileManager = new FileManager();
+        Person[] persons;
+        try{
+           persons = fileManager.readFromFile("collection.json");
+           for (Person person : persons) {
+            addPerson(person);
+            generateNextId();
+        }
+        } catch (IOException e) {
+            IOHandler.println("Ошибка чтения файла");
+        }
+        
+    }
+
     public void printPersonList(){
         for (Person person : collection){
             IOHandler.println("id: " + person.getId());
@@ -55,6 +71,7 @@ public class CollectionHandler {
             IOHandler.println("eye_color: " + person.getEyeColor());
             IOHandler.println("hair_color: " + person.getHairColor());
             IOHandler.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
+            IOHandler.println("------------------------------------------");
         }
     }
     //WIP 

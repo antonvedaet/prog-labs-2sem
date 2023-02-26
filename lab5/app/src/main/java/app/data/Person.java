@@ -26,6 +26,9 @@ public class Person {
         this.hairColor = hairColor;
         this.location = location;
     }
+
+    public Person(){}
+    
     public int getId() {
         return id;
     }

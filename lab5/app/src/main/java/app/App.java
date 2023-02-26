@@ -1,23 +1,30 @@
 package app;
 import app.utils.*;
 import app.commands.*;
+import app.data.Person;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        PersonCreator pc = new PersonCreator();
-        CollectionHandler cHandler = new CollectionHandler();
+        PersonCreator personCreator = new PersonCreator();
+        CollectionHandler collectionHandler = new CollectionHandler();
+        FileManager fileManager = new FileManager();
+        collectionHandler.loadCollection();
+        
+
         AbstractCommand help = new Help();
-        AbstractCommand info = new Info(cHandler);
-        AbstractCommand show = new Show(cHandler);
-        AbstractCommand add = new Add(pc, cHandler);
+        AbstractCommand info = new Info(collectionHandler);
+        AbstractCommand show = new Show(collectionHandler);
+        AbstractCommand add = new Add(personCreator, collectionHandler);
         AbstractCommand exit = new Exit();
-        AbstractCommand remove_by_id = new RemoveById(cHandler);
-        AbstractCommand update = new Update(pc, cHandler);
-        AbstractCommand clear = new Clear(cHandler);
-        AbstractCommand shuffle = new Shuffle(cHandler);
+        AbstractCommand remove_by_id = new RemoveById(collectionHandler);
+        AbstractCommand update = new Update(personCreator, collectionHandler);
+        AbstractCommand clear = new Clear(collectionHandler);
+        AbstractCommand shuffle = new Shuffle(collectionHandler);
+        AbstractCommand save = new Save(collectionHandler, fileManager);
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -29,6 +36,7 @@ public class App {
         map.put(update.getName(), update);
         map.put(clear.getName(), clear);
         map.put(shuffle.getName(), shuffle);
+        map.put(save.getName(), save);
 
         while(true){
             IOHandler.print("> ");
