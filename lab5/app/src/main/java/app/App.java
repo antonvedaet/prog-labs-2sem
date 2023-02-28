@@ -27,6 +27,7 @@ public class App {
         AbstractCommand countLessThanHeight = new CountLessThanHeight(collectionHandler);
         AbstractCommand removeGreater = new RemoveGreater(collectionHandler);
         AbstractCommand groupCountingById = new GroupCountingById(collectionHandler);
+        AbstractCommand filterContainsName = new FilterContainsName(collectionHandler);
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -43,6 +44,7 @@ public class App {
         map.put(countLessThanHeight.getName(), countLessThanHeight);
         map.put(removeGreater.getName(), removeGreater);
         map.put(groupCountingById.getName(), groupCountingById);
+        map.put(filterContainsName.getName(), filterContainsName);
 
         AbstractCommand executeScript = new ExecuteScript(map);
         map.put(executeScript.getName(), executeScript);
