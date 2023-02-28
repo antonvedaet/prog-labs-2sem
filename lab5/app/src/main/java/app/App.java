@@ -25,7 +25,8 @@ public class App {
         AbstractCommand save = new Save(collectionHandler, fileManager);
         AbstractCommand reorder = new Reorder(collectionHandler);
         AbstractCommand countLessThanHeight = new CountLessThanHeight(collectionHandler);
-        
+        AbstractCommand removeGreater = new RemoveGreater(collectionHandler);
+        AbstractCommand groupCountingById = new GroupCountingById(collectionHandler);
 
         HashMap<String, AbstractCommand> map= new HashMap<String, AbstractCommand>();
         map.put(help.getName(), help);
@@ -40,6 +41,8 @@ public class App {
         map.put(save.getName(), save);
         map.put(reorder.getName(), reorder);
         map.put(countLessThanHeight.getName(), countLessThanHeight);
+        map.put(removeGreater.getName(), removeGreater);
+        map.put(groupCountingById.getName(), groupCountingById);
 
         AbstractCommand executeScript = new ExecuteScript(map);
         map.put(executeScript.getName(), executeScript);
