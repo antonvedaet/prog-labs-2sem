@@ -57,6 +57,8 @@ public class App {
             String argument = tokens[1];
             if(map.containsKey(command)){
                 map.get(command).execute(argument);
+            } else {
+                IOHandler.println("Команда "+ command + " не найдена");
             }
         }
     }
