@@ -6,7 +6,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * Класс для создания объектов класса Person
+ * @see app.data.Person
+ */
 public class PersonCreator {
     Scanner scanner;
     public PersonCreator(){

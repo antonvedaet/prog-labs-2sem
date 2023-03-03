@@ -3,17 +3,21 @@ import app.utils.*;
 import app.commands.*;
 import java.util.HashMap;
 import java.util.Scanner;
-
+/**
+ * 
+ * @author Антон Ведерников
+ */
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         PersonCreator personCreator = new PersonCreator();
         CollectionHandler collectionHandler = new CollectionHandler();
         FileManager fileManager = new FileManager();
+        CommandHelper commandHelper = new CommandHelper();
         collectionHandler.loadCollection();
         
 
-        AbstractCommand help = new Help();
+        AbstractCommand help = new Help(commandHelper);
         AbstractCommand info = new Info(collectionHandler);
         AbstractCommand show = new Show(collectionHandler);
         AbstractCommand add = new Add(personCreator, collectionHandler);
@@ -52,7 +56,7 @@ public class App {
         while(true){
             IOHandler.print("> ");
             String input = scanner.nextLine()+ " placeholderArg";
-            String[] tokens = input.split(" ");
+            String[] tokens = input.split("\\s+");
             String command = tokens[0];
             String argument = tokens[1];
             if(map.containsKey(command)){

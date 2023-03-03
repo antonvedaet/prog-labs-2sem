@@ -2,15 +2,22 @@ package app.commands;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+
 import app.exceptions.ElementAmountException;
+import app.exceptions.RecursionException;
 import app.utils.IOHandler;
 
 public class ExecuteScript extends AbstractCommand {
     HashMap<String, AbstractCommand> map;
+    List<String> prevScripts;
     public ExecuteScript(HashMap<String, AbstractCommand> map) {
         super("execute_script", "считать и исполнить скрипт из указанного файла");
         this.map = map;
+        prevScripts= new ArrayList<String>();
     }
     
     @Override
@@ -29,19 +36,35 @@ public class ExecuteScript extends AbstractCommand {
         if(argCheck(arg)){
             try (BufferedReader reader = new BufferedReader(new FileReader(arg))) {
                 String command;
+
                 while ((command = reader.readLine()) != null) {
-                    IOHandler.println("Выполнение команды: " + command);
                     command += " placeholderArg";
-                    String[] tokens = command.split(" ");
+                    String[] tokens = command.split("\\s+");
                     command = tokens[0];
                     String argument = tokens[1];
-                    if(map.containsKey(command)){
+                    if(!command.equals("execute_script")){
+                        IOHandler.println("Выполнение команды: " + command);
+                        if(map.containsKey(command)){
                         map.get(command).execute(argument);
+                        } 
+                    } else {
+                        if(prevScripts.contains(argument)){
+                            throw new RecursionException(); 
+                        } else {
+                            prevScripts.add(argument);
+                            IOHandler.println("Выполнение команды: " + command);
+                            if(map.containsKey(command)){
+                            map.get(command).execute(argument);
+                            } 
+                        }
                     }
                 }
             } catch (IOException e) {
                 IOHandler.println("Ошибка при выполнении скрипта: " + arg);
+            } catch (RecursionException re){
+                IOHandler.println("Скрипт или цепочка скриптов не могут выполнять сами себя.");
             }
         }
+        prevScripts.clear();
     }
 }

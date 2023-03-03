@@ -7,7 +7,9 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import app.data.Person;
 
-
+/**
+ * Класс отвечающий за сохранение и загрузку коллекции из файла 
+ */
 public class FileManager {
     private String filePath;
 

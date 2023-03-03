@@ -49,6 +49,9 @@ jar {
         attributes 'Main-Class': 'app.App'
     }
 }
+javadoc {
+    options.addBooleanOption('html5', true)
+}
 
 
 // task runApp(type: JavaExec) {

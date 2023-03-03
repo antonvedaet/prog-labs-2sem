@@ -4,23 +4,33 @@ import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Collections;
 import app.data.Person;
-
+/**
+ * Класс отвечающий за управление коллекцией
+ */
 public class CollectionHandler {
     LinkedList<Person> collection;
     private LocalDate initDate;
-    private int idCounter;
     
     public CollectionHandler() {
         collection = new LinkedList<>();
         initDate = LocalDate.now();
-        idCounter = 0;
     }
-
+    /**
+     * Добавляет объект класса Person в коллекцию
+     * @param person : Объект класса Person
+     * @see app.data.Person
+     * @return
+     */
     public Boolean addPerson(Person person){
         collection.add(person);
         return true;
     }
-
+    /**
+     * Удаляет объект класса Person из коллекции
+     * @param person : Объект класса Person
+     * @see app.data.Person
+     * @return
+     */
     public Boolean removePerson(Person person){
         collection.remove(person);
         return true;
@@ -51,13 +61,22 @@ public class CollectionHandler {
     }
 
     public int generateNextId(){
-        return  idCounter++;
+        int nextId = 0;
+        for(Person person :  collection){
+            if(person.getId()>nextId){
+                nextId = person.getId();
+            }
+        }
+        return nextId;
     }
 
     public void reorder(){
         Collections.reverse(collection);
     }
-
+    /**
+     * Загружает коллецию из json
+     * @see app.utils.FileManager#readFromFile()
+     */
     public void loadCollection(){
         FileManager fileManager = new FileManager();
         Person[] persons;
@@ -65,14 +84,15 @@ public class CollectionHandler {
            persons = fileManager.readFromFile();
            for (Person person : persons) {
             addPerson(person);
-            generateNextId();
         }
         } catch (IOException e) {
             IOHandler.println("Ошибка чтения файла");
         }
         
     }
-
+    /**
+     *Выводит все объекты в коллекции в строковом представлении
+     */
     public void printPersonList(){
         for (Person person : collection){
             IOHandler.println("id: " + person.getId());
@@ -87,7 +107,11 @@ public class CollectionHandler {
             IOHandler.println("------------------------------------------");
         }
     }
-
+    /**
+     *Выводит объект из коллекции в строковом представлении
+     *@param person: Объект класса Person
+     *@see app.data.Person
+     */
     public void printPerson(Person person){
         IOHandler.println("id: " + person.getId());
         IOHandler.println("name: " + person.getName());
@@ -100,5 +124,4 @@ public class CollectionHandler {
         IOHandler.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
         IOHandler.println("------------------------------------------");
     }
-    //WIP 
 }

@@ -1,8 +1,16 @@
 package app.commands;
 import app.exceptions.ElementAmountException;
+import app.utils.CommandHelper;
 import app.utils.IOHandler;
 
 public class Help extends AbstractCommand {
+    CommandHelper commandHelper;
+
+    public Help(CommandHelper commandHelper) {
+        super("help", "вывести справку о всех доступных командах");
+        this.commandHelper = commandHelper;
+    }
+
     public Help() {
         super("help", "вывести справку о всех доступных командах");
     }
@@ -21,7 +29,12 @@ public class Help extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            IOHandler.println("выводит список всех команд и описания");//связать с CommandHandler'ом когда он будет готов
+            IOHandler.println("===========");
+            for (String name: commandHelper.commandList().keySet()) {
+                String key = name;
+                String value = commandHelper.commandList().get(name);
+                IOHandler.println("\u001B[36m" + key+ "\u001B[0m" + " - " + value + "\n===========");
+            }
         }
     }//WIP
 }
