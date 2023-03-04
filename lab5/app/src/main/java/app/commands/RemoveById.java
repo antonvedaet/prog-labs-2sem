@@ -31,11 +31,13 @@ public class RemoveById extends AbstractCommand{
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
+            Person bufferedPerson = null; 
             for(Person person :  collectionHandler.getCollection()){
                 if(person.getId()==(Integer.parseInt(arg))){
-                    collectionHandler.removePerson(person);
+                    bufferedPerson = person;
                 }
             }
+            collectionHandler.removePerson(bufferedPerson);
         }
     }
 }

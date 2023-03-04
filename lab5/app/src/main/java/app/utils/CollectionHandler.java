@@ -61,13 +61,13 @@ public class CollectionHandler {
     }
 
     public int generateNextId(){
-        int nextId = 0;
+        int nextId = 1;
         for(Person person :  collection){
             if(person.getId()>nextId){
                 nextId = person.getId();
             }
         }
-        return nextId;
+        return nextId+1;
     }
 
     public void reorder(){

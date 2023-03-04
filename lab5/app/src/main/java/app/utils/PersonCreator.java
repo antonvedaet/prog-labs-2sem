@@ -1,6 +1,7 @@
 package app.utils;
 import app.data.Coordinates;
 import app.data.Location;
+import app.exceptions.ValueException;
 import app.data.Color;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,6 +10,7 @@ import java.util.Scanner;
 /**
  * Класс для создания объектов класса Person
  * @see app.data.Person
+ * @see java.util.Scanner
  */
 public class PersonCreator {
     Scanner scanner;
@@ -21,9 +23,12 @@ public class PersonCreator {
         try{
             IOHandler.println("Введите имя: ");
             name = scanner.nextLine();
-            
+            if(name.trim().isEmpty()) throw new ValueException(); 
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            name = nameCreate();
+        }catch (ValueException ve){
+            IOHandler.println("Имя не может быть пустым");
             name = nameCreate();
         }
         return name;
@@ -38,10 +43,14 @@ public class PersonCreator {
             x = scanner.nextInt();
             IOHandler.println("Введите широту: ");
             y = scanner.nextLong();
+            if(x < -72 || y < -647) throw new ValueException();
             coordinates = new Coordinates(x, y);
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             scanner.nextLine();
+            coordinates = coordinatesCreate();
+        }catch (ValueException ve){
+            IOHandler.println("Долгота должна быть больше -72, широта больше -647");
             coordinates = coordinatesCreate();
         }
         return coordinates;
@@ -52,8 +61,13 @@ public class PersonCreator {
         try{
             IOHandler.println("Введите рост: ");
             height = scanner.nextFloat();
+            if(height <= 0) throw new ValueException();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
+            scanner.nextLine();
+            height = heightCreate();
+        }catch (ValueException ve){
+            IOHandler.println("Рост должен быть больше 0");
             scanner.nextLine();
             height = heightCreate();
         }
@@ -121,14 +135,16 @@ public class PersonCreator {
             scanner.nextLine();
             IOHandler.println("Введите название: ");
             name = scanner.nextLine();
+            if(name.trim().isEmpty()) throw new ValueException();
             location = new Location(x, y, z, name);
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             scanner.nextLine();
             location = locationCreate();
+        }catch (ValueException ve){
+            IOHandler.println("Название не может быть пустым");
+            location = locationCreate();
         }
         return location; 
     }
-    
-    
 }
