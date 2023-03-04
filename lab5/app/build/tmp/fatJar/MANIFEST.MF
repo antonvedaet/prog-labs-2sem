@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Implementation-Title: Gradle Jar File
+Main-Class: app.App
+

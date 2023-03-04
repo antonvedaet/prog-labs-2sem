@@ -2,5 +2,4 @@
 .gradle
 *.class
 # Ignore Gradle build output directory
-build
 .vscode
