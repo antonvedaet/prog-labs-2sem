@@ -1,4 +1,7 @@
 package app.commands;
+import java.util.ArrayList;
+import java.util.List;
+
 import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
@@ -33,10 +36,14 @@ public class RemoveGreater extends AbstractCommand{
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
+            List<Person> bufferedPersons = new ArrayList<Person>();
             for(Person person :  collectionHandler.getCollection()){
                 if(person.getId()>(Integer.parseInt(arg))){
-                    collectionHandler.removePerson(person);
+                    bufferedPersons.add(person);
                 }
+            }
+            for(Person person: bufferedPersons){
+                collectionHandler.removePerson(person);
             }
         }
     }
