@@ -5,7 +5,9 @@ import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
 import app.utils.FileManager;
-
+/**
+ * Класс отвечающий за команду save
+ */
 public class Save extends AbstractCommand{
 
     CollectionHandler collectionHandler;

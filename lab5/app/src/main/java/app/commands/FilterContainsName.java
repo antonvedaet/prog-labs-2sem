@@ -3,7 +3,9 @@ import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду filter_contains_name
+ */
 public class FilterContainsName extends AbstractCommand{
 
     CollectionHandler collectionHandler;

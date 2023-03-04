@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.data.Person;
-
+/**
+ * Класс отвечающий за команду group_counting_by_id
+ */
 public class GroupCountingById extends AbstractCommand {
 
     CollectionHandler collectionHandler;

@@ -3,7 +3,9 @@ import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду remove_greater {id value}
+ */
 public class RemoveGreater extends AbstractCommand{
 
     CollectionHandler collectionHandler;

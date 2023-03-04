@@ -10,7 +10,9 @@ import java.util.List;
 import app.exceptions.ElementAmountException;
 import app.exceptions.RecursionException;
 import app.utils.IOHandler;
-
+/**
+ * Класс отвечающий за команду execute_script {scriptname}
+ */
 public class ExecuteScript extends AbstractCommand {
     HashMap<String, AbstractCommand> map;
     List<String> prevScripts;

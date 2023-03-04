@@ -17,7 +17,11 @@ public class PersonCreator {
     public PersonCreator(){
         scanner = new Scanner(System.in);
     }
-
+    /**
+     * Если введенная строка будет пустой будет кинуто исключение ValueException
+     * @see app.exceptions.ValueException
+     * @return name
+     */
     public String nameCreate(){
         String name = null;
         try{
@@ -33,7 +37,11 @@ public class PersonCreator {
         }
         return name;
     }
-
+    /**
+     * Если введенные значения будут не подходить по данным ограничениям будет кинуто исключение ValueException
+     * @see app.exceptions.ValueException
+     * @return name
+     */
     public Coordinates coordinatesCreate(){
         int x=0;
         long y=0;
@@ -55,7 +63,11 @@ public class PersonCreator {
         }
         return coordinates;
     }
-
+    /**
+     * Если введенные значения будут не подходить по данным ограничениям будет кинуто исключение ValueException
+     * @see app.exceptions.ValueException
+     * @return name
+     */    
     public Float heightCreate(){
         Float height = null;
         try{
@@ -75,6 +87,9 @@ public class PersonCreator {
         return height; 
     }
 
+    /**
+     * @return java.time.LocalDateTime
+     */
     public LocalDateTime bdayCreate(){
         DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String inputTime = "";
@@ -93,6 +108,9 @@ public class PersonCreator {
         return time; 
     }
 
+    /**
+     * @return app.data.Color
+     */
     public Color eyeColorChoose(){
         Color color = null;
         
@@ -106,6 +124,9 @@ public class PersonCreator {
         return color; 
     }
 
+    /**
+     * @return app.data.Color
+     */
     public Color hairColorChoose(){
         Color color = null;
         
@@ -118,7 +139,11 @@ public class PersonCreator {
         }
         return color; 
     }
-
+    /**
+     * Если введенные значения будут не подходить по данным ограничениям будет кинуто исключение ValueException
+     * @see app.exceptions.ValueException
+     * @return name
+     */
     public Location locationCreate(){
         Integer x = 0;
         Double y = 0D;

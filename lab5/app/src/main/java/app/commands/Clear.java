@@ -2,7 +2,9 @@ package app.commands;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду clear
+ */
 public class Clear extends AbstractCommand{
 
     CollectionHandler collectionHandler;
@@ -22,7 +24,11 @@ public class Clear extends AbstractCommand{
         } 
         return false;
     }
-
+    /**
+     * Очистка коллекции
+     * @see app.utils.CollectionHandler#clear()
+     * @see java.util.Collections
+     */
     @Override
     public void execute(String arg){
         if(argCheck(arg)){

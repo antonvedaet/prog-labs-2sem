@@ -2,7 +2,9 @@ package app.commands;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду info
+ */
 public class Info extends AbstractCommand{
 
     CollectionHandler collectionHandler;

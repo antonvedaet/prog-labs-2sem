@@ -2,7 +2,9 @@ package app.commands;
 import app.exceptions.ElementAmountException;
 import app.utils.CommandHelper;
 import app.utils.IOHandler;
-
+/**
+ * Класс отвечающий за команду help
+ */
 public class Help extends AbstractCommand {
     CommandHelper commandHelper;
 

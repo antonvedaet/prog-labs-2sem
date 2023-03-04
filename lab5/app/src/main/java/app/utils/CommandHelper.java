@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 import app.commands.*;
 /**
- * Вспомогательный класс в котором содержиться список всех комманд
+ * Вспомогательный класс в котором содержиться список пар (название команды, описание команды)
  */
 public class CommandHelper {
     public HashMap<String, String> commandList(){

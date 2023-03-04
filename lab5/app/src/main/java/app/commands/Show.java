@@ -2,7 +2,9 @@ package app.commands;
 import app.exceptions.ElementAmountException;
 import app.utils.CollectionHandler;
 import app.utils.IOHandler;
-
+/**
+ * Класс отвечающий за команду show
+ */
 public class Show extends AbstractCommand {
     CollectionHandler collectionHandler;
     public Show(CollectionHandler collectionHandler) {

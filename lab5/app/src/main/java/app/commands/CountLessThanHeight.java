@@ -3,7 +3,9 @@ import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду count_less_than_height
+ */
 public class CountLessThanHeight extends AbstractCommand{
 
     CollectionHandler collectionHandler;

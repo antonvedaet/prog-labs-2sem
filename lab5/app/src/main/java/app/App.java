@@ -4,7 +4,7 @@ import app.commands.*;
 import java.util.HashMap;
 import java.util.Scanner;
 /**
- * 
+ * Главный класс приложения, создающий отдельный список комманд и запускающий интерактивный консольный режим
  * @author Антон Ведерников
  */
 public class App {

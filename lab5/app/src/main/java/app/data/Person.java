@@ -2,7 +2,10 @@ package app.data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+/**
+ * Хранимый в коллекции класс
+ * @see app.utils.CollectionHandler
+ */
 public class Person {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой

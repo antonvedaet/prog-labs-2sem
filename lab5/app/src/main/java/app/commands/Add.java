@@ -5,7 +5,9 @@ import app.utils.IOHandler;
 import app.utils.PersonCreator;
 import app.utils.CollectionHandler;
 import java.time.LocalDate;
-
+/**
+ * Класс отвечающий за команду add
+ */
 public class Add extends AbstractCommand {
     
     PersonCreator personCreator;
@@ -27,6 +29,11 @@ public class Add extends AbstractCommand {
         } 
         return false;
     }
+    /**
+     * Создание объекта класса Person и добавление его в коллекцию
+     * @see app.utils.CollectionHandler
+     * @see app.utils.PersonCreator
+     */
     @Override
     public void execute(String arg){
         if(argCheck(arg)){

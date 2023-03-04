@@ -1,5 +1,8 @@
 package app.data;
-
+/**
+ * Класс который является одним из полей Person
+ * @see app.data.Person
+ */
 public class Coordinates {
     private int x; //Значение поля должно быть больше -72
     private long y; //Значение поля должно быть больше -647

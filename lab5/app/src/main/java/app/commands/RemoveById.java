@@ -3,7 +3,9 @@ import app.data.Person;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
 import app.utils.CollectionHandler;
-
+/**
+ * Класс отвечающий за команду remove_by_id {id}
+ */
 public class RemoveById extends AbstractCommand{
 
     CollectionHandler collectionHandler;

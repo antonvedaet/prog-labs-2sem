@@ -1,5 +1,8 @@
 package app.data;
-
+/**
+ * Класс который является одним из полей Person
+ * @see app.data.Person
+ */
 public class Location {
     private Integer x; //Поле не может быть null
     private Double y; //Поле не может быть null

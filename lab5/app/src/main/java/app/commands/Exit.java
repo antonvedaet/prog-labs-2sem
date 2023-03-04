@@ -1,7 +1,9 @@
 package app.commands;
 import app.exceptions.ElementAmountException;
 import app.utils.IOHandler;
-
+/**
+ * Класс отвечающий за команду exit
+ */
 public class Exit extends AbstractCommand {
     public Exit() {
         super("exit", "выйти из программы");
