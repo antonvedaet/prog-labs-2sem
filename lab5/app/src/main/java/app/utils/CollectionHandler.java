@@ -86,7 +86,7 @@ public class CollectionHandler {
             addPerson(person);
         }
         } catch (IOException e) {
-            IOHandler.println("Ошибка чтения файла");
+            IOHandler.println("Ошибка при чтении файла: " + e.getMessage());
         }
         
     }

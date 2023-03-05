@@ -26,9 +26,15 @@ public class FileManager {
     }
 
     public  Person[] readFromFile() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        File file = new File(filePath);
-        return objectMapper.readValue(file, Person[].class);
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            File file = new File(filePath);
+            return objectMapper.readValue(file, Person[].class);            
+        } catch (java.lang.NullPointerException npe) {
+            IOHandler.println("Переменная окружения JAVA_VAR в которой должен содержаться файл не задана.");
+            Person[] pList = new Person[1];
+            return pList;
+        }
     }
 }
