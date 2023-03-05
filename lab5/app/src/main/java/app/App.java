@@ -14,8 +14,9 @@ public class App {
         CollectionHandler collectionHandler = new CollectionHandler();
         FileManager fileManager = new FileManager();
         CommandHelper commandHelper = new CommandHelper();
+        PersonValidator personValidator = new PersonValidator(collectionHandler);
         collectionHandler.loadCollection();
-        
+        personValidator.checkCollectionValidity();
 
         AbstractCommand help = new Help(commandHelper);
         AbstractCommand info = new Info(collectionHandler);
