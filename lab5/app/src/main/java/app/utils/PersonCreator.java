@@ -48,9 +48,9 @@ public class PersonCreator {
         Coordinates coordinates = null;
         try{
             IOHandler.println("Координаты:\nВведите долготу: ");
-            x = scanner.nextInt();
+            x = Integer.parseInt(scanner.nextLine().trim());
             IOHandler.println("Введите широту: ");
-            y = scanner.nextLong();
+            y = Long.parseLong(scanner.nextLine().trim());
             if(x < -72 || y < -647) throw new ValueException();
             coordinates = new Coordinates(x, y);
         }catch (InputMismatchException e){
@@ -59,6 +59,9 @@ public class PersonCreator {
             coordinates = coordinatesCreate();
         }catch (ValueException ve){
             IOHandler.println("Долгота должна быть больше -72, широта больше -647");
+            coordinates = coordinatesCreate();
+        }catch (java.lang.NumberFormatException nfe){
+            IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             coordinates = coordinatesCreate();
         }
         return coordinates;
@@ -76,14 +79,12 @@ public class PersonCreator {
             if(height <= 0) throw new ValueException();
         }catch (InputMismatchException e){
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
-            scanner.nextLine();
             height = heightCreate();
         }catch (ValueException ve){
             IOHandler.println("Рост должен быть больше 0");
             scanner.nextLine();
             height = heightCreate();
         }
-        scanner.nextLine();
         return height; 
     }
 
@@ -116,7 +117,7 @@ public class PersonCreator {
         
         try{
             IOHandler.println("Выберите цвет глаз из предложенных: GREEN, BLACK, WHITE, BROWN");
-            color = Color.valueOf(scanner.nextLine().toUpperCase());
+            color = Color.valueOf(scanner.nextLine().toUpperCase().trim());
         }catch (IllegalArgumentException e){
             IOHandler.println("Нету такого цвета");
             color = eyeColorChoose();
@@ -132,7 +133,7 @@ public class PersonCreator {
         
         try{
             IOHandler.println("Выберите цвет волос из предложенных: GREEN, BLACK, BLUE, ORANGE, BROWN");
-            color = Color.valueOf(scanner.nextLine().toUpperCase());
+            color = Color.valueOf(scanner.nextLine().toUpperCase().trim());
         }catch (IllegalArgumentException e){
             IOHandler.println("Нету такого цвета");
             color = eyeColorChoose();
@@ -152,12 +153,11 @@ public class PersonCreator {
         Location location = null;
         try{
             IOHandler.println("Введите координаты и название местоположения:\nВведите долготу: ");
-            x = scanner.nextInt();
+            x = Integer.parseInt(scanner.nextLine().trim());
             IOHandler.println("Введите широту: ");
-            y = scanner.nextDouble();
+            y = Double.parseDouble(scanner.nextLine().trim());
             IOHandler.println("Введите высоту: ");
-            z = scanner.nextDouble();
-            scanner.nextLine();
+            z = Double.parseDouble(scanner.nextLine().trim());
             IOHandler.println("Введите название: ");
             name = scanner.nextLine();
             if(name.trim().isEmpty()) throw new ValueException();
@@ -168,6 +168,9 @@ public class PersonCreator {
             location = locationCreate();
         }catch (ValueException ve){
             IOHandler.println("Название не может быть пустым");
+            location = locationCreate();
+        }catch (java.lang.NumberFormatException nfe){
+            IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             location = locationCreate();
         }
         return location; 
