@@ -48,9 +48,9 @@ public class PersonCreator {
         Coordinates coordinates = null;
         try{
             IOHandler.println("Координаты:\nВведите долготу: ");
-            x = scanner.nextInt();
+            x = Integer.parseInt(scanner.nextLine().trim());
             IOHandler.println("Введите широту: ");
-            y = scanner.nextLong();
+            y = Long.parseLong(scanner.nextLine().trim());
             if(x < -72 || y < -647) throw new ValueException();
             coordinates = new Coordinates(x, y);
         }catch (InputMismatchException e){
@@ -59,6 +59,9 @@ public class PersonCreator {
             coordinates = coordinatesCreate();
         }catch (ValueException ve){
             IOHandler.println("Долгота должна быть больше -72, широта больше -647");
+            coordinates = coordinatesCreate();
+        }catch (java.lang.NumberFormatException nfe){
+            IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             coordinates = coordinatesCreate();
         }
         return coordinates;
@@ -79,9 +82,9 @@ public class PersonCreator {
             height = heightCreate();
         }catch (ValueException ve){
             IOHandler.println("Рост должен быть больше 0");
+            scanner.nextLine();
             height = heightCreate();
         }
-        scanner.nextLine();
         return height; 
     }
 
