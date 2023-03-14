@@ -1,9 +1,11 @@
 package app.utils;
 
 import java.util.LinkedList;
-
 import app.data.Person;
-
+/**
+ * Класс для проверки загружаемых элементов класса Person
+ * @see app.data.Person
+ */
 public class PersonValidator {
 
     CollectionHandler collectionHandler;
