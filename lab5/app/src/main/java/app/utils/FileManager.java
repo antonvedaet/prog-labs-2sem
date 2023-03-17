@@ -33,6 +33,7 @@ public class FileManager {
             return objectMapper.readValue(file, Person[].class);            
         } catch (java.lang.NullPointerException npe) {
             IOHandler.println("Переменная окружения JAVA_VAR в которой должен содержаться файл не задана.");
+            System.exit(1);
             Person[] pList = new Person[1];
             return pList;
         }

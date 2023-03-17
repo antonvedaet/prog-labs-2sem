@@ -85,13 +85,14 @@ public class PersonCreator {
             scanner.nextLine();
             height = heightCreate();
         }
-        return height; 
+        return height;
     }
 
     /**
      * @return java.time.LocalDateTime
      */
     public LocalDateTime bdayCreate(){
+        scanner.nextLine();
         DateTimeFormatter formatter =  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String inputTime = "";
         LocalDateTime time = null; 
