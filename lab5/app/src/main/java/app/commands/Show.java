@@ -6,7 +6,7 @@ import app.utils.IOHandler;
  * Класс отвечающий за команду show
  */
 public class Show extends AbstractCommand {
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
     public Show(CollectionHandler collectionHandler) {
         super("show", "вывести все элементы коллекции");
         this.collectionHandler = collectionHandler;

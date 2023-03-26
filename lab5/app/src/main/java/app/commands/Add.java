@@ -10,8 +10,8 @@ import java.time.LocalDate;
  */
 public class Add extends AbstractCommand {
     
-    PersonCreator personCreator;
-    CollectionHandler collectionHandler;
+    private PersonCreator personCreator;
+    private CollectionHandler collectionHandler;
 
     public Add(PersonCreator personCreator, CollectionHandler collectionHandler){
         super("add", "добавить новый элемент в коллекцию");

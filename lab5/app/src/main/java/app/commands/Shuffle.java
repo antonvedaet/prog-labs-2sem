@@ -7,7 +7,7 @@ import app.utils.CollectionHandler;
  */
 public class Shuffle extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public Shuffle(CollectionHandler collectionHandler) {
         super("shuffle", "перемешать коллекцию в случайном порядке");

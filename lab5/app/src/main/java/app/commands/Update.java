@@ -10,8 +10,8 @@ import app.utils.CollectionHandler;
  */
 public class Update extends AbstractCommand {
     
-    PersonCreator personCreator;
-    CollectionHandler collectionHandler;
+    private PersonCreator personCreator;
+    private CollectionHandler collectionHandler;
 
     public Update(PersonCreator personCreator, CollectionHandler collectionHandler){
         super("update", "обновить значение элемента по id");

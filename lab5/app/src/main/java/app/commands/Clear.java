@@ -7,7 +7,7 @@ import app.utils.CollectionHandler;
  */
 public class Clear extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public Clear(CollectionHandler collectionHandler) {
         super("clear", "очистить коллекцию");

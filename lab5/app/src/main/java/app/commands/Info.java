@@ -7,7 +7,7 @@ import app.utils.CollectionHandler;
  */
 public class Info extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public Info(CollectionHandler collectionHandler) {
         super("info", "вывести информацию о коллекции");

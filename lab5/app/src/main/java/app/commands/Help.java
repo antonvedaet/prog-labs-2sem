@@ -6,7 +6,7 @@ import app.utils.IOHandler;
  * Класс отвечающий за команду help
  */
 public class Help extends AbstractCommand {
-    CommandHelper commandHelper;
+    private CommandHelper commandHelper;
 
     public Help(CommandHelper commandHelper) {
         super("help", "вывести справку о всех доступных командах");

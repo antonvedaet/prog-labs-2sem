@@ -10,7 +10,7 @@ import app.utils.FileManager;
  */
 public class Save extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
     FileManager fileManager;
     public Save(CollectionHandler collectionHandler, FileManager fileManager) {
         super("save", "сохраняет коллекцию в файл");

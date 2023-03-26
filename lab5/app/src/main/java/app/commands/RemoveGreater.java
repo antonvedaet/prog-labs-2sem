@@ -11,7 +11,7 @@ import app.utils.CollectionHandler;
  */
 public class RemoveGreater extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public RemoveGreater(CollectionHandler collectionHandler) {
         super("remove_greater", " удаляет из коллекции все элементы, превышающие заданный");

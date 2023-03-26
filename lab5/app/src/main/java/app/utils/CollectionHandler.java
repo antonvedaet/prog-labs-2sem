@@ -8,7 +8,7 @@ import app.data.Person;
  * Класс отвечающий за управление коллекцией
  */
 public class CollectionHandler {
-    LinkedList<Person> collection;
+    private LinkedList<Person> collection;
     private LocalDate initDate;
     
     public CollectionHandler() {

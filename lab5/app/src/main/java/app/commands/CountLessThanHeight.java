@@ -8,7 +8,7 @@ import app.utils.CollectionHandler;
  */
 public class CountLessThanHeight extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public CountLessThanHeight(CollectionHandler collectionHandler) {
         super("count_less_than_height", "выводит количество элементов, значение поля height которых меньше заданного");

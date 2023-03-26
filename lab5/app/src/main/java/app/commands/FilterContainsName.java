@@ -8,7 +8,7 @@ import app.utils.CollectionHandler;
  */
 public class FilterContainsName extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public FilterContainsName(CollectionHandler collectionHandler) {
         super("filter_contains_name", "выводит элементы, значение поля name которых содержит заданную подстроку");

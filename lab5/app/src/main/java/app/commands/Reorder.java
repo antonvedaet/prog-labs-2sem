@@ -7,7 +7,7 @@ import app.utils.CollectionHandler;
  */
 public class Reorder extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public Reorder(CollectionHandler collectionHandler) {
         super("reorder", "отсортировать коллекцию в обратном порядке");

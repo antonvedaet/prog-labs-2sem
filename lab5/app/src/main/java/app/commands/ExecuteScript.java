@@ -14,8 +14,8 @@ import app.utils.IOHandler;
  * Класс отвечающий за команду execute_script {scriptname}
  */
 public class ExecuteScript extends AbstractCommand {
-    HashMap<String, AbstractCommand> map;
-    List<String> prevScripts;
+    private HashMap<String, AbstractCommand> map;
+    private List<String> prevScripts;
     public ExecuteScript(HashMap<String, AbstractCommand> map) {
         super("execute_script", "считать и исполнить скрипт из указанного файла");
         this.map = map;

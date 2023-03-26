@@ -8,7 +8,7 @@ import app.utils.CollectionHandler;
  */
 public class RemoveById extends AbstractCommand{
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public RemoveById(CollectionHandler collectionHandler) {
         super("remove_by_id", "удалить элемент коллекции по id");

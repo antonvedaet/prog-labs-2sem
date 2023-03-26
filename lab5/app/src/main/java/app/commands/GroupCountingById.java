@@ -11,7 +11,7 @@ import app.data.Person;
  */
 public class GroupCountingById extends AbstractCommand {
 
-    CollectionHandler collectionHandler;
+    private CollectionHandler collectionHandler;
 
     public GroupCountingById(CollectionHandler collectionHandler) {
         super("group_counting_by_id", "сгруппировывает элементы коллекции по значению поля id, выводит количество элементов в каждой группе");
