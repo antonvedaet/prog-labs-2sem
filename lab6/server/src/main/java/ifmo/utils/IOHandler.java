@@ -9,4 +9,8 @@ public class IOHandler {
     public static void print(Object o){
         System.out.print(o);
     }
+
+    public static void serverError(Object o) {
+        System.out.println(o);
+    }
 }
