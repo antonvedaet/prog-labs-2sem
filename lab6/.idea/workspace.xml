@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9bcbc17c-6e9c-406a-96d5-4da7639f02d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/allclasses-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/allpackages-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/App.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/AbstractCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/CountLessThanHeight.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/ExecuteScript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Exit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/FilterContainsName.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/GroupCountingById.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Help.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/RemoveById.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/RemoveGreater.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Reorder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Save.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Show.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Shuffle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/Update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/commands/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/Color.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/Coordinates.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/Location.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/Person.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/data/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/exceptions/ElementAmountException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/exceptions/RecursionException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/exceptions/ValueException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/exceptions/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/exceptions/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/CollectionHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/CommandHelper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/FileManager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/IOHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/PersonCreator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/app/utils/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/element-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/index-all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/jquery-ui.overrides.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/legal/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/legal/jquery.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/legal/jqueryUI.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/member-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/module-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/overview-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/package-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/resources/glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/resources/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/script-dir/jquery-3.6.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/script-dir/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/script-dir/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/serialized-form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/tag-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/docs/javadoc/type-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/libs/app-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/libs/app.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/libs/collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/libs/script.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/scripts/app" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/scripts/app.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/Add.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/App.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/CommandHelper.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/PersonCreator.class.uniqueId4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/compileTransaction/stash-dir/Update.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/fatJar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/javadoc/javadoc.options" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/shadowJar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/script.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/script2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/AbstractCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Add.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Clear.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/CountLessThanHeight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/ExecuteScript.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Exit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/FilterContainsName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/GroupCountingById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Help.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/RemoveById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/RemoveGreater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Reorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Save.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Show.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Shuffle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/commands/Update.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/data/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/data/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/data/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/data/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/exceptions/ElementAmountException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/exceptions/RecursionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/exceptions/ValueException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/CollectionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/CommandHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/IOHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/PersonCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/utils/PersonValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lab6" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NZbW7JMEufxhKVDn2f0VzhaVmX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.customizations&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9bcbc17c-6e9c-406a-96d5-4da7639f02d2" name="Changes" comment="" />
+      <created>1679874579624</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679874579624</updated>
+      <workItem from="1679874580708" duration="711000" />
+      <workItem from="1679884070310" duration="180000" />
+      <workItem from="1679884260789" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
