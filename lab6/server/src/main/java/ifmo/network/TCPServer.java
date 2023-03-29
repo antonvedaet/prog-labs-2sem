@@ -1,15 +1,17 @@
 package ifmo.network;
 
+import ifmo.commands.AbstractCommand;
+import ifmo.commands.Add;
+import ifmo.data.Person;
+import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
+import ifmo.utils.PersonCreator;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
-public class Server implements Runnable{
+public class TCPServer implements Runnable{
     private static ServerSocket serverSocket;
     private static int PORT = 3333;
     private Thread thread = null;
@@ -34,22 +36,11 @@ public class Server implements Runnable{
                 }
                 throw new RuntimeException("Ошибка при полключении к клиенту", e);
             }
-            ProcessRequest(clientSocket);
-        }
-    }
-
-    private void ProcessRequest(Socket clientSocket){
-        try {
-            InputStream input = clientSocket.getInputStream();
-            OutputStream output = clientSocket.getOutputStream();
-            byte[] a = "pobeda".getBytes();
-            IOHandler.serverError(new String(input.readAllBytes(), StandardCharsets.UTF_8));
-            IOHandler.serverError(input.read());
-            output.write(a);
-            output.close();
-            input.close();
-        } catch (IOException e){
-            IOHandler.serverError("(" + e);
+            CollectionHandler ch = new CollectionHandler();
+            AbstractCommand add = new Add(new PersonCreator(), ch);
+            add.execute("placeholderArg");
+            for (Person person: ch.getCollection()) {
+            }
         }
     }
 
@@ -59,5 +50,14 @@ public class Server implements Runnable{
         } catch (IOException e) {
             throw new RuntimeException("Не получается открыть порт 3333", e);
         }
+    }
+
+    private void sendPerson(Socket clientSocket, Person person) {
+        try {
+            ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
+            objectOutput.writeObject(person);
+    } catch (IOException e){
+        IOHandler.serverError("Connection error: " + e);
+    }
     }
 }

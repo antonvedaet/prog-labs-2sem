@@ -1,10 +1,10 @@
 package ifmo;
 
-import ifmo.network.Server;
+import ifmo.network.TCPServer;
 
 public class Main {
     public static void main(String[] args) {
-        Server server = new Server();
+        TCPServer server = new TCPServer();
         new Thread(server).start();
     }
 }

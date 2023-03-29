@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 /**
  * Класс который является одним из полей Person
- * @see ifmo.data.Person
+ * @see Person
  */
-public class Coordinates implements Serializable {
+public class Coordinates  implements Serializable {
     private int x; //Значение поля должно быть больше -72
     private long y; //Значение поля должно быть больше -647
     public Coordinates(int x, long y){

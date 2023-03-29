@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * Хранимый в коллекции класс
  * @see ifmo.utils.CollectionHandler
  */
-public class Person implements Serializable{
+public class Person  implements Serializable {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
