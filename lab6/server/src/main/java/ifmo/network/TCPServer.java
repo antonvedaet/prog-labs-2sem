@@ -1,52 +1,47 @@
 package ifmo.network;
 
-import ifmo.commands.AbstractCommand;
-import ifmo.commands.Add;
 import ifmo.data.Person;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
-import ifmo.utils.PersonCreator;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
-public class TCPServer implements Runnable{
+public class TCPServer{
     private static ServerSocket serverSocket;
-    private static int PORT = 3333;
-    private Thread thread = null;
+    private static int port = 3333;
 
-    @Override
-    public void run() {
-        synchronized(this){
-            this.thread = Thread.currentThread();
-        }
+    protected Socket clientSocket;
+    public void start(){
         openServerSocket();
-
-        while(!serverSocket.isClosed()) {
-            Socket clientSocket;
-            try {
-                IOHandler.serverError("ждем подключения...");
-                clientSocket = this.serverSocket.accept();
-                IOHandler.serverError(clientSocket.isConnected());
-            } catch (IOException e) {
-                if (serverSocket.isClosed()) {
-                    IOHandler.serverError("Сервер закрыт");
-                    return;
-                }
-                throw new RuntimeException("Ошибка при полключении к клиенту", e);
-            }
-            CollectionHandler ch = new CollectionHandler();
-            AbstractCommand add = new Add(new PersonCreator(), ch);
-            add.execute("placeholderArg");
-            for (Person person: ch.getCollection()) {
+        Scanner scanner = new Scanner(System.in);
+        while(!serverSocket.isClosed()){
+            try{
+                this.clientSocket = serverSocket.accept();
+                IOHandler.println("Connection succesful!");
+                CollectionHandler collectionHandler = new CollectionHandler();
+                collectionHandler.loadCollection();
+                sendCollection(clientSocket ,collectionHandler);
+            } catch (IOException ioe) {
+                IOHandler.serverError("Неудалось подключиться к клиенту: " + ioe.getMessage());
             }
         }
     }
-
     private void openServerSocket() {
         try {
-            this.serverSocket = new ServerSocket(this.PORT);
+            this.serverSocket = new ServerSocket(this.port);
+        } catch (IOException e) {
+            throw new RuntimeException("Не получается открыть порт 3333", e);
+        }
+    }
+
+    private void closeServerSocket() {
+        try {
+            this.serverSocket.close();
         } catch (IOException e) {
             throw new RuntimeException("Не получается открыть порт 3333", e);
         }
@@ -58,6 +53,19 @@ public class TCPServer implements Runnable{
             objectOutput.writeObject(person);
     } catch (IOException e){
         IOHandler.serverError("Connection error: " + e);
+        }
     }
+
+    public void sendCollection(Socket clientSocket, CollectionHandler collectionHandler){
+        try {
+            ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
+            objectOutput.writeObject(collectionHandler.getCollection());
+        } catch (IOException e){
+            IOHandler.serverError("Connection error: " + e);
+        }
+    }
+
+    public Socket getClientSocket() {
+        return clientSocket;
     }
 }

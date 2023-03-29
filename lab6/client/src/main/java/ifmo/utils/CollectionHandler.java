@@ -63,7 +63,7 @@ public class CollectionHandler {
     }
 
     public int generateNextId(){
-        int nextId = 1;
+        int nextId = 0;
         for(Person person :  collection){
             if(person.getId()>=nextId){
                 nextId = person.getId();
