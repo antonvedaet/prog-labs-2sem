@@ -1,6 +1,6 @@
 package ifmo.commands;
 
-interface Command {
+public interface Command {
     String getName();
     String getDescription();
     /**

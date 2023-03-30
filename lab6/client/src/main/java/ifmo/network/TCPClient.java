@@ -27,6 +27,18 @@ public class TCPClient {
         }
     }
 
+    public boolean closeConnection() throws IOException {
+        try {
+            this.clientSocket = new Socket(host, port);
+            return true;
+        } catch (IOException ioe) {
+            IOHandler.println("Ошибка при подключении: " + ioe.getMessage());
+            IOHandler.println("Для повторной попытки нажмите клавишу Enter...");
+            System.in.read();
+            return connectToServer();
+        }
+    }
+
     public Person loadPerson() throws IOException, ClassNotFoundException {
         connectToServer();
         ObjectInput objectInput = new ObjectInputStream(clientSocket.getInputStream());
@@ -43,6 +55,14 @@ public class TCPClient {
             collectionHandler.addPerson(person);
         }
         objectInput.close();
+    }
+
+    public void processRequestAndSend(){
+
+    }
+
+    public void recieveAnswer(){
+
     }
 
 }

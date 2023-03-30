@@ -9,23 +9,18 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class TCPServer{
     private static ServerSocket serverSocket;
     private static int port = 3333;
-
     protected Socket clientSocket;
     public void start(){
         openServerSocket();
-        Scanner scanner = new Scanner(System.in);
         while(!serverSocket.isClosed()){
+            IOHandler.serverError("Ожидание подключения...");
             try{
                 this.clientSocket = serverSocket.accept();
-                IOHandler.println("Connection succesful!");
-                CollectionHandler collectionHandler = new CollectionHandler();
-                collectionHandler.loadCollection();
-                sendCollection(clientSocket ,collectionHandler);
+                IOHandler.println("Подключение успешно");
             } catch (IOException ioe) {
                 IOHandler.serverError("Неудалось подключиться к клиенту: " + ioe.getMessage());
             }
@@ -51,6 +46,7 @@ public class TCPServer{
         try {
             ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
             objectOutput.writeObject(person);
+            objectOutput.close();
     } catch (IOException e){
         IOHandler.serverError("Connection error: " + e);
         }
@@ -60,6 +56,7 @@ public class TCPServer{
         try {
             ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
             objectOutput.writeObject(collectionHandler.getCollection());
+            objectOutput.close();
         } catch (IOException e){
             IOHandler.serverError("Connection error: " + e);
         }

@@ -14,9 +14,9 @@ import java.util.List;
  * Класс отвечающий за команду execute_script {script-name}
  */
 public class ExecuteScript extends AbstractCommand {
-    private HashMap<String, AbstractCommand> map;
+    private HashMap<String, Command> map;
     private List<String> prevScripts;
-    public ExecuteScript(HashMap<String, AbstractCommand> map) {
+    public ExecuteScript(HashMap<String, Command> map) {
         super("execute_script", "считать и исполнить скрипт из указанного файла");
         this.map = map;
         prevScripts= new ArrayList<String>();

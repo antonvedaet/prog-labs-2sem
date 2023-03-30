@@ -1,8 +1,12 @@
 package ifmo.utils;
+
+import ifmo.network.TCPServer;
+
 /**
  * Вспомогательный класс с методами для вывода в терминал
  */
 public class IOHandler {
+    TCPServer server = new TCPServer();
     public static void println(Object o){
         System.out.println(o);
     }

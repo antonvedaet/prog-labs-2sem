@@ -16,21 +16,21 @@ public class CommandHelper {
         HashMap<String, AbstractCommand> mapp= new HashMap<String, AbstractCommand>();
 
 
-        AbstractCommand info = new Info(collectionHandler);
-        AbstractCommand show = new Show(collectionHandler);
-        AbstractCommand add = new Add(personCreator, collectionHandler);
-        AbstractCommand exit = new Exit();
-        AbstractCommand removeById = new RemoveById(collectionHandler);
-        AbstractCommand update = new Update(personCreator, collectionHandler);
-        AbstractCommand clear = new Clear(collectionHandler);
-        AbstractCommand shuffle = new Shuffle(collectionHandler);
-        AbstractCommand save = new Save(collectionHandler, fileManager);
-        AbstractCommand reorder = new Reorder(collectionHandler);
-        AbstractCommand countLessThanHeight = new CountLessThanHeight(collectionHandler);
-        AbstractCommand removeGreater = new RemoveGreater(collectionHandler);
-        AbstractCommand groupCountingById = new GroupCountingById(collectionHandler);
-        AbstractCommand filterContainsName = new FilterContainsName(collectionHandler);
-        AbstractCommand executeScript = new ExecuteScript(mapp);
+        Command info = new Info(collectionHandler);
+        Command show = new Show(collectionHandler);
+        Command add = new Add(personCreator, collectionHandler);
+        Command exit = new Exit();
+        Command removeById = new RemoveById(collectionHandler);
+        Command update = new Update(personCreator, collectionHandler);
+        Command clear = new Clear(collectionHandler);
+        Command shuffle = new Shuffle(collectionHandler);
+        Command save = new Save(collectionHandler, fileManager);
+        Command reorder = new Reorder(collectionHandler);
+        Command countLessThanHeight = new CountLessThanHeight(collectionHandler);
+        Command removeGreater = new RemoveGreater(collectionHandler);
+        Command groupCountingById = new GroupCountingById(collectionHandler);
+        Command filterContainsName = new FilterContainsName(collectionHandler);
+        Command executeScript = new ExecuteScript(mapp);
         
         map.put(info.getName(), info.getDescription());
         map.put(show.getName(), show.getDescription());

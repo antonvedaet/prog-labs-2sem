@@ -6,13 +6,6 @@ import ifmo.utils.IOHandler;
  * Класс отвечающий за команду help
  */
 public class Help extends AbstractCommand {
-    private CommandHelper commandHelper;
-
-    public Help(CommandHelper commandHelper) {
-        super("help", "вывести справку о всех доступных командах");
-        this.commandHelper = commandHelper;
-    }
-
     public Help() {
         super("help", "вывести справку о всех доступных командах");
     }
@@ -31,6 +24,7 @@ public class Help extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
+            CommandHelper commandHelper = new CommandHelper();
             IOHandler.println("===========");
             for (String name: commandHelper.commandList().keySet()) {
                 String value = commandHelper.commandList().get(name);

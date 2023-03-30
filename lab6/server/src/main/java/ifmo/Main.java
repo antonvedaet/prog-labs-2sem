@@ -9,5 +9,6 @@ public class Main {
         collectionHandler.loadCollection();
         TCPServer server = new TCPServer();
         server.start();
+        server.sendCollection(server.getClientSocket(), collectionHandler);
     }
 }

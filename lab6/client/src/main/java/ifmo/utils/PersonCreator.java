@@ -34,7 +34,7 @@ public class PersonCreator {
             IOHandler.println("Неправильный формат введенных данных, попробуйте еще раз.");
             name = nameCreate();
         }catch (ValueException ve){
-            IOHandler.println("Имя не может быть пустым");
+            IOHandler.println("мя не может быть пустым");
             name = nameCreate();
         }
         return name;
