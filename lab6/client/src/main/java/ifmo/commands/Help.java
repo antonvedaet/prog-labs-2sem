@@ -6,10 +6,13 @@ import ifmo.utils.IOHandler;
  * Класс отвечающий за команду help
  */
 public class Help extends AbstractCommand {
-    public Help() {
+    private CommandHelper commandHelper;
+
+    public Help(CommandHelper commandHelper) {
         super("help", "вывести справку о всех доступных командах");
+        this.commandHelper = commandHelper;
     }
-    
+
     @Override
     public boolean argCheck(String arg){
         try{

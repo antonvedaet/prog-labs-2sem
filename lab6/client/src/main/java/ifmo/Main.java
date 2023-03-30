@@ -2,6 +2,7 @@ package ifmo;
 
 import ifmo.commands.*;
 import ifmo.network.TCPClient;
+import ifmo.requests.Request;
 import ifmo.utils.*;
 
 import java.util.HashMap;
@@ -16,12 +17,10 @@ public class Main {
         PersonValidator personValidator = new PersonValidator(collectionHandler);
         TCPClient client = new TCPClient();
 
-        client.loadCollection(collectionHandler);
-        collectionHandler.printPersonList();
-        personValidator.checkCollectionValidity();
-        collectionHandler.printPersonList();
+//        client.loadSentCollection(collectionHandler);
+//        personValidator.checkCollectionValidity();
 
-        Command help = new Help();
+        Command help = new Help(new CommandHelper());
         Command info = new Info(collectionHandler);
         Command show = new Show(collectionHandler);
         Command add = new Add(personCreator, collectionHandler);
@@ -57,17 +56,10 @@ public class Main {
         Command executeScript = new ExecuteScript(map);
         map.put(executeScript.getName(), executeScript);
 
+
         while(true){
             IOHandler.print("> ");
-            String input = scanner.nextLine()+ " placeholderArg";
-            String[] tokens = input.split("\\s+");
-            String command = tokens[0];
-            String argument = tokens[1];
-            if(map.containsKey(command)){
-                map.get(command).execute(argument);
-            } else {
-                IOHandler.println("Команда "+ command + " не найдена");
-            }
+            client.sendRequest(scanner.nextLine());
         }
     }
 }

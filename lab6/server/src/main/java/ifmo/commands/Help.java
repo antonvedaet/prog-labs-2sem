@@ -13,9 +13,6 @@ public class Help extends AbstractCommand {
         this.commandHelper = commandHelper;
     }
 
-    public Help() {
-        super("help", "вывести справку о всех доступных командах");
-    }
     
     @Override
     public boolean argCheck(String arg){

@@ -3,13 +3,14 @@ package ifmo.utils;
 import ifmo.data.Person;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.LinkedList;
 /**
  * Класс отвечающий за управление коллекцией
  */
-public class CollectionHandler {
+public class CollectionHandler implements Serializable {
     private LinkedList<Person> collection;
     private LocalDate initDate;
     
@@ -52,6 +53,10 @@ public class CollectionHandler {
 
     public LinkedList<Person> getCollection(){
         return collection;
+    }
+
+    public void setCollection(LinkedList<Person> loadedCollection){
+        this.collection = loadedCollection;
     }
 
     public void clear(){

@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         CollectionHandler collectionHandler = new CollectionHandler();
         collectionHandler.loadCollection();
+        collectionHandler.printPersonList();
         TCPServer server = new TCPServer();
         server.start();
         server.sendCollection(server.getClientSocket(), collectionHandler);

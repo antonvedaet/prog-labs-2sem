@@ -1,12 +1,11 @@
 package ifmo.network;
 
 import ifmo.data.Person;
+import ifmo.requests.Request;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
 
-import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -21,8 +20,9 @@ public class TCPServer{
             try{
                 this.clientSocket = serverSocket.accept();
                 IOHandler.println("Подключение успешно");
-            } catch (IOException ioe) {
-                IOHandler.serverError("Неудалось подключиться к клиенту: " + ioe.getMessage());
+                processRequest();
+            } catch (IOException | ClassNotFoundException ioe) {
+                IOHandler.serverError("Не удалось подключиться к клиенту: " + ioe.getMessage());
             }
         }
     }
@@ -60,6 +60,14 @@ public class TCPServer{
         } catch (IOException e){
             IOHandler.serverError("Connection error: " + e);
         }
+    }
+
+    private boolean processRequest() throws IOException, ClassNotFoundException {
+        ObjectInput objectInput = new ObjectInputStream(clientSocket.getInputStream());
+        Request request = (Request) objectInput.readObject();
+        request.getCommandName().execute(request.getArguments().split("\\s+")[0]);
+        objectInput.close();
+        return true;
     }
 
     public Socket getClientSocket() {
