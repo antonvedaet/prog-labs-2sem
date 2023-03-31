@@ -14,8 +14,7 @@ public class CommandHelper implements Serializable {
         PersonCreator personCreator = new PersonCreator();
         CollectionHandler collectionHandler = new CollectionHandler();
         FileManager fileManager = new FileManager();
-        HashMap<String, AbstractCommand> mapp= new HashMap<String, AbstractCommand>();
-
+        HashMap<String, Command> mapp= new HashMap<String, Command>();
 
         Command info = new Info(collectionHandler);
         Command show = new Show(collectionHandler);

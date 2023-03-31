@@ -2,7 +2,7 @@ package ifmo.requests;
 
 import java.io.Serializable;
 
-public abstract class Request implements Serializable {
+public class Request implements Serializable {
     private String name;
     private String arguments;
 

@@ -18,6 +18,13 @@ dependencies {
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6"
 }
 
+run {
+    main = 'ifmo.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    environment 'JAVA_VAR', 'collection.json'
+}
+
 test {
     //useJUnitPlatform()
 }

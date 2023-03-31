@@ -3,7 +3,6 @@ package ifmo.network;
 import ifmo.commands.Command;
 import ifmo.data.Person;
 import ifmo.requests.Request;
-import ifmo.requests.RequestsHelper;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
 import java.io.IOException;
@@ -14,6 +13,7 @@ import java.io.*;
 import java.util.List;
 
 public class TCPClient {
+    
     private String host = "localhost";
     private int port = 3333;
     private Socket clientSocket;
@@ -46,28 +46,26 @@ public class TCPClient {
             ObjectInput objectInput = new ObjectInputStream(this.clientSocket.getInputStream());
             collectionHandler.setCollection((LinkedList<Person>) objectInput.readObject());
             objectInput.close();
-            this.clientSocket.close();
+            closeConnection();
         } else {
             IOHandler.println("Не удалось подключиться к серверу, коллекция не будет загружена.");
         }
     }
     //TODO: all below
-    public void sendRequest(String input) throws IOException {
-        connectToServer();
+    public void sendRequest(String input) throws IOException, InterruptedException {
         input +=" placeholderArg";
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
-        if(RequestsHelper.getRequestList().containsKey(command)){
+        if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.getOutputStream());
-            objectOutput.writeObject(RequestsHelper.getRequestList().get(command));
-        } else {
-            IOHandler.println("Комманда " + command + " не найдена");
+            objectOutput.writeObject(new Request(command, argument));
+            objectOutput.close();
         }
         closeConnection();
     }
 
-    public void recieveAnswer(){
+    public void receiveAnswer(){
 
     }
 
