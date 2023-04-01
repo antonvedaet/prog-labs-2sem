@@ -3,8 +3,10 @@ package ifmo.utils;
 import ifmo.data.Color;
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
+import ifmo.data.Person;
 import ifmo.exceptions.ValueException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
@@ -177,5 +179,9 @@ public class PersonCreator {
             location = locationCreate();
         }
         return location; 
+    }
+
+    public Person personCreate(CollectionHandler collectionHandler){
+        return new Person(collectionHandler.generateNextId(), nameCreate(), coordinatesCreate(), LocalDate.now(), heightCreate(), bdayCreate(), eyeColorChoose(), hairColorChoose(), locationCreate());
     }
 }
