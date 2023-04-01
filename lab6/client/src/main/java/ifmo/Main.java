@@ -22,7 +22,7 @@ public class Main {
             }
             new Info(collectionHandler).execute("placeholderArg");
             IOHandler.print("> ");
-            client.sendRequest(scanner.nextLine());
+            client.sendRequest(scanner.nextLine(), collectionHandler);
         }
     }
 }

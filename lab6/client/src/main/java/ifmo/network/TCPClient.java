@@ -4,6 +4,7 @@ import ifmo.commands.Command;
 import ifmo.data.Person;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
+import ifmo.utils.PersonCreator;
 import ifmo.utils.CollectionHandler;
 import java.io.IOException;
 import java.net.Socket;
@@ -52,14 +53,18 @@ public class TCPClient {
         }
     }
     //TODO: all below
-    public void sendRequest(String input) throws IOException, InterruptedException {
+    public void sendRequest(String input, CollectionHandler collectionHandler) throws IOException, InterruptedException {
         input +=" placeholderArg";
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.getOutputStream());
-            objectOutput.writeObject(new Request(command, argument));
+            if(command.equals("add") || command.equals("update")){
+                objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate(collectionHandler)));
+            } else {
+                objectOutput.writeObject(new Request(command, argument, null));
+            }
             objectOutput.close();
         }
         closeConnection();
