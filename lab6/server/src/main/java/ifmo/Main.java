@@ -13,7 +13,6 @@ public class Main {
         PersonCreator personCreator = new PersonCreator();
         CollectionHandler collectionHandler = new CollectionHandler();
         FileManager fileManager = new FileManager();
-        CommandHelper commandHelper = new CommandHelper();
         PersonValidator personValidator = new PersonValidator(collectionHandler);
         Scanner scanner = new Scanner(System.in);
 
@@ -22,9 +21,7 @@ public class Main {
 
         TCPServer server = new TCPServer();
 
-
-        Command help = new Help(commandHelper, server);
-        Command info = new Info(collectionHandler);
+        Command info = new Info(collectionHandler, server);
         Command show = new Show(collectionHandler, server);
         Command add = new Add(collectionHandler);
         Command exit = new Exit();
@@ -40,16 +37,13 @@ public class Main {
         Command filterContainsName = new FilterContainsName(collectionHandler);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
-        map.put(help.getName(), help);
         map.put(info.getName(), info);
         map.put(show.getName(), show);
         map.put(add.getName(), add);
-        map.put(exit.getName(), exit);
         map.put(removeById.getName(), removeById);
         map.put(update.getName(), update);
         map.put(clear.getName(), clear);
         map.put(shuffle.getName(), shuffle);
-        map.put(save.getName(), save);
         map.put(reorder.getName(), reorder);
         map.put(countLessThanHeight.getName(), countLessThanHeight);
         map.put(removeGreater.getName(), removeGreater);

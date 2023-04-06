@@ -10,9 +10,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         TCPClient client = new TCPClient();
+        Command help = new Help();
+        Command exit = new Exit();
         while(true){
             IOHandler.print("> ");
-            client.sendRequest(scanner.nextLine());
+            String input = scanner.nextLine();
+            client.sendRequest(input);
         }
     }
 }

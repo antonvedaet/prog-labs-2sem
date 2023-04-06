@@ -43,7 +43,9 @@ public class Update extends AbstractCommand {
             for(Person person :  collectionHandler.getCollection()){
                 if(person.getId()==(Integer.parseInt(request.getArguments()))){
                     collectionHandler.removePerson(person);
-                    collectionHandler.addPerson(new Person(Integer.parseInt(request.getArguments()), personCreator.nameCreate(), personCreator.coordinatesCreate(), LocalDate.now(), personCreator.heightCreate(), personCreator.bdayCreate(), personCreator.eyeColorChoose(), personCreator.hairColorChoose(), personCreator.locationCreate()));
+                    Person nPerson = request.getPerson();
+                    nPerson.setId(Integer.parseInt(request.getArguments()));
+                    collectionHandler.addPerson(nPerson);
                 }
             }
         }
