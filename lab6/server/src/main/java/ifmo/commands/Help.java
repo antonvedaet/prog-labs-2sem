@@ -49,11 +49,6 @@ public class Help extends AbstractCommand {
             } catch(IOException ioe){
                 IOHandler.serverMsg(ioe.getMessage());
             }
-            // IOHandler.println("===========");
-            // for (String name: commandHelper.commandList().keySet()) {
-            //     String value = commandHelper.commandList().get(name);
-            //     IOHandler.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
-            // }
         }
-    }//WIP
+    }
 }

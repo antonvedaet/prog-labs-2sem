@@ -57,7 +57,4 @@ public class TCPClient {
         closeConnection();
     }
 
-    public void receiveAnswer() throws IOException{
-    }
-
 }
