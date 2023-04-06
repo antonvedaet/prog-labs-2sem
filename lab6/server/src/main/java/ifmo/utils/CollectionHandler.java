@@ -3,6 +3,8 @@ package ifmo.utils;
 import ifmo.data.Person;
 
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -95,18 +97,18 @@ public class CollectionHandler {
     /**
      *Выводит все объекты в коллекции в строковом представлении
      */
-    public void printPersonList(){
+    public void printPersonList(PrintWriter output){
         for (Person person : collection){
-            IOHandler.println("id: " + person.getId());
-            IOHandler.println("name: " + person.getName());
-            IOHandler.println("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
-            IOHandler.println("creation_date: " + person.getCreationDate());
-            IOHandler.println("height: " + person.getHeight());
-            IOHandler.println("birthday: " + person.getBirthday());
-            IOHandler.println("eye_color: " + person.getEyeColor());
-            IOHandler.println("hair_color: " + person.getHairColor());
-            IOHandler.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
-            IOHandler.println("------------------------------------------");
+            output.println("id: " + person.getId());
+            output.println("name: " + person.getName());
+            output.println("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
+            output.println("creation_date: " + person.getCreationDate());
+            output.println("height: " + person.getHeight());
+            output.println("birthday: " + person.getBirthday());
+            output.println("eye_color: " + person.getEyeColor());
+            output.println("hair_color: " + person.getHairColor());
+            output.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
+            output.println("------------------------------------------");
         }
     }
     /**

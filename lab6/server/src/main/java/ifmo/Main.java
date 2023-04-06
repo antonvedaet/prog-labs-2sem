@@ -22,7 +22,7 @@ public class Main {
 
         Command help = new Help(commandHelper, server);
         Command info = new Info(collectionHandler);
-        Command show = new Show(collectionHandler);
+        Command show = new Show(collectionHandler, server);
         Command add = new Add(personCreator, collectionHandler);
         Command exit = new Exit();
         Command removeById = new RemoveById(collectionHandler);

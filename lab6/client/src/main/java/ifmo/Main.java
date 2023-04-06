@@ -9,10 +9,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
-        PersonCreator personCreator = new PersonCreator();
-        CollectionHandler collectionHandler = new CollectionHandler();
-        FileManager fileManager = new FileManager();
-        PersonValidator personValidator = new PersonValidator(collectionHandler);
         TCPClient client = new TCPClient();
         while(true){
             IOHandler.print("> ");

@@ -49,7 +49,6 @@ public class TCPClient {
             } else {
                 objectOutput.writeObject(new Request(command, argument, null));
             }
-            //
             String str_in = new String(in.readAllBytes(), StandardCharsets.UTF_8);
             IOHandler.print(str_in);
             in.close();
