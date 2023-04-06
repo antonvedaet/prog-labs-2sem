@@ -17,21 +17,16 @@ public class TCPServer{
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
-        boolean collectionLoaded = false;
         while(!serverSocket.isClosed()){
-            IOHandler.serverError("Ожидание подключения...");
+            IOHandler.serverMsg("Ожидание подключения...");
             try{
                 this.clientSocket = serverSocket.accept();
-                IOHandler.println("Подключение успешно");
-                if(!collectionLoaded){
-                    sendCollection(clientSocket, collectionHandler);
-                    collectionLoaded = true;
-                }
+                IOHandler.serverMsg("Подключение успешно");
                 processRequest(map);
             } catch (IOException ioe) {
-                IOHandler.serverError("Не удалось подключиться к клиенту: " + ioe.getMessage());
+                IOHandler.serverMsg("Не удалось подключиться к клиенту: " + ioe.getMessage());
             } catch (ClassNotFoundException ioe) {
-                IOHandler.serverError("Ошибка в полученном запросе: " + ioe.getMessage());
+                IOHandler.serverMsg("Ошибка в полученном запросе: " + ioe.getMessage());
             }
         }
         closeServerSocket();
@@ -59,17 +54,7 @@ public class TCPServer{
             objectOutput.writeObject(person);
             objectOutput.close();
     } catch (IOException e){
-        IOHandler.serverError("Connection error: " + e);
-        }
-    }
-
-    public void sendCollection(Socket clientSocket, CollectionHandler collectionHandler){
-        try {
-            ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
-            objectOutput.writeObject(collectionHandler.getCollection());
-            objectOutput.close();
-        } catch (IOException e){
-            IOHandler.serverError("Connection error: " + e);
+        IOHandler.serverMsg("Connection error: " + e);
         }
     }
 
@@ -85,7 +70,7 @@ public class TCPServer{
         return true;
     }
 
-    public Socket getClientSocket() {
+    public Socket getClientSocket(){
         return clientSocket;
     }
 }

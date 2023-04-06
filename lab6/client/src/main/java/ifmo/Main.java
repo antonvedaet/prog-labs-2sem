@@ -14,15 +14,9 @@ public class Main {
         FileManager fileManager = new FileManager();
         PersonValidator personValidator = new PersonValidator(collectionHandler);
         TCPClient client = new TCPClient();
-        boolean collectionLoad = false;
         while(true){
-            if(!collectionLoad){
-                client.loadSentCollection(collectionHandler);
-                collectionLoad = true;
-            }
-            new Info(collectionHandler).execute("placeholderArg");
             IOHandler.print("> ");
-            client.sendRequest(scanner.nextLine(), collectionHandler);
+            client.sendRequest(scanner.nextLine());
         }
     }
 }

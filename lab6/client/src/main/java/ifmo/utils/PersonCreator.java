@@ -181,7 +181,7 @@ public class PersonCreator {
         return location; 
     }
 
-    public Person personCreate(CollectionHandler collectionHandler){
-        return new Person(collectionHandler.generateNextId(), nameCreate(), coordinatesCreate(), LocalDate.now(), heightCreate(), bdayCreate(), eyeColorChoose(), hairColorChoose(), locationCreate());
+    public Person personCreate(){
+        return new Person(0, nameCreate(), coordinatesCreate(), LocalDate.now(), heightCreate(), bdayCreate(), eyeColorChoose(), hairColorChoose(), locationCreate());
     }
 }

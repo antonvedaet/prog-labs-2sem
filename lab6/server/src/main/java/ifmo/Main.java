@@ -20,7 +20,7 @@ public class Main {
         TCPServer server = new TCPServer();
 
 
-        Command help = new Help(commandHelper);
+        Command help = new Help(commandHelper, server);
         Command info = new Info(collectionHandler);
         Command show = new Show(collectionHandler);
         Command add = new Add(personCreator, collectionHandler);

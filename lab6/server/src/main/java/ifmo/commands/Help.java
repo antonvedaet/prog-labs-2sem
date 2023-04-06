@@ -1,5 +1,13 @@
 package ifmo.commands;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+
 import ifmo.exceptions.ElementAmountException;
+import ifmo.network.TCPServer;
 import ifmo.utils.CommandHelper;
 import ifmo.utils.IOHandler;
 /**
@@ -7,10 +15,12 @@ import ifmo.utils.IOHandler;
  */
 public class Help extends AbstractCommand {
     private CommandHelper commandHelper;
+    private TCPServer server;
 
-    public Help(CommandHelper commandHelper) {
+    public Help(CommandHelper commandHelper, TCPServer server) {
         super("help", "вывести справку о всех доступных командах");
         this.commandHelper = commandHelper;
+        this.server = server;
     }
 
     
@@ -28,11 +38,21 @@ public class Help extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            IOHandler.println("===========");
-            for (String name: commandHelper.commandList().keySet()) {
-                String value = commandHelper.commandList().get(name);
-                IOHandler.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
+            try{
+                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
+                output.println("===========");
+                for (String name: commandHelper.commandList().keySet()) {
+                    String value = commandHelper.commandList().get(name);
+                    output.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
+                } 
+            } catch(IOException ioe){
+                IOHandler.serverMsg(ioe.getMessage());
             }
+            // IOHandler.println("===========");
+            // for (String name: commandHelper.commandList().keySet()) {
+            //     String value = commandHelper.commandList().get(name);
+            //     IOHandler.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
+            // }
         }
     }//WIP
 }
