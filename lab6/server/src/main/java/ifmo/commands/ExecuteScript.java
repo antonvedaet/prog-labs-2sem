@@ -2,6 +2,7 @@ package ifmo.commands;
 
 import ifmo.exceptions.ElementAmountException;
 import ifmo.exceptions.RecursionException;
+import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 
 import java.io.BufferedReader;
@@ -34,9 +35,9 @@ public class ExecuteScript extends AbstractCommand {
     }
     
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
-            try (BufferedReader reader = new BufferedReader(new FileReader(arg))) {
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
+            try (BufferedReader reader = new BufferedReader(new FileReader(request.getArguments()))) {
                 String command;
 
                 while ((command = reader.readLine()) != null) {
@@ -44,10 +45,11 @@ public class ExecuteScript extends AbstractCommand {
                     String[] tokens = command.split("\\s+");
                     command = tokens[0];
                     String argument = tokens[1];
+                    Request buffRequest = new Request(command, argument, null);
                     if(!command.equals("execute_script")){
                         IOHandler.println("Выполнение команды: " + command);
                         if(map.containsKey(command)){
-                        map.get(command).execute(argument);
+                        map.get(command).execute(buffRequest);
                         } 
                     } else {
                         if(prevScripts.contains(argument)){
@@ -56,13 +58,13 @@ public class ExecuteScript extends AbstractCommand {
                             prevScripts.add(argument);
                             IOHandler.println("Выполнение команды: " + command);
                             if(map.containsKey(command)){
-                            map.get(command).execute(argument);
+                            map.get(command).execute(buffRequest);
                             } 
                         }
                     }
                 }
             } catch (IOException e) {
-                IOHandler.println("Ошибка при выполнении скрипта: " + arg);
+                IOHandler.println("Ошибка при выполнении скрипта: " + request.getArguments());
             } catch (RecursionException re){
                 IOHandler.println("Скрипт или цепочка скриптов не могут выполнять сами себя.");
             }

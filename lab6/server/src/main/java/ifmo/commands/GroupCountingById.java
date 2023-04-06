@@ -4,6 +4,7 @@ import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,8 @@ public class GroupCountingById extends AbstractCommand {
     }
     
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             List<Integer> presentIds = new ArrayList<>();
             int counter;
             for(Person person :  collectionHandler.getCollection()){

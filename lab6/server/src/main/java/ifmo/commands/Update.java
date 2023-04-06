@@ -4,6 +4,7 @@ import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 import ifmo.utils.PersonCreator;
 
 import java.time.LocalDate;
@@ -37,12 +38,12 @@ public class Update extends AbstractCommand {
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             for(Person person :  collectionHandler.getCollection()){
-                if(person.getId()==(Integer.parseInt(arg))){
+                if(person.getId()==(Integer.parseInt(request.getArguments()))){
                     collectionHandler.removePerson(person);
-                    collectionHandler.addPerson(new Person(Integer.parseInt(arg), personCreator.nameCreate(), personCreator.coordinatesCreate(), LocalDate.now(), personCreator.heightCreate(), personCreator.bdayCreate(), personCreator.eyeColorChoose(), personCreator.hairColorChoose(), personCreator.locationCreate()));
+                    collectionHandler.addPerson(new Person(Integer.parseInt(request.getArguments()), personCreator.nameCreate(), personCreator.coordinatesCreate(), LocalDate.now(), personCreator.heightCreate(), personCreator.bdayCreate(), personCreator.eyeColorChoose(), personCreator.hairColorChoose(), personCreator.locationCreate()));
                 }
             }
         }

@@ -2,6 +2,7 @@ package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
+import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду reorder
  */
@@ -26,8 +27,8 @@ public class Reorder extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             collectionHandler.reorder();
         }
     }

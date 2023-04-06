@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
+import ifmo.requests.Request;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.network.TCPServer;
 import ifmo.utils.CommandHelper;
@@ -36,8 +37,8 @@ public class Help extends AbstractCommand {
     }
     
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             try{
                 PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
                 output.println("===========");

@@ -4,6 +4,7 @@ import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,11 +36,11 @@ public class RemoveGreater extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             List<Person> bufferedPersons = new ArrayList<Person>();
             for(Person person :  collectionHandler.getCollection()){
-                if(person.getId()>(Integer.parseInt(arg))){
+                if(person.getId()>(Integer.parseInt(request.getArguments()))){
                     bufferedPersons.add(person);
                 }
             }

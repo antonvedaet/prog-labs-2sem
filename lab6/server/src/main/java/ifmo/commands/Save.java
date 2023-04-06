@@ -4,6 +4,7 @@ import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.FileManager;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 
 import java.io.IOException;
 /**
@@ -31,8 +32,8 @@ public class Save extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             try{
                 fileManager.writeToJson(collectionHandler);
             } catch (IOException e){

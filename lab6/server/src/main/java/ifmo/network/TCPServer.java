@@ -62,7 +62,7 @@ public class TCPServer{
         ObjectInput objectInput = new ObjectInputStream(clientSocket.getInputStream());
         Request request = (Request) objectInput.readObject();
         if(map.containsKey(request.getCommandName())){
-            map.get(request.getCommandName()).execute(request.getArguments().split("\\s+")[0]);
+            map.get(request.getCommandName()).execute(request);
         } else {
             IOHandler.println("Такой команды не существует");
         }

@@ -21,4 +21,8 @@ public class Request implements Serializable {
     public String getArguments() {
         return arguments;
     }
+
+    public Person getPerson() {
+        return person;
+    }
 }

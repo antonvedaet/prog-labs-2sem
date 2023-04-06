@@ -1,5 +1,7 @@
 package ifmo.commands;
 
+import ifmo.requests.Request;
+
 public interface  Command {
     String getName();
     String getDescription();
@@ -13,5 +15,5 @@ public interface  Command {
      * Выполнение комманды
      * @param arg
      */
-     void execute(String arg);
+     void execute(Request request);
 }

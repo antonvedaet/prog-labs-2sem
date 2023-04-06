@@ -1,6 +1,7 @@
 package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 import ifmo.utils.CollectionHandler;
 /**
  * Класс отвечающий за команду clear
@@ -30,8 +31,8 @@ public class Clear extends AbstractCommand{
      * @see java.util.Collections
      */
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             collectionHandler.clear();
         }
     }

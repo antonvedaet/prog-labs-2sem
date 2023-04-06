@@ -1,6 +1,7 @@
 package ifmo.commands;
 import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
+import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.PersonCreator;
 import ifmo.utils.CollectionHandler;
@@ -35,9 +36,11 @@ public class Add extends AbstractCommand {
      * @see ifmo.utils.PersonCreator
      */
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
-            collectionHandler.addPerson(new Person(collectionHandler.generateNextId(), personCreator.nameCreate(), personCreator.coordinatesCreate(), LocalDate.now(), personCreator.heightCreate(), personCreator.bdayCreate(), personCreator.eyeColorChoose(), personCreator.hairColorChoose(), personCreator.locationCreate()));
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
+            Person person = request.getPerson();
+            person.setId(collectionHandler.generateNextId());
+            collectionHandler.addPerson(person);
         }
     }
 }

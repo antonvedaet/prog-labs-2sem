@@ -1,6 +1,7 @@
 package ifmo.commands;
 import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
+import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
 /**
@@ -31,11 +32,11 @@ public class CountLessThanHeight extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             int count = 0;
             for(Person person :  collectionHandler.getCollection()){
-                if(person.getHeight()<Integer.parseInt(arg)){
+                if(person.getHeight()<Integer.parseInt(request.getArguments())){
                     count++;
                 }
             }

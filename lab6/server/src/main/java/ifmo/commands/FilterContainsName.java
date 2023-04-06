@@ -3,6 +3,7 @@ import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
+import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду filter_contains_name
  */
@@ -27,10 +28,10 @@ public class FilterContainsName extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             for(Person person :  collectionHandler.getCollection()){
-                if(person.getName().contains(arg)){
+                if(person.getName().contains(request.getArguments())){
                     collectionHandler.printPerson(person);
                 }
             }

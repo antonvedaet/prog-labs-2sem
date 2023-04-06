@@ -2,6 +2,7 @@ package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
+import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду info
  */
@@ -26,8 +27,8 @@ public class Info extends AbstractCommand{
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             IOHandler.println("Кол-во элементов в коллекции: "+collectionHandler.getSize());
             IOHandler.println("Дата инициализации коллекции: "+collectionHandler.getInitDate());
         }

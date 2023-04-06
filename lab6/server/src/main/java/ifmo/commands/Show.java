@@ -2,6 +2,7 @@ package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду show
  */
@@ -24,8 +25,8 @@ public class Show extends AbstractCommand {
     }
 
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             collectionHandler.printPersonList();
         }
     }

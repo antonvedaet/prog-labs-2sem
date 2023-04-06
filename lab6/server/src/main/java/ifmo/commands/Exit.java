@@ -1,6 +1,7 @@
 package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
+import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду exit
  */
@@ -20,8 +21,8 @@ public class Exit extends AbstractCommand {
         return false;
     }
     @Override
-    public void execute(String arg){
-        if(argCheck(arg)){
+    public void execute(Request request){
+        if(argCheck(request.getArguments())){
             System.exit(0);
         }
     }//WIP
