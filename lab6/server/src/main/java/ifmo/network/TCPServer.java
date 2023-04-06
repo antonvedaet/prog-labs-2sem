@@ -6,6 +6,7 @@ import ifmo.utils.*;
 import ifmo.commands.Command;
 
 import java.util.HashMap;
+import java.util.Scanner;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;

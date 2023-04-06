@@ -36,6 +36,7 @@ public class Save extends AbstractCommand{
         if(argCheck(request.getArguments())){
             try{
                 fileManager.writeToJson(collectionHandler);
+                IOHandler.println("Коллекция успешно сохранена");
             } catch (IOException e){
                 IOHandler.println("Ошибка при записи в файл");
             }

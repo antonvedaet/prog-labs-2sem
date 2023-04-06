@@ -41,6 +41,7 @@ public class TCPClient {
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
+        if(command.equals("exit")){System.exit(0);}
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
