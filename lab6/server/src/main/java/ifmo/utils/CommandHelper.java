@@ -18,7 +18,7 @@ public class CommandHelper implements Serializable {
 
         Command info = new Info(collectionHandler);
         Command show = new Show(collectionHandler);
-        Command add = new Add(personCreator, collectionHandler);
+        Command add = new Add(collectionHandler);
         Command exit = new Exit();
         Command removeById = new RemoveById(collectionHandler);
         Command update = new Update(personCreator, collectionHandler);

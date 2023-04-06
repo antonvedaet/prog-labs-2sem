@@ -3,20 +3,16 @@ import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
-import ifmo.utils.PersonCreator;
 import ifmo.utils.CollectionHandler;
-import java.time.LocalDate;
 /**
  * Класс отвечающий за команду add
  */
 public class Add extends AbstractCommand {
     
-    private PersonCreator personCreator;
     private CollectionHandler collectionHandler;
 
-    public Add(PersonCreator personCreator, CollectionHandler collectionHandler){
+    public Add(CollectionHandler collectionHandler){
         super("add", "добавить новый элемент в коллекцию");
-        this.personCreator = personCreator;
         this.collectionHandler = collectionHandler;
     }
     

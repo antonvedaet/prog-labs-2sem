@@ -7,20 +7,23 @@ import ifmo.commands.Command;
 
 import java.util.HashMap;
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 
 public class TCPServer{
-    private ServerSocket serverSocket;
+    private ServerSocketChannel serverSocketChannel;
     private int port = 3333;
-    protected Socket clientSocket;
+    protected SocketChannel clientSocket;
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
-        while(!serverSocket.isClosed()){
+        while(serverSocketChannel!=null){
             IOHandler.serverMsg("Ожидание подключения...");
             try{
-                this.clientSocket = serverSocket.accept();
+                this.clientSocket = serverSocketChannel.accept();
                 IOHandler.serverMsg("Подключение успешно");
                 processRequest(map);
             } catch (IOException ioe) {
@@ -34,7 +37,8 @@ public class TCPServer{
 
     private void openServerSocket() {
         try {
-            this.serverSocket = new ServerSocket(this.port);
+            serverSocketChannel = ServerSocketChannel.open();
+            serverSocketChannel.bind(new InetSocketAddress("localhost", port));
         } catch (IOException e) {
             throw new RuntimeException("Не получается открыть порт 3333", e);
         }
@@ -42,7 +46,7 @@ public class TCPServer{
 
     private void closeServerSocket() {
         try {
-            this.serverSocket.close();
+            serverSocketChannel.close();
         } catch (IOException e) {
             throw new RuntimeException("Не получается закрыть порт 3333", e);
         }
@@ -59,7 +63,7 @@ public class TCPServer{
     }
 
     private boolean processRequest(HashMap<String, Command> map) throws IOException, ClassNotFoundException {
-        ObjectInput objectInput = new ObjectInputStream(clientSocket.getInputStream());
+        ObjectInput objectInput = new ObjectInputStream(clientSocket.socket().getInputStream());
         Request request = (Request) objectInput.readObject();
         if(map.containsKey(request.getCommandName())){
             map.get(request.getCommandName()).execute(request);
@@ -71,6 +75,6 @@ public class TCPServer{
     }
 
     public Socket getClientSocket(){
-        return clientSocket;
+        return clientSocket.socket();
     }
 }
