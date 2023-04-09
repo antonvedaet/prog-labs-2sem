@@ -1,6 +1,7 @@
 package ifmo.network;
 
 import ifmo.commands.Command;
+import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
 import ifmo.data.Person;
 import ifmo.requests.Request;
@@ -40,22 +41,30 @@ public class TCPClient {
 
     //TODO: all below
     public boolean sendRequest(String input) throws IOException, InterruptedException {
-        input +=" placeholderArg";
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
+
         if(!CommandHelper.commandList().containsKey(command)){
             IOHandler.println("Такой команды не существует");
             return false;
         }
+
         if(command.equals("exit")){
             System.exit(0);
             return true;
         }
+
         if(command.equals("help")){
             new Help().execute(argument);
             return true;
         }
+
+        if(command.equals("execute_script")){
+            new ExecuteScript(CommandHelper.commandList(), this).execute(argument);
+            return true;
+        }
+
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
@@ -69,6 +78,7 @@ public class TCPClient {
             in.close();
             objectOutput.close();
         }
+        
         closeConnection();
         return true;
     }
