@@ -4,6 +4,8 @@ import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 import ifmo.utils.CollectionHandler;
+
+import java.util.Optional;
 /**
  * Класс отвечающий за команду remove_by_id {id}
  */
@@ -34,13 +36,11 @@ public class RemoveById extends AbstractCommand{
     @Override
     public void execute(Request request){
         if(argCheck(request.getArguments())){
-            Person bufferedPerson = null; 
-            for(Person person :  collectionHandler.getCollection()){
-                if(person.getId()==(Integer.parseInt(request.getArguments()))){
-                    bufferedPerson = person;
-                }
-            }
-            collectionHandler.removePerson(bufferedPerson);
+            Optional<Person> bufferedPerson = collectionHandler.getCollection().stream()
+            .filter(person -> person.getId() == Integer.parseInt(request.getArguments()))
+            .findFirst();
+
+            bufferedPerson.ifPresent(collectionHandler::removePerson);
         }
     }
 }
