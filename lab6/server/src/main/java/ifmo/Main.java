@@ -34,7 +34,7 @@ public class Main {
         Command countLessThanHeight = new CountLessThanHeight(collectionHandler, server);
         Command removeGreater = new RemoveGreater(collectionHandler);
         Command groupCountingById = new GroupCountingById(collectionHandler);
-        Command filterContainsName = new FilterContainsName(collectionHandler);
+        Command filterContainsName = new FilterContainsName(collectionHandler, server);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
         map.put(info.getName(), info);

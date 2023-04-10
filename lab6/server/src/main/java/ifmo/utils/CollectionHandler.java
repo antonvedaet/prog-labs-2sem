@@ -124,16 +124,16 @@ public class CollectionHandler {
      *@param person: Объект класса Person
      *@see ifmo.data.Person
      */
-    public void printPerson(Person person){
-        IOHandler.println("id: " + person.getId());
-        IOHandler.println("name: " + person.getName());
-        IOHandler.println("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
-        IOHandler.println("creation_date: " + person.getCreationDate());
-        IOHandler.println("height: " + person.getHeight());
-        IOHandler.println("birthday: " + person.getBirthday());
-        IOHandler.println("eye_color: " + person.getEyeColor());
-        IOHandler.println("hair_color: " + person.getHairColor());
-        IOHandler.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
-        IOHandler.println("------------------------------------------");
+    public void printPerson(Person person, PrintWriter output){
+        output.println("id: " + person.getId());
+        output.println("name: " + person.getName());
+        output.println("coordinates: X:" + person.getCoordinates().getX() +" Y:"+ person.getCoordinates().getY());
+        output.println("creation_date: " + person.getCreationDate());
+        output.println("height: " + person.getHeight());
+        output.println("birthday: " + person.getBirthday());
+        output.println("eye_color: " + person.getEyeColor());
+        output.println("hair_color: " + person.getHairColor());
+        output.println("location: X:" + person.getLocation().getX() + " Y:"+person.getLocation().getY()+ " Z:"+person.getLocation().getZ() + " name:" + person.getLocation().getName());
+        output.println("------------------------------------------");
     }
 }
