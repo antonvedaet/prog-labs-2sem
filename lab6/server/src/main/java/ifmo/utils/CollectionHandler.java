@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -83,7 +85,10 @@ public class CollectionHandler {
     }
 
     public void reorder(){
-        Collections.reverse(collection);
+        collection  = Stream.iterate(collection.size() - 1, i -> i - 1)
+        .limit(collection.size())
+        .map(collection::get)
+        .collect(Collectors.toCollection(LinkedList::new));
     }
     /**
      * Загружает коллецию из json

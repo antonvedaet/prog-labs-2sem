@@ -23,7 +23,6 @@ public class CommandHelper implements Serializable {
         map.put("remove_by_id", "удалить элемент коллекции по id");
         map.put("remove_greater", " удаляет из коллекции все элементы, превышающие заданный");
         map.put("reorder", "отсортировать коллекцию в обратном порядке");
-        map.put("save", "сохраняет коллекцию в файл");
         map.put("show", "вывести все элементы коллекции");
         map.put("shuffle", "перемешать коллекцию в случайном порядке");
         map.put("update", "обновить значение элемента по id");
