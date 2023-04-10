@@ -3,11 +3,12 @@ package ifmo.utils;
 import ifmo.data.Person;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.stream.Collectors;
 import java.util.Collections;
 import java.util.LinkedList;
+
 /**
  * Класс отвечающий за управление коллекцией
  */
@@ -44,6 +45,10 @@ public class CollectionHandler {
         return person;
     }
 
+    public void setCollection(LinkedList<Person> pc){
+        this.collection = pc;
+    }
+
     public int getSize(){
         return collection.size();
     }
@@ -57,7 +62,10 @@ public class CollectionHandler {
     }
 
     public void clear(){
-        collection.clear();
+        collection = collection.stream()
+           .limit(0)
+           .collect(Collectors.toCollection(LinkedList::new));
+
     }
 
     public void shuffle(){
