@@ -25,10 +25,9 @@ public class Help extends AbstractCommand {
     @Override
     public void execute(String arg){
         if(argCheck(arg)){
-            CommandHelper commandHelper = new CommandHelper();
             IOHandler.println("===========");
-            for (String name: commandHelper.commandList().keySet()) {
-                String value = commandHelper.commandList().get(name);
+            for (String name: CommandHelper.commandList().keySet()) {
+                String value = CommandHelper.commandList().get(name);
                 IOHandler.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
             }
         }

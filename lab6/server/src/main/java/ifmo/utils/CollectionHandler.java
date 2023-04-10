@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -71,7 +70,7 @@ public class CollectionHandler {
     }
 
     public void shuffle(){
-        Collections.shuffle(collection);
+        Collections.shuffle(collection); //яollections.shuffle(collection); не знаю как сделать это со stream api
     }
 
     public int generateNextId(){

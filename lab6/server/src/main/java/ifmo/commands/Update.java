@@ -7,18 +7,15 @@ import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 import ifmo.utils.PersonCreator;
 
-import java.time.LocalDate;
 /**
  * Класс отвечающий за команду update {id}
  */
 public class Update extends AbstractCommand {
     
-    private PersonCreator personCreator;
     private CollectionHandler collectionHandler;
 
     public Update(PersonCreator personCreator, CollectionHandler collectionHandler){
         super("update", "обновить значение элемента по id");
-        this.personCreator = personCreator;
         this.collectionHandler = collectionHandler;
     }
     

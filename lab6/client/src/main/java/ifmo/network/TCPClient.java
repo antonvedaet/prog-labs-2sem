@@ -1,23 +1,16 @@
 package ifmo.network;
 
-import ifmo.commands.Command;
 import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
-import ifmo.data.Person;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.PersonCreator;
-import ifmo.utils.CollectionHandler;
 import ifmo.utils.CommandHelper;
 
 import java.nio.charset.StandardCharsets;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.nio.channels.SocketChannel;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.io.*;
-import java.util.List;
 
 public class TCPClient {
     

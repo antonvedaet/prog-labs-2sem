@@ -9,8 +9,7 @@ import ifmo.requests.Request;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
  * Класс отвечающий за команду group_counting_by_id
  */

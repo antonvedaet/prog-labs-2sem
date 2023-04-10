@@ -1,15 +1,12 @@
 package ifmo.network;
 
-import ifmo.data.Person;
 import ifmo.requests.Request;
 import ifmo.utils.*;
 import ifmo.commands.Command;
 
 import java.util.HashMap;
-import java.util.Scanner;
 import java.io.*;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
@@ -50,16 +47,6 @@ public class TCPServer{
             serverSocketChannel.close();
         } catch (IOException e) {
             throw new RuntimeException("Не получается закрыть порт 3333", e);
-        }
-    }
-
-    private void sendPerson(Socket clientSocket, Person person) {
-        try {
-            ObjectOutput objectOutput = new ObjectOutputStream(clientSocket.getOutputStream());
-            objectOutput.writeObject(person);
-            objectOutput.close();
-    } catch (IOException e){
-        IOHandler.serverMsg("Connection error: " + e);
         }
     }
 

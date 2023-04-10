@@ -2,7 +2,6 @@ package ifmo.commands;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.network.TCPServer;
 import ifmo.utils.IOHandler;

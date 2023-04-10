@@ -3,15 +3,12 @@ package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.exceptions.RecursionException;
 import ifmo.network.TCPClient;
-import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 /**
  * Класс отвечающий за команду execute_script {script-name}
  */
@@ -38,7 +35,6 @@ public class ExecuteScript extends AbstractCommand {
             while ((command = reader.readLine()) != null) {
                 command += " placeholderArg";
                 String[] tokens = command.split("\\s+");
-                String commandName = tokens[0];
                 String argument = tokens[1];
                 if(argument.equals(arg)){
                     throw new RecursionException();
@@ -61,7 +57,6 @@ public class ExecuteScript extends AbstractCommand {
                     command += " placeholderArg";
                     String[] tokens = command.split("\\s+");
                     String commandName = tokens[0];
-                    String argument = tokens[1];
                     if(map.containsKey(commandName)){
                         try {
                             client.sendRequest(command);

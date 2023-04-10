@@ -57,10 +57,12 @@ public class Main {
             while(true){
                 String command = scanner.nextLine();
                 if(command.trim().equals(exit.getName())){
+                    scanner.close();
                     save.execute(new Request("save", "placeholderArg", null));
                     exit.execute(new Request("exit", "placeholderArg", null));
                 }
                 if(command.trim().equals(save.getName())){
+                    scanner.close();
                     save.execute(new Request("save", "placeholderArg", null));
                 } else {
                     IOHandler.serverMsg("Такой команды не существует, на сервере доступны только команды save и exit");

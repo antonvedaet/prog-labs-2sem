@@ -6,10 +6,8 @@ import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
-import java.util.List;
 /**
  * Класс отвечающий за команду remove_greater {id value}
  */
