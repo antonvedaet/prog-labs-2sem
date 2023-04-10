@@ -31,7 +31,12 @@ public class Show extends AbstractCommand {
             if(!arg.equals("placeholderArg")) throw new ElementAmountException();
             return true;
         } catch (ElementAmountException e) {
-            IOHandler.println("Некорректное кол-во аргументов");
+            try{
+                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
+                output.println("Некорректное кол-во аргументов");
+            } catch (IOException ioe){
+                IOHandler.println(ioe);
+            }
         } 
         return false;
     }

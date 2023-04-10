@@ -61,11 +61,13 @@ public class TCPClient {
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
-            if(command.equals("add") || command.equals("update")){
+
+            if((command.equals("add") && argument.equals("placeholderArg"))|| (command.equals("update") && !argument.equals("placeholderArg"))){
                 objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate()));
             } else {
                 objectOutput.writeObject(new Request(command, argument, null));
             }
+
             String str_in = new String(in.readAllBytes(), StandardCharsets.UTF_8);
             IOHandler.print(str_in);
             in.close();
