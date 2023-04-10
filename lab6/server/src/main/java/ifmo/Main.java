@@ -33,7 +33,7 @@ public class Main {
         Command reorder = new Reorder(collectionHandler);
         Command countLessThanHeight = new CountLessThanHeight(collectionHandler, server);
         Command removeGreater = new RemoveGreater(collectionHandler);
-        Command groupCountingById = new GroupCountingById(collectionHandler);
+        Command groupCountingById = new GroupCountingById(collectionHandler, server);
         Command filterContainsName = new FilterContainsName(collectionHandler, server);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
