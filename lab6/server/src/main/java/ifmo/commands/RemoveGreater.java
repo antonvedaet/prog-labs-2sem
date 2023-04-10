@@ -7,6 +7,8 @@ import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
 import java.util.List;
 /**
  * Класс отвечающий за команду remove_greater {id value}
@@ -38,15 +40,15 @@ public class RemoveGreater extends AbstractCommand{
     @Override
     public void execute(Request request){
         if(argCheck(request.getArguments())){
-            List<Person> bufferedPersons = new ArrayList<Person>();
-            for(Person person :  collectionHandler.getCollection()){
-                if(person.getId()>(Integer.parseInt(request.getArguments()))){
-                    bufferedPersons.add(person);
-                }
-            }
-            for(Person person: bufferedPersons){
-                collectionHandler.removePerson(person);
-            }
+            LinkedList<Person> filteredList = collectionHandler.getCollection()
+        .stream()
+        .filter(person -> person.getId() <= Integer.parseInt(request.getArguments()))
+        .collect(Collectors.toCollection(LinkedList::new));
+
+        collectionHandler.clear();
+
+        collectionHandler.setCollection(filteredList);
+
         }
     }
 }
