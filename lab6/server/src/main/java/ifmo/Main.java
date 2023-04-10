@@ -31,7 +31,7 @@ public class Main {
         Command shuffle = new Shuffle(collectionHandler);
         Command save = new Save(collectionHandler, fileManager);
         Command reorder = new Reorder(collectionHandler);
-        Command countLessThanHeight = new CountLessThanHeight(collectionHandler);
+        Command countLessThanHeight = new CountLessThanHeight(collectionHandler, server);
         Command removeGreater = new RemoveGreater(collectionHandler);
         Command groupCountingById = new GroupCountingById(collectionHandler);
         Command filterContainsName = new FilterContainsName(collectionHandler);
