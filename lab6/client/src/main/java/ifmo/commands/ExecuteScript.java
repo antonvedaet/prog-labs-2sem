@@ -46,4 +46,27 @@ public class ExecuteScript extends AbstractCommand {
             }
             return true;
         }
+        @Override
+        public void execute(String arg){
+            if(argCheck(arg)){
+                try (BufferedReader reader = new BufferedReader(new FileReader(arg))) {
+                    String command;
+    
+                    while ((command = reader.readLine()) != null) {
+                        command += " placeholderArg";
+                        String[] tokens = command.split("\\s+");
+                        String commandName = tokens[0];
+                        if(map.containsKey(commandName)){
+                            try {
+                                client.sendRequest(command);
+                            } catch (InterruptedException ie){
+                                IOHandler.println(ie.getMessage()); 
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    IOHandler.println(e.getMessage());
+            }
+        }
+        }
 }

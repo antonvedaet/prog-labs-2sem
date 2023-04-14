@@ -2,6 +2,7 @@ package ifmo.network;
 
 import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
+import ifmo.commands.Exit;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.PersonCreator;
@@ -44,7 +45,7 @@ public class TCPClient {
         }
 
         if(command.equals("exit")){
-            System.exit(0);
+            new Exit().execute(argument);
             return true;
         }
 
@@ -66,7 +67,7 @@ public class TCPClient {
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
 
-            if((command.equals("add") && argument.equals("placeholderArg"))|| (command.equals("update") && !argument.equals("placeholderArg"))){
+            if(command.equals("add") || command.equals("update")){
                 objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate()));
             } else {
                 objectOutput.writeObject(new Request(command, argument, null));
