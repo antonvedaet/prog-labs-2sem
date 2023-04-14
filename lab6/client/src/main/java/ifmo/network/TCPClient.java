@@ -39,7 +39,7 @@ public class TCPClient {
         String argument = tokens[1];
 
         if(!CommandHelper.commandList().containsKey(command)){
-            IOHandler.println("Такой команды не существует");
+            IOHandler.println("Команды " + "\u001B[31m" + command + "\u001B[0m" +" не существует");
             return false;
         }
 

@@ -5,6 +5,8 @@ import ifmo.utils.*;
 import ifmo.commands.Command;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -15,19 +17,20 @@ public class TCPServer{
     private ServerSocketChannel serverSocketChannel;
     private int port = 3333;
     protected SocketChannel clientSocket;
+    private Logger logger = Logger.getLogger("logger");
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
         while(serverSocketChannel!=null){
-            IOHandler.serverMsg("Ожидание подключения...");
+            logger.log(Level.INFO,"Ожидание подключения...");
             try{
                 this.clientSocket = serverSocketChannel.accept();
-                IOHandler.serverMsg("Подключение успешно");
+                logger.log(Level.FINER, "Подключение успешно");
                 processRequest(map);
             } catch (IOException ioe) {
-                IOHandler.serverMsg("Не удалось подключиться к клиенту: " + ioe.getMessage());
+                logger.log(Level.SEVERE,"Не удалось подключиться к клиенту: ", ioe.getMessage());
             } catch (ClassNotFoundException ioe) {
-                IOHandler.serverMsg("Ошибка в полученном запросе: " + ioe.getMessage());
+                logger.log(Level.SEVERE, "Ошибка в полученном запросе: ", ioe.getMessage());
             }
         }
         closeServerSocket();
@@ -38,7 +41,7 @@ public class TCPServer{
             serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.bind(new InetSocketAddress("localhost", port));
         } catch (IOException e) {
-            throw new RuntimeException("Не получается открыть порт 3333", e);
+            logger.log(Level.SEVERE,"Ошибка при открытии соединения", e.getMessage());
         }
     }
 
@@ -46,7 +49,7 @@ public class TCPServer{
         try {
             serverSocketChannel.close();
         } catch (IOException e) {
-            throw new RuntimeException("Не получается закрыть порт 3333", e);
+            logger.log(Level.SEVERE,"Ошибка при закрытии соединения", e.getMessage());
         }
     }
 
@@ -56,7 +59,7 @@ public class TCPServer{
         if(map.containsKey(request.getCommandName())){
             map.get(request.getCommandName()).execute(request);
         } else {
-            IOHandler.println("Такой команды не существует");
+            logger.log(Level.SEVERE,"Неизвестная полученная команда");
         }
         objectInput.close();
         return true;
