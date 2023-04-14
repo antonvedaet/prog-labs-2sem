@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.0'
 }
 
 group 'ifmo'
@@ -16,6 +17,14 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.12.5'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.6"
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'ifmo.Main'
+    }
+}
+task application{
+    mainClassName='ifmo.Main' 
 }
 
 run {
