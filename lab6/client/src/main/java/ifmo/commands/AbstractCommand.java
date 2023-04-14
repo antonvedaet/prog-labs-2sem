@@ -16,4 +16,7 @@ public abstract class AbstractCommand implements Command {
     public String getDescription() {
         return description;
     }
+
+    public void execute(String arg){
+    }
 }

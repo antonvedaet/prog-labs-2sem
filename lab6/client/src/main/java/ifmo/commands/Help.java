@@ -31,5 +31,5 @@ public class Help extends AbstractCommand {
                 IOHandler.println("\u001B[36m" + name + "\u001B[0m" + " - " + value + "\n===========");
             }
         }
-    }//WIP
+    }
 }

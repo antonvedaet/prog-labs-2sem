@@ -58,6 +58,10 @@ public class TCPClient {
             return true;
         }
 
+        if(!CommandHelper.argCheckMap().get(command).argCheck(argument)){
+            return false;
+        }
+
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
@@ -72,9 +76,8 @@ public class TCPClient {
             IOHandler.print(str_in);
             in.close();
             objectOutput.close();
+            closeConnection();
         }
-        
-        closeConnection();
         return true;
     }
 
