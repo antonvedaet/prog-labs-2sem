@@ -33,7 +33,6 @@ public class TCPClient {
         this.clientSocket.close();
     }
 
-    //TODO: all below
     public boolean sendRequest(String input) throws IOException, InterruptedException {
         String[] tokens = input.split("\\s+");
         String command = tokens[0];

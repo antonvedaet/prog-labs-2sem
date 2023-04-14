@@ -62,7 +62,6 @@ public class Main {
                     exit.execute(new Request("exit", "placeholderArg", null));
                 }
                 if(command.trim().equals(save.getName())){
-                    scanner.close();
                     save.execute(new Request("save", "placeholderArg", null));
                 } else {
                     IOHandler.serverMsg("Такой команды не существует, на сервере доступны только команды save и exit");
