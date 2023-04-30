@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="env_vars" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-18.0.2.1" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="JAVA_VAR" value="collection.json" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="ifmo.Main" />
+    <module name="server.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
