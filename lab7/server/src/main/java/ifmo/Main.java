@@ -1,5 +1,6 @@
 package ifmo;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class Main {
         FileManager fileManager = new FileManager();
         PersonValidator personValidator = new PersonValidator(collectionHandler);
         Scanner scanner = new Scanner(System.in);
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
 
         collectionHandler.loadCollection();
         personValidator.checkCollectionValidity();
@@ -70,8 +73,11 @@ public class Main {
         }).start();
 
         new Thread(() ->{
-            DatabaseHandler conn = new DatabaseHandler();
-            conn.savePerson(collectionHandler.getPerson(1),conn.Connect());
+            try{
+               collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.Connect())); 
+            } catch (SQLException sqle) {
+                sqle.getMessage();
+            }
             server.start(map,collectionHandler);
         }).start();
     }
