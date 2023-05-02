@@ -5,6 +5,8 @@ import ifmo.utils.*;
 import ifmo.commands.Command;
 
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.*;
@@ -21,19 +23,20 @@ public class TCPServer{
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
+        ExecutorService executorService = Executors.newCachedThreadPool();
         while(serverSocketChannel!=null){
             logger.log(Level.INFO,"Ожидание подключения...");
             try{
                 this.clientSocket = serverSocketChannel.accept();
                 logger.log(Level.FINER, "Подключение успешно");
-                processRequest(map);
+                // processRequest(map);
+                executorService.submit(new RequestHandler(map, clientSocket, logger));
             } catch (IOException ioe) {
                 logger.log(Level.SEVERE,"Не удалось подключиться к клиенту: ", ioe.getMessage());
-            } catch (ClassNotFoundException ioe) {
-                logger.log(Level.SEVERE, "Ошибка в полученном запросе: ", ioe.getMessage());
             }
         }
         closeServerSocket();
+        executorService.shutdown();
     }
 
     private void openServerSocket() {
@@ -53,19 +56,41 @@ public class TCPServer{
         }
     }
 
-    private boolean processRequest(HashMap<String, Command> map) throws IOException, ClassNotFoundException {
-        ObjectInput objectInput = new ObjectInputStream(clientSocket.socket().getInputStream());
-        Request request = (Request) objectInput.readObject();
-        if(map.containsKey(request.getCommandName())){
-            map.get(request.getCommandName()).execute(request);
-        } else {
-            logger.log(Level.SEVERE,"Неизвестная полученная команда");
-        }
-        objectInput.close();
-        return true;
-    }
-
     public Socket getClientSocket(){
         return clientSocket.socket();
+    }
+
+    private static class RequestHandler implements Runnable {
+        private HashMap<String, Command> map;
+        private SocketChannel clientSocket;
+        private Logger logger;
+        
+        public RequestHandler(HashMap<String, Command> map, SocketChannel clientSocket, Logger logger) {
+            this.map = map;
+            this.clientSocket = clientSocket;
+            this.logger = logger;
+        }
+    
+        @Override
+        public void run() {
+            try {
+                processRequest(map);
+            } catch (IOException | ClassNotFoundException e) {
+                logger.log(Level.SEVERE, "Ошибка при обработке запроса: ", e.getMessage());
+            }
+        }
+    
+        private boolean processRequest(HashMap<String, Command> map) throws IOException, ClassNotFoundException {
+            ObjectInput objectInput = new ObjectInputStream(clientSocket.socket().getInputStream());
+            Request request = (Request) objectInput.readObject();
+            if(map.containsKey(request.getCommandName())){
+                map.get(request.getCommandName()).execute(request);
+            } else {
+                logger.log(Level.SEVERE,"Неизвестная полученная команда");
+            }
+            objectInput.close();
+            return true;
+        }
+    
     }
 }
