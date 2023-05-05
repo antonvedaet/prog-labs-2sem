@@ -18,6 +18,7 @@ public class Person implements Serializable{
     private Color hairColor; //Поле может быть null
     private Location location; //Поле не может быть null
     private String creator;
+    private boolean saved;
 
     public Person(int id, String name, Coordinates coordinates, LocalDate creationDate, Float height,
             LocalDateTime birthday, Color eyeColor, Color hairColor, Location location, String creator) {
@@ -31,6 +32,7 @@ public class Person implements Serializable{
         this.hairColor = hairColor;
         this.location = location;
         this.creator = creator;
+        this.saved = false;
     }
 
     public Person(){}
@@ -94,5 +96,11 @@ public class Person implements Serializable{
     }
     public String getCreator(){
         return creator;
+    }
+    public void setSaved(){
+        this.saved = true;
+    }
+    public boolean getSaved(){
+        return saved;
     }
 }

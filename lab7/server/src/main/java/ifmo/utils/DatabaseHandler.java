@@ -33,39 +33,43 @@ public class DatabaseHandler {
           return conn;
     }
 
-    public void savePerson(Person person, Connection conn, User user){
-        try{
-          PreparedStatement statement = conn.prepareStatement(
-            "INSERT INTO " +   "person " +
-            "(name, coordinates_x, coordinates_y, creation_date, height, birthday, eye_color, hair_color, location_x, location_y, location_z, location_name, creator) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        statement.setString(1, person.getName());
-        statement.setInt(2, person.getCoordinates().getX());
-        statement.setDouble(3, person.getCoordinates().getY());
-        LocalDate creationDate = person.getCreationDate();
-        LocalTime creationTime = LocalTime.of(12, 0, 0);
-        LocalDateTime dateTime = LocalDateTime.of(creationDate, creationTime);
-        statement.setTimestamp(4, Timestamp.valueOf(dateTime));
-        statement.setFloat(5, person.getHeight());
-        statement.setTimestamp(6, Timestamp.valueOf(person.getBirthday()));
-        statement.setObject(7, person.getEyeColor().name(), Types.OTHER);
-        statement.setObject(8, person.getHairColor() == null ? null : person.getHairColor().name(),Types.OTHER);
-        statement.setInt(9, person.getLocation().getX());
-        statement.setDouble(10, person.getLocation().getY());
-        statement.setDouble(11, person.getLocation().getZ());
-        statement.setString(12, person.getLocation().getName());
-        statement.setString(13, user.getLogin());
-        int rowsAffected = statement.executeUpdate();
-        if (rowsAffected == 0) {
-            throw new SQLException("Inserting person failed, no rows affected.");
-        }
-        try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-            if (generatedKeys.next()) {
-                person.setId(generatedKeys.getInt(1));
-            }
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
+    public void savePerson(Person person, Connection conn){
+        if(!person.getSaved()){
+            try{
+                PreparedStatement statement = conn.prepareStatement(
+                  "INSERT INTO " +   "person " +
+                  "(name, coordinates_x, coordinates_y, creation_date, height, birthday, eye_color, hair_color, location_x, location_y, location_z, location_name, creator) " +
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+              statement.setString(1, person.getName());
+              statement.setInt(2, person.getCoordinates().getX());
+              statement.setDouble(3, person.getCoordinates().getY());
+              LocalDate creationDate = person.getCreationDate();
+              LocalTime creationTime = LocalTime.of(12, 0, 0);
+              LocalDateTime dateTime = LocalDateTime.of(creationDate, creationTime);
+              statement.setTimestamp(4, Timestamp.valueOf(dateTime));
+              statement.setFloat(5, person.getHeight());
+              statement.setTimestamp(6, Timestamp.valueOf(person.getBirthday()));
+              statement.setObject(7, person.getEyeColor().name(), Types.OTHER);
+              statement.setObject(8, person.getHairColor() == null ? null : person.getHairColor().name(),Types.OTHER);
+              statement.setInt(9, person.getLocation().getX());
+              statement.setDouble(10, person.getLocation().getY());
+              statement.setDouble(11, person.getLocation().getZ());
+              statement.setString(12, person.getLocation().getName());
+              statement.setString(13, person.getCreator());
+
+              person.setSaved();
+              int rowsAffected = statement.executeUpdate();
+              if (rowsAffected == 0) {
+                  throw new SQLException("Inserting person failed, no rows affected.");
+              }
+              try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                  if (generatedKeys.next()) {
+                      person.setId(generatedKeys.getInt(1));
+                  }
+              }
+          } catch (SQLException e) {
+              e.printStackTrace();
+              }
         }
     }
     public LinkedList<Person> getAllPersons(Connection conn) throws SQLException {
@@ -97,6 +101,7 @@ public class DatabaseHandler {
                 Coordinates coordinates = new Coordinates(coordinates_x, coordinates_y);
                 Location location = new Location(location_x, location_y, location_z, location_name);
                 Person person = new Person(id, name, coordinates, creationDate, height, birthday, eyeColor, hairColor, location, creator);
+                person.setSaved();
                 persons.add(person);
             }
         }

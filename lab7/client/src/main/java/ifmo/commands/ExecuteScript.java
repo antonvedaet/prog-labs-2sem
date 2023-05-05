@@ -1,5 +1,6 @@
 package ifmo.commands;
 
+import ifmo.data.User;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.exceptions.RecursionException;
 import ifmo.network.TCPClient;
@@ -15,10 +16,12 @@ import java.util.HashMap;
 public class ExecuteScript extends AbstractCommand {
     private HashMap<String, String> map;
     private TCPClient client;
-    public ExecuteScript(HashMap<String, String> map, TCPClient client) {
+    private User user;
+    public ExecuteScript(HashMap<String, String> map, TCPClient client, User user) {
         super("execute_script", "считать и исполнить скрипт из указанного файла");
         this.map = map;
         this.client = client;
+        this.user = user;
     }
     
     @Override
@@ -58,7 +61,7 @@ public class ExecuteScript extends AbstractCommand {
                         String commandName = tokens[0];
                         if(map.containsKey(commandName)){
                             try {
-                                client.sendRequest(command);
+                                client.sendRequest(command, user);
                             } catch (InterruptedException ie){
                                 IOHandler.println(ie.getMessage()); 
                             }

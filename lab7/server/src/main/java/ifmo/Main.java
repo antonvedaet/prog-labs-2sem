@@ -19,7 +19,11 @@ public class Main {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        collectionHandler.loadCollection();
+        try {
+            collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.connect()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         personValidator.checkCollectionValidity();
 
         TCPServer server = new TCPServer();
@@ -32,7 +36,7 @@ public class Main {
         Command update = new Update(collectionHandler);
         Command clear = new Clear(collectionHandler);
         Command shuffle = new Shuffle(collectionHandler);
-        Command save = new Save(collectionHandler, fileManager);
+        Command save = new Save(collectionHandler, fileManager, databaseHandler);
         Command reorder = new Reorder(collectionHandler);
         Command countLessThanHeight = new CountLessThanHeight(collectionHandler, server);
         Command removeGreater = new RemoveGreater(collectionHandler);
@@ -73,8 +77,6 @@ public class Main {
         }).start();
 
         new Thread(() ->{
-            User test = new User("test", "test");
-            try{collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.connect()));} catch(SQLException sqle){System.out.println(sqle.getMessage());}
             server.start(map,collectionHandler);
         }).start();
     }

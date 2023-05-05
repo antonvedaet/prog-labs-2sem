@@ -4,6 +4,7 @@ import ifmo.data.Color;
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
 import ifmo.data.Person;
+import ifmo.data.User;
 import ifmo.exceptions.ValueException;
 
 import java.time.LocalDate;
@@ -181,7 +182,7 @@ public class PersonCreator {
         return location; 
     }
 
-    public Person personCreate(){
-        return new Person(0, nameCreate(), coordinatesCreate(), LocalDate.now(), heightCreate(), bdayCreate(), eyeColorChoose(), hairColorChoose(), locationCreate());
+    public Person personCreate(User user){
+        return new Person(0, nameCreate(), coordinatesCreate(), LocalDate.now(), heightCreate(), bdayCreate(), eyeColorChoose(), hairColorChoose(), locationCreate(), user.getLogin());
     }
 }

@@ -2,6 +2,7 @@ package ifmo.network;
 
 import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
+import ifmo.data.User;
 import ifmo.commands.Exit;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
@@ -33,7 +34,7 @@ public class TCPClient {
         this.clientSocket.close();
     }
 
-    public boolean sendRequest(String input) throws IOException, InterruptedException {
+    public boolean sendRequest(String input, User user) throws IOException, InterruptedException {
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
@@ -54,7 +55,7 @@ public class TCPClient {
         }
 
         if(command.equals("execute_script")){
-            new ExecuteScript(CommandHelper.commandList(), this).execute(argument);
+            new ExecuteScript(CommandHelper.commandList(), this, user).execute(argument);
             return true;
         }
 
@@ -67,7 +68,7 @@ public class TCPClient {
             InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
 
             if(command.equals("add") || command.equals("update")){
-                objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate()));
+                objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate(user)));
             } else {
                 objectOutput.writeObject(new Request(command, argument, null));
             }

@@ -1,6 +1,7 @@
 package ifmo;
 
 import ifmo.commands.*;
+import ifmo.data.User;
 import ifmo.network.TCPClient;
 import ifmo.utils.*;
 
@@ -13,10 +14,13 @@ public class Main {
         TCPClient client = new TCPClient();
         Command help = new Help();
 
+        //TODO : registering + login
+        User user = new User("test", "test");
+
         while(true){
             IOHandler.print("> ");
             String input = scanner.nextLine();
-            client.sendRequest(input +" placeholderArg");
+            client.sendRequest(input +" placeholderArg", user);
         }
     }
 }

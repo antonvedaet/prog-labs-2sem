@@ -2,11 +2,14 @@ package ifmo.commands;
 
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
+import ifmo.utils.DatabaseHandler;
 import ifmo.utils.FileManager;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 /**
  * Класс отвечающий за команду save
  */
@@ -14,10 +17,12 @@ public class Save extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
     FileManager fileManager;
-    public Save(CollectionHandler collectionHandler, FileManager fileManager) {
+    private DatabaseHandler databaseHandler;
+    public Save(CollectionHandler collectionHandler, FileManager fileManager, DatabaseHandler databaseHandler) {
         super("save", "сохраняет коллекцию в файл");
         this.collectionHandler = collectionHandler;
         this.fileManager = fileManager;
+        this.databaseHandler = databaseHandler;
     }
     
     @Override
@@ -31,16 +36,24 @@ public class Save extends AbstractCommand{
         return false;
     }
 
+    // @Override
+    // public void execute(Request request){
+    //     if(argCheck(request.getArguments())){
+    //         try{
+    //             fileManager.writeToJson(collectionHandler);
+    //             IOHandler.println("Коллекция успешно сохранена");
+    //         } catch (IOException e){
+    //             IOHandler.println("Ошибка при записи в файл");
+    //         }
+
+    //     }
+    // }
+
     @Override
     public void execute(Request request){
         if(argCheck(request.getArguments())){
-            try{
-                fileManager.writeToJson(collectionHandler);
-                IOHandler.println("Коллекция успешно сохранена");
-            } catch (IOException e){
-                IOHandler.println("Ошибка при записи в файл");
-            }
-
+                Connection conn = databaseHandler.connect();
+                collectionHandler.getCollection().stream().forEach(person -> databaseHandler.savePerson(person, conn));
         }
     }
 }
