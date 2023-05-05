@@ -5,7 +5,6 @@ import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
-import ifmo.utils.PersonCreator;
 
 /**
  * Класс отвечающий за команду update {id}
@@ -14,7 +13,7 @@ public class Update extends AbstractCommand {
     
     private CollectionHandler collectionHandler;
 
-    public Update(PersonCreator personCreator, CollectionHandler collectionHandler){
+    public Update(CollectionHandler collectionHandler){
         super("update", "обновить значение элемента по id");
         this.collectionHandler = collectionHandler;
     }

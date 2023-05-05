@@ -11,17 +11,18 @@ import ifmo.data.Color;
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
 import ifmo.data.Person;
+import ifmo.data.User;
 
 public class DatabaseHandler {
 
     Connection conn = null;
     String user = "anton";
     String password = "A9152!208-";
-    String schema = "anton_schema";
-    String url = "jdbc:postgresql://localhost:5432/anton?currentSchema="+schema;
+    // String schema = "?currentSchema=anton_schema";
+    String url = "jdbc:postgresql://localhost:5432/labs";
     private Logger logger = Logger.getLogger("logger");
 
-    public Connection Connect(){
+    public Connection connect(){
         try {
             conn = DriverManager.getConnection(url, user, password);
             logger.info("Connected to the PostgreSQL server successfully.");
@@ -32,12 +33,12 @@ public class DatabaseHandler {
           return conn;
     }
 
-    public void savePerson(Person person, Connection conn){
+    public void savePerson(Person person, Connection conn, User user){
         try{
           PreparedStatement statement = conn.prepareStatement(
-            "INSERT INTO " + schema + ".person " +
-            "(name, coordinates_x, coordinates_y, creation_date, height, birthday, eye_color, hair_color, location_x, location_y, location_z, location_name) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            "INSERT INTO " +   "person " +
+            "(name, coordinates_x, coordinates_y, creation_date, height, birthday, eye_color, hair_color, location_x, location_y, location_z, location_name, creator) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         statement.setString(1, person.getName());
         statement.setInt(2, person.getCoordinates().getX());
         statement.setDouble(3, person.getCoordinates().getY());
@@ -53,6 +54,7 @@ public class DatabaseHandler {
         statement.setDouble(10, person.getLocation().getY());
         statement.setDouble(11, person.getLocation().getZ());
         statement.setString(12, person.getLocation().getName());
+        statement.setString(13, user.getLogin());
         int rowsAffected = statement.executeUpdate();
         if (rowsAffected == 0) {
             throw new SQLException("Inserting person failed, no rows affected.");
@@ -68,7 +70,7 @@ public class DatabaseHandler {
     }
     public LinkedList<Person> getAllPersons(Connection conn) throws SQLException {
         LinkedList<Person> persons = new LinkedList<Person>();
-            final String SELECT_ALL_PERSONS = "SELECT * FROM anton_schema.person";
+            final String SELECT_ALL_PERSONS = "SELECT * FROM person";
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ALL_PERSONS); {
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -90,15 +92,36 @@ public class DatabaseHandler {
                 double location_y = resultSet.getDouble("location_y");
                 double location_z = resultSet.getDouble("location_z");
                 String location_name = resultSet.getString("location_name");
+                String creator = resultSet.getString("creator");
 
                 Coordinates coordinates = new Coordinates(coordinates_x, coordinates_y);
                 Location location = new Location(location_x, location_y, location_z, location_name);
-                Person person = new Person(id, name, coordinates, creationDate, height, birthday, eyeColor, hairColor, location);
+                Person person = new Person(id, name, coordinates, creationDate, height, birthday, eyeColor, hairColor, location, creator);
                 persons.add(person);
             }
         }
 
         return persons;
+    }
+
+    public void register(String login, String pwd, Connection conn){
+        try{
+            PreparedStatement statement = conn.prepareStatement(
+            "INSERT INTO users" +
+            "(login, password)" +
+            "VALUES (?, ?)");
+            
+            Hasher hasher = new Hasher("SHA-256");
+        statement.setString(1, login);
+        statement.setString(2, hasher.encode(pwd));
+
+        int rowsAffected = statement.executeUpdate();
+        if (rowsAffected == 0) {
+            throw new SQLException("Inserting person failed, no rows affected.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        }
     }
 }
 

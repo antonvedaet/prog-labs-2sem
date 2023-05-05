@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import ifmo.commands.*;
+import ifmo.data.User;
 import ifmo.network.TCPServer;
 import ifmo.requests.Request;
 import ifmo.utils.*;
 
 public class Main {
     public static void main(String[] args) {
-        PersonCreator personCreator = new PersonCreator();
         CollectionHandler collectionHandler = new CollectionHandler();
         FileManager fileManager = new FileManager();
         PersonValidator personValidator = new PersonValidator(collectionHandler);
@@ -29,7 +29,7 @@ public class Main {
         Command add = new Add(collectionHandler);
         Command exit = new Exit();
         Command removeById = new RemoveById(collectionHandler);
-        Command update = new Update(personCreator, collectionHandler);
+        Command update = new Update(collectionHandler);
         Command clear = new Clear(collectionHandler);
         Command shuffle = new Shuffle(collectionHandler);
         Command save = new Save(collectionHandler, fileManager);
@@ -73,11 +73,8 @@ public class Main {
         }).start();
 
         new Thread(() ->{
-            try{
-               collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.Connect())); 
-            } catch (SQLException sqle) {
-                sqle.getMessage();
-            }
+            User test = new User("test", "test");
+            try{collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.connect()));} catch(SQLException sqle){System.out.println(sqle.getMessage());}
             server.start(map,collectionHandler);
         }).start();
     }
