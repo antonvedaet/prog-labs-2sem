@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.logging.Logger;
 
 import ifmo.data.Color;
+import ifmo.utils.Hasher;
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
 import ifmo.data.Person;
@@ -19,7 +20,7 @@ public class DatabaseHandler {
     String user = "anton";
     String password = "A9152!208-";
     // String schema = "?currentSchema=anton_schema";
-    String url = "jdbc:postgresql://localhost:5432/labs";
+    String url = "jdbc:postgresql://localhost:5432/anton?currentSchema=anton_schema";
     private Logger logger = Logger.getLogger("logger");
 
     public Connection connect(){

@@ -65,16 +65,17 @@ public class TCPClient {
 
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
-            InputStream in = new BufferedInputStream(clientSocket.socket().getInputStream());
-
+            InputStream in = clientSocket.socket().getInputStream();
             if(command.equals("add") || command.equals("update")){
                 objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate(user)));
             } else {
                 objectOutput.writeObject(new Request(command, argument, null));
             }
-
-            String str_in = new String(in.readAllBytes(), StandardCharsets.UTF_8);
-            IOHandler.print(str_in);
+    
+            byte[] buffer = new byte[1024];
+            int bytesRead = in.read(buffer);
+            String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
+            IOHandler.print(message.trim()+ "\n");  
             in.close();
             objectOutput.close();
             closeConnection();
