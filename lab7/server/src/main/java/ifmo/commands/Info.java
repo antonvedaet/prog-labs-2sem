@@ -33,15 +33,13 @@ public class Info extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
-        if(argCheck(request.getArguments())){
-            try{
-                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
-                output.println("Кол-во элементов в коллекции: "+collectionHandler.getSize());
-                output.println("Дата инициализации коллекции: "+collectionHandler.getInitDate());
-            } catch (IOException ioe){
-                IOHandler.serverMsg(ioe.getMessage());
-            }
+    public String execute(Request request) {
+        if (argCheck(request.getArguments())) {
+            String output = "";
+            output += "Кол-во элементов в коллекции: " + collectionHandler.getSize() + "\n";
+            output += "Дата инициализации коллекции: " + collectionHandler.getInitDate() + "\n";
+            return output;
         }
+        return "";
     }
 }

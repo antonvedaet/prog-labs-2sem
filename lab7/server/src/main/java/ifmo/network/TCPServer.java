@@ -5,6 +5,7 @@ import ifmo.utils.*;
 import ifmo.commands.Command;
 
 import java.util.HashMap;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
@@ -20,17 +21,17 @@ public class TCPServer{
     private int port = 3333;
     protected SocketChannel clientSocket;
     private Logger logger = Logger.getLogger("logger");
+    ExecutorService executorService = Executors.newCachedThreadPool();
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
-        ExecutorService executorService = Executors.newCachedThreadPool();
         while(serverSocketChannel!=null){
             logger.log(Level.INFO,"Ожидание подключения...");
             try{
                 this.clientSocket = serverSocketChannel.accept();
                 logger.log(Level.FINER, "Подключение успешно");
                 // processRequest(map);
-                executorService.submit(new RequestHandler(map, clientSocket, logger));
+                executorService.submit(new RequestHandler(map, clientSocket, logger, executorService));
             } catch (IOException ioe) {
                 logger.log(Level.SEVERE,"Не удалось подключиться к клиенту: ", ioe.getMessage());
             }
@@ -64,11 +65,13 @@ public class TCPServer{
         private HashMap<String, Command> map;
         private SocketChannel clientSocket;
         private Logger logger;
+        private ExecutorService executorService;
         
-        public RequestHandler(HashMap<String, Command> map, SocketChannel clientSocket, Logger logger) {
+        public RequestHandler(HashMap<String, Command> map, SocketChannel clientSocket, Logger logger, ExecutorService executorService) {
             this.map = map;
             this.clientSocket = clientSocket;
             this.logger = logger;
+            this.executorService = executorService;
         }
     
         @Override
@@ -83,14 +86,9 @@ public class TCPServer{
         private boolean processRequest(HashMap<String, Command> map) throws IOException, ClassNotFoundException {
             ObjectInput objectInput = new ObjectInputStream(clientSocket.socket().getInputStream());
             Request request = (Request) objectInput.readObject();
-            if(map.containsKey(request.getCommandName())){
-                map.get(request.getCommandName()).execute(request);
-            } else {
-                logger.log(Level.SEVERE,"Неизвестная полученная команда");
-            }
             objectInput.close();
+            new Thread(new Executor(request, map, clientSocket.socket(), executorService)).start();
             return true;
         }
-    
     }
 }

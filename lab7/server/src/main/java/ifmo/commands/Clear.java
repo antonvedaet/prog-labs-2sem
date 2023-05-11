@@ -31,9 +31,10 @@ public class Clear extends AbstractCommand{
      * @see java.util.Collections
      */
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             collectionHandler.clear();
         }
+        return "1";
     }
 }

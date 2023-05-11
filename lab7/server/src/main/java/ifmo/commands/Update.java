@@ -34,7 +34,7 @@ public class Update extends AbstractCommand {
     }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             for(Person person :  collectionHandler.getCollection()){
                 if(person.getId()==(Integer.parseInt(request.getArguments()))){
@@ -45,5 +45,6 @@ public class Update extends AbstractCommand {
                 }
             }
         }
+        return "1";
     }
 }

@@ -34,7 +34,7 @@ public class RemoveById extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             Optional<Person> bufferedPerson = collectionHandler.getCollection().stream()
             .filter(person -> person.getId() == Integer.parseInt(request.getArguments()))
@@ -42,5 +42,6 @@ public class RemoveById extends AbstractCommand{
 
             bufferedPerson.ifPresent(collectionHandler::removePerson);
         }
+        return "1";
     }
 }

@@ -32,11 +32,12 @@ public class Add extends AbstractCommand {
      * @see ifmo.utils.PersonCreator
      */
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             Person person = request.getPerson();
             person.setId(collectionHandler.generateNextId());
             collectionHandler.addPerson(person);
         }
+        return "1";
     }
 }

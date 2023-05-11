@@ -1,5 +1,7 @@
 package ifmo.commands;
 
+import java.net.Socket;
+
 import ifmo.requests.Request;
 
 public interface  Command {
@@ -15,5 +17,5 @@ public interface  Command {
      * Выполнение комманды
      * @param arg
      */
-     void execute(Request request);
+     String execute(Request request);
 }

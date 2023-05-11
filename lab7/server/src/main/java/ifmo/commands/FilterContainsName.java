@@ -1,6 +1,7 @@
 package ifmo.commands;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import ifmo.exceptions.ElementAmountException;
 import ifmo.network.TCPServer;
@@ -33,16 +34,19 @@ public class FilterContainsName extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
-        if(argCheck(request.getArguments())){
-            try{
-                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
+    public String execute(Request request) {
+        if (argCheck(request.getArguments())) {
+            try (StringWriter sw = new StringWriter()) {
+                PrintWriter output = new PrintWriter(sw, true);
                 collectionHandler.getCollection().stream()
                     .filter(person -> person.getName().contains(request.getArguments()))
                     .forEach(person -> collectionHandler.printPerson(person, output));
-            } catch (IOException ioe){
-                IOHandler.println(ioe.getMessage());
+                return sw.toString();
+            } catch (IOException ioe) {
+                return "Error: " + ioe.getMessage();
             }
+        } else {
+            return "";
         }
     }
 }

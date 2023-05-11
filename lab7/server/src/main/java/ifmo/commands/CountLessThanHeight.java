@@ -1,6 +1,7 @@
 package ifmo.commands;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import ifmo.exceptions.ElementAmountException;
 import ifmo.network.TCPServer;
@@ -37,17 +38,19 @@ public class CountLessThanHeight extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
-        if(argCheck(request.getArguments())){
+    public String execute(Request request) {
+        if (argCheck(request.getArguments())) {
             int count = (int) collectionHandler.getCollection().stream()
-            .filter(person -> person.getHeight() < Integer.parseInt(request.getArguments()))
-            .count();
-            try{
-                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
-                output.println("Количество элементов с значением height меньше введенного: "+count);
-            } catch (IOException ioe){
-                IOHandler.println(ioe.getMessage());
-            }
+                .filter(person -> person.getHeight() < Integer.parseInt(request.getArguments()))
+                .count();
+    
+            StringWriter sw = new StringWriter();
+            PrintWriter output = new PrintWriter(sw, true);
+            output.println("Количество элементов с значением height меньше введенного: " + count);
+    
+            return sw.toString();
+        } else {
+            return "Invalid arguments";
         }
     }
 }

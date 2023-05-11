@@ -36,7 +36,7 @@ public class RemoveGreater extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             LinkedList<Person> filteredList = collectionHandler.getCollection()
         .stream()
@@ -48,5 +48,6 @@ public class RemoveGreater extends AbstractCommand{
         collectionHandler.setCollection(filteredList);
 
         }
+    return "1";
     }
 }

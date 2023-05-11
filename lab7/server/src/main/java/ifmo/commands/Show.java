@@ -1,6 +1,7 @@
 package ifmo.commands;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 import ifmo.exceptions.ElementAmountException;
 import ifmo.network.TCPServer;
@@ -42,15 +43,17 @@ public class Show extends AbstractCommand {
     }
 
     @Override
-    public void execute(Request request){
-        if(argCheck(request.getArguments())){
-            try{
-                PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
-                collectionHandler.printPersonList(output);
-            } catch (IOException ioe){
-                IOHandler.serverMsg(ioe.getMessage());
-            }
-            
+    public String execute(Request request) {
+        if (argCheck(request.getArguments())) {
+            StringWriter sw = new StringWriter();
+            PrintWriter output = new PrintWriter(sw, true);
+    
+            collectionHandler.printPersonList(output);
+    
+            return sw.toString();
+        } else {
+            return "Invalid arguments";
         }
     }
+    
 }

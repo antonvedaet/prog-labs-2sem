@@ -21,9 +21,10 @@ public class Exit extends AbstractCommand {
         return false;
     }
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             System.exit(0);
         }
+        return "1";
     }//WIP
 }

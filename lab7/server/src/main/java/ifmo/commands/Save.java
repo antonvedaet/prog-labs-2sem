@@ -50,10 +50,13 @@ public class Save extends AbstractCommand{
     // }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
                 Connection conn = databaseHandler.connect();
                 collectionHandler.getCollection().stream().forEach(person -> databaseHandler.savePerson(person, conn));
         }
+        return "1";
     }
 }
+//класс который будет просто ранить экзекут каждой команды
+//выдаватьь строку которая будет отправляться в кашед тред пул

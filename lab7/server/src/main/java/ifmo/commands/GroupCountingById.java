@@ -9,6 +9,7 @@ import ifmo.requests.Request;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * Класс отвечающий за команду group_counting_by_id
@@ -36,22 +37,24 @@ public class GroupCountingById extends AbstractCommand {
     }
     
     @Override
-    public void execute(Request request){
-        if(argCheck(request.getArguments())){
+    public String execute(Request request) {
+        if (argCheck(request.getArguments())) {
+            StringWriter sw = new StringWriter();
+            PrintWriter output = new PrintWriter(sw, true);
+    
             collectionHandler.getCollection().stream()
-            .map(Person::getId)
-            .distinct()
-            .forEach(id -> {
-                long count = collectionHandler.getCollection().stream()
-                    .filter(person -> person.getId()==id)
-                    .count();
-                    try{
-                        PrintWriter output = new PrintWriter(server.getClientSocket().getOutputStream(), true);
-                        output.println("Количество элементов с id=" + id + " : " + count);
-                    } catch (IOException ioe){
-                        IOHandler.println(ioe.getMessage());
-                    }
-            });
+                .map(Person::getId)
+                .distinct()
+                .forEach(id -> {
+                    long count = collectionHandler.getCollection().stream()
+                        .filter(person -> person.getId() == id)
+                        .count();
+                    output.println("Количество элементов с id=" + id + " : " + count);
+                });
+    
+            return sw.toString();
+        } else {
+            return "";
         }
-    }//WIP
+    }
 }

@@ -35,7 +35,7 @@ public class ExecuteScript extends AbstractCommand {
     }
     
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             try (BufferedReader reader = new BufferedReader(new FileReader(request.getArguments()))) {
                 String command;
@@ -70,5 +70,6 @@ public class ExecuteScript extends AbstractCommand {
             }
         }
         prevScripts.clear();
+        return "1";
     }
 }

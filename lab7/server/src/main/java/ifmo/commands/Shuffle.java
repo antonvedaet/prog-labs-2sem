@@ -27,9 +27,10 @@ public class Shuffle extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             collectionHandler.shuffle();
         }
+        return "1";
     }
 }

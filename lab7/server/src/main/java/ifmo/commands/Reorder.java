@@ -27,9 +27,10 @@ public class Reorder extends AbstractCommand{
     }
 
     @Override
-    public void execute(Request request){
+    public String execute(Request request){
         if(argCheck(request.getArguments())){
             collectionHandler.reorder();
         }
+        return "1";
     }
 }
