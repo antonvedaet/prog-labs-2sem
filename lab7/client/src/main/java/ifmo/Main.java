@@ -5,17 +5,18 @@ import ifmo.data.User;
 import ifmo.network.TCPClient;
 import ifmo.utils.*;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         TCPClient client = new TCPClient();
+        UserHelper userHelper = new UserHelper(client);
         Command help = new Help();
 
         //TODO : registering + login
-        User user = new User("test", "test");
+        User user = userHelper.createUser(scanner);
+        userHelper.sendRegister(user);
 
         while(true){
             IOHandler.print("> ");

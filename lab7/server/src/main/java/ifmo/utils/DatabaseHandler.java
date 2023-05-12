@@ -7,6 +7,8 @@ import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
+import javax.sql.ConnectionEvent;
+
 import ifmo.data.Color;
 import ifmo.utils.Hasher;
 import ifmo.data.Coordinates;
@@ -148,6 +150,21 @@ public class DatabaseHandler {
     } catch (SQLException e) {
         e.printStackTrace();
         }
+    }
+
+    public boolean checkIfUserExists(String login, String pwd) throws SQLException{
+            Connection conn = connect();
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE login = ? AND password = ?");
+            statement.setString(1, login);
+            Hasher hasher = new Hasher("SHA-256");
+            statement.setString(2, hasher.encode(pwd));
+
+
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                throw new SQLException("Пользователь с таким логином уже существует");
+            }
+            return false;
     }
 }
 

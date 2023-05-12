@@ -33,7 +33,6 @@ public class TCPServer{
             try{
                 this.clientSocket = serverSocketChannel.accept();
                 logger.log(Level.FINER, "Подключение успешно");
-                // processRequest(map);
                 executorService.submit(new RequestHandler(map, clientSocket, logger, requestQueue));//1
                 new Thread(new Executor(map, clientSocket.socket(), executorService, requestQueue, messageQueue)).start();//2
                 try {
