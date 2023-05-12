@@ -155,8 +155,9 @@ public class DatabaseHandler {
     public boolean checkIfUserExists(String login, String pwd){
         try{
             Connection conn = connect();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE login = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM users WHERE login = ? AND password = ?");
             statement.setString(1, login);
+            statement.setString(2, pwd);
 
             ResultSet rs = statement.executeQuery();
             if(rs.next()){

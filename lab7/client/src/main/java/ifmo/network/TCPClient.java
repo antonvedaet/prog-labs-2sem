@@ -34,33 +34,33 @@ public class TCPClient {
         this.clientSocket.close();
     }
 
-    public boolean sendRequest(String input, User user) throws IOException, InterruptedException {
+    public String sendRequest(String input, User user) throws IOException, InterruptedException {
         String[] tokens = input.split("\\s+");
         String command = tokens[0];
         String argument = tokens[1];
 
         if(!CommandHelper.commandList().containsKey(command)){
             IOHandler.println("Команды " + "\u001B[31m" + command + "\u001B[0m" +" не существует");
-            return false;
+            return "";
         }
 
         if(command.equals("exit")){
             new Exit().execute(argument);
-            return true;
+            return "";
         }
 
         if(command.equals("help")){
             new Help().execute(argument);
-            return true;
+            return "";
         }
 
         if(command.equals("execute_script")){
             new ExecuteScript(CommandHelper.commandList(), this, user).execute(argument);
-            return true;
+            return "";
         }
 
         if(!CommandHelper.argCheckMap().get(command).argCheck(argument)){
-            return false;
+            return "";
         }
 
         if(connectToServer()){
@@ -75,15 +75,14 @@ public class TCPClient {
             byte[] buffer = new byte[1024];
             int bytesRead = in.read(buffer);
             String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-            IOHandler.print(message.trim()+ "\n");  
-            in.close();
-            objectOutput.close();
             closeConnection();
+            return(message.trim()+ "\n");  
+            
         }
-        return true;
+        return "";
     }
 
-    public boolean sendRequest(Request request) throws IOException, InterruptedException {
+    public String sendRequest(Request request) throws IOException, InterruptedException {
         if(connectToServer()){
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = clientSocket.socket().getInputStream();
@@ -92,12 +91,10 @@ public class TCPClient {
             byte[] buffer = new byte[1024];
             int bytesRead = in.read(buffer);
             String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-            IOHandler.print(message.trim()+ "\n");  
-            in.close();
-            objectOutput.close();
             closeConnection();
+            return(message.trim()+ "\n");  
         }
-        return true;
+        return "";
     }
 
 }

@@ -41,7 +41,8 @@ public class Main {
         Command removeGreater = new RemoveGreater(collectionHandler, databaseHandler);
         Command groupCountingById = new GroupCountingById(collectionHandler);
         Command filterContainsName = new FilterContainsName(collectionHandler);
-        Command register = new Register(collectionHandler, databaseHandler);
+        Command register = new Register(databaseHandler);
+        Command login = new Login(databaseHandler);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
         map.put(info.getName(), info);
@@ -57,6 +58,7 @@ public class Main {
         map.put(groupCountingById.getName(), groupCountingById);
         map.put(filterContainsName.getName(), filterContainsName);
         map.put(register.getName(), register);
+        map.put(login.getName(), login);
 
         Command executeScript = new ExecuteScript(map);
         map.put(executeScript.getName(), executeScript);

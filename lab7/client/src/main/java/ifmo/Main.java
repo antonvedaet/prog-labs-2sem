@@ -15,13 +15,15 @@ public class Main {
         Command help = new Help();
 
         //TODO : registering + login
-        User user = userHelper.createUser(scanner);
-        userHelper.sendRegister(user);
+        boolean logged_in = false;
+        while(!logged_in){
+            logged_in = userHelper.ask(scanner);
+        }
 
         while(true){
             IOHandler.print("> ");
             String input = scanner.nextLine();
-            client.sendRequest(input +" placeholderArg", user);
+            IOHandler.print(client.sendRequest(input +" placeholderArg", userHelper.user));
         }
     }
 }

@@ -11,12 +11,12 @@ import ifmo.utils.Hasher;
 /**
  * Класс отвечающий за команду register
  */
-public class Register extends AbstractCommand {
+public class Login extends AbstractCommand {
     
     private DatabaseHandler databaseHandler;
 
-    public Register(DatabaseHandler databaseHandler){
-        super("register", "");
+    public Login(DatabaseHandler databaseHandler){
+        super("login", "");
         this.databaseHandler = databaseHandler;
     }
     
@@ -40,11 +40,11 @@ public class Register extends AbstractCommand {
         if(argCheck(request.getArguments())){
             Hasher hasher = new Hasher("SHA-256");
             if(!databaseHandler.checkIfUserExists(request.getUser().getLogin(), hasher.encode(request.getUser().getPassword()))){
-                    databaseHandler.register(request.getUser().getLogin(), request.getUser().getPassword());
+                return "Неправильный логин или пароль";
             } else {
-                return "Пользователь с таким логином уже существует";
+                return "Теперь вам доступны комманды, используйте help для их просмотра";
             }
         }
-        return "Пользователь успешно зарегестрирован!";
+        return "";
     }
 }
