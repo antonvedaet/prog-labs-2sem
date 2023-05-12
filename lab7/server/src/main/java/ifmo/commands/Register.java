@@ -39,12 +39,10 @@ public class Register extends AbstractCommand {
     @Override
     public String execute(Request request){
         if(argCheck(request.getArguments())){
-            try{
-                if(!databaseHandler.checkIfUserExists(request.getUser().getLogin(), request.getUser().getPassword())){
+            if(!databaseHandler.checkIfUserExists(request.getUser().getLogin(), request.getUser().getPassword())){
                     databaseHandler.register(request.getUser().getLogin(), request.getUser().getPassword());
-                }
-            } catch (SQLException sqle){
-                return sqle.getMessage();
+            } else {
+                return "Пользователь с таким логином уже существует";
             }
         }
         return "Пользователь успешно зарегестрирован!";
