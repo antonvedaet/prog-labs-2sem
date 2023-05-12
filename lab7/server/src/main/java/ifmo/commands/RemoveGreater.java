@@ -41,6 +41,14 @@ public class RemoveGreater extends AbstractCommand{
     @Override
     public String execute(Request request){
         if(argCheck(request.getArguments())){
+
+            boolean checkList = collectionHandler.getCollection()
+        .stream()
+        .filter(person -> person.getCreator() == request.getUser().getLogin())
+        .collect(Collectors.toCollection(LinkedList::new)).size()>0;
+        if(checkList){
+            return "Нельзя редактировать элементы созданные другими пользователями";
+        }
             LinkedList<Person> filteredList = collectionHandler.getCollection()
         .stream()
         .filter(person -> person.getId() <= Integer.parseInt(request.getArguments()))
@@ -57,6 +65,6 @@ public class RemoveGreater extends AbstractCommand{
         collectionHandler.setCollection(filteredList);
 
         }
-    return "1";
+    return "";
     }
 }

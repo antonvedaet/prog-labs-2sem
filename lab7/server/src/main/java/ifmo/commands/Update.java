@@ -41,14 +41,18 @@ public class Update extends AbstractCommand {
         if(argCheck(request.getArguments())){
             for(Person person :  collectionHandler.getCollection()){
                 if(person.getId()==(Integer.parseInt(request.getArguments()))){
-                    collectionHandler.removePerson(person);
                     Person nPerson = request.getPerson();
                     nPerson.setId(Integer.parseInt(request.getArguments()));
-                    collectionHandler.addPerson(nPerson);
+                    if(person.getCreator().equals(request.getUser())){
+                        collectionHandler.removePerson(person);
+                        collectionHandler.addPerson(nPerson);
+                    } else {
+                        return "Нельзя редактировать элементы созданные другими пользователями";
+                    }
                 }
             }
             new Save(collectionHandler, databaseHandler).execute(request);
         }
-        return "1";
+        return "";
     }
 }

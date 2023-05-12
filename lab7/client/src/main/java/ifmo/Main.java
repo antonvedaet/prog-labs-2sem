@@ -1,7 +1,6 @@
 package ifmo;
 
 import ifmo.commands.*;
-import ifmo.data.User;
 import ifmo.network.TCPClient;
 import ifmo.utils.*;
 
@@ -12,7 +11,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         TCPClient client = new TCPClient();
         UserHelper userHelper = new UserHelper(client);
-        Command help = new Help();
 
         //TODO : registering + login
         boolean logged_in = false;
