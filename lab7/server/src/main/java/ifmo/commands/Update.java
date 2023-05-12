@@ -3,6 +3,7 @@ package ifmo.commands;
 import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
+import ifmo.utils.DatabaseHandler;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
@@ -12,10 +13,12 @@ import ifmo.requests.Request;
 public class Update extends AbstractCommand {
     
     private CollectionHandler collectionHandler;
+    private DatabaseHandler databaseHandler;
 
-    public Update(CollectionHandler collectionHandler){
+    public Update(CollectionHandler collectionHandler, DatabaseHandler databaseHandler){
         super("update", "обновить значение элемента по id");
         this.collectionHandler = collectionHandler;
+        this.databaseHandler = databaseHandler;
     }
     
     @Override
@@ -44,6 +47,7 @@ public class Update extends AbstractCommand {
                     collectionHandler.addPerson(nPerson);
                 }
             }
+            new Save(collectionHandler, databaseHandler).execute(request);
         }
         return "1";
     }

@@ -4,16 +4,19 @@ import ifmo.exceptions.ElementAmountException;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.CollectionHandler;
+import ifmo.utils.DatabaseHandler;
 /**
  * Класс отвечающий за команду add
  */
 public class Add extends AbstractCommand {
     
     private CollectionHandler collectionHandler;
+    private DatabaseHandler databaseHandler;
 
-    public Add(CollectionHandler collectionHandler){
+    public Add(CollectionHandler collectionHandler, DatabaseHandler databaseHandler){
         super("add", "добавить новый элемент в коллекцию");
         this.collectionHandler = collectionHandler;
+        this.databaseHandler = databaseHandler;
     }
     
     @Override
@@ -37,6 +40,7 @@ public class Add extends AbstractCommand {
             Person person = request.getPerson();
             person.setId(collectionHandler.generateNextId());
             collectionHandler.addPerson(person);
+            new Save(collectionHandler, databaseHandler).execute(request);
         }
         return "1";
     }

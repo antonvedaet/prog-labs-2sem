@@ -29,16 +29,16 @@ public class Main {
 
         Command info = new Info(collectionHandler);
         Command show = new Show(collectionHandler);
-        Command add = new Add(collectionHandler);
+        Command add = new Add(collectionHandler, databaseHandler);
         Command exit = new Exit();
         Command removeById = new RemoveById(collectionHandler, databaseHandler);
-        Command update = new Update(collectionHandler);
+        Command update = new Update(collectionHandler, databaseHandler);
         Command clear = new Clear(collectionHandler);
         Command shuffle = new Shuffle(collectionHandler);
         Command save = new Save(collectionHandler, databaseHandler);
         Command reorder = new Reorder(collectionHandler);
         Command countLessThanHeight = new CountLessThanHeight(collectionHandler);
-        Command removeGreater = new RemoveGreater(collectionHandler);
+        Command removeGreater = new RemoveGreater(collectionHandler, databaseHandler);
         Command groupCountingById = new GroupCountingById(collectionHandler);
         Command filterContainsName = new FilterContainsName(collectionHandler);
 

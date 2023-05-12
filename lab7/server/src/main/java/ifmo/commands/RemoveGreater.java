@@ -3,6 +3,7 @@ package ifmo.commands;
 import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
+import ifmo.utils.DatabaseHandler;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
@@ -14,10 +15,12 @@ import java.util.stream.Collectors;
 public class RemoveGreater extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
+    private DatabaseHandler databaseHandler;
 
-    public RemoveGreater(CollectionHandler collectionHandler) {
+    public RemoveGreater(CollectionHandler collectionHandler, DatabaseHandler databaseHandler) {
         super("remove_greater", " удаляет из коллекции все элементы, превышающие заданный");
         this.collectionHandler = collectionHandler;
+        this.databaseHandler= databaseHandler;
     }
     
     @Override
@@ -42,6 +45,12 @@ public class RemoveGreater extends AbstractCommand{
         .stream()
         .filter(person -> person.getId() <= Integer.parseInt(request.getArguments()))
         .collect(Collectors.toCollection(LinkedList::new));
+
+        for (Person person : collectionHandler.getCollection()) {
+            if (!filteredList.contains(person)) {
+                databaseHandler.deletePerson(person.getId());
+            }
+        }
 
         collectionHandler.clear();
 
