@@ -19,7 +19,7 @@ public class Main {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
         try {
-            collectionHandler.setCollection(databaseHandler.getAllPersons(databaseHandler.connect()));
+            collectionHandler.setCollection(databaseHandler.getAllPersons());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -31,7 +31,7 @@ public class Main {
         Command show = new Show(collectionHandler);
         Command add = new Add(collectionHandler);
         Command exit = new Exit();
-        Command removeById = new RemoveById(collectionHandler);
+        Command removeById = new RemoveById(collectionHandler, databaseHandler);
         Command update = new Update(collectionHandler);
         Command clear = new Clear(collectionHandler);
         Command shuffle = new Shuffle(collectionHandler);

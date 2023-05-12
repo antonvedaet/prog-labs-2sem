@@ -49,8 +49,7 @@ public class Save extends AbstractCommand{
     @Override
     public String execute(Request request){
         if(argCheck(request.getArguments())){
-                Connection conn = databaseHandler.connect();
-                collectionHandler.getCollection().stream().forEach(person -> databaseHandler.savePerson(person, conn));
+                collectionHandler.getCollection().stream().forEach(person -> databaseHandler.savePerson(person));
         }
         return "1";
     }

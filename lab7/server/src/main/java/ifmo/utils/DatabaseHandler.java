@@ -34,9 +34,10 @@ public class DatabaseHandler {
           return conn;
     }
 
-    public void savePerson(Person person, Connection conn){
+    public void savePerson(Person person){
         if(!person.getSaved()){
             try{
+                Connection conn = connect();
                 PreparedStatement statement = conn.prepareStatement(
                   "INSERT INTO " +   "person " +
                   "(name, coordinates_x, coordinates_y, creation_date, height, birthday, eye_color, hair_color, location_x, location_y, location_z, location_name, creator) " +
@@ -73,7 +74,8 @@ public class DatabaseHandler {
               }
         }
     }
-    public LinkedList<Person> getAllPersons(Connection conn) throws SQLException {
+    public LinkedList<Person> getAllPersons() throws SQLException {
+        Connection conn = connect();
         LinkedList<Person> persons = new LinkedList<Person>();
             final String SELECT_ALL_PERSONS = "SELECT * FROM person";
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_ALL_PERSONS); {
@@ -110,8 +112,9 @@ public class DatabaseHandler {
         return persons;
     }
 
-    public void deletePerson(int id, Connection conn){
+    public void deletePerson(int id){
         try{
+            Connection conn = connect();
             PreparedStatement statement = conn.prepareStatement(
             "DELETE FROM person WHERE id = ?");
             
@@ -126,8 +129,9 @@ public class DatabaseHandler {
         }
     }
 
-    public void register(String login, String pwd, Connection conn){
+    public void register(String login, String pwd){
         try{
+            Connection conn = connect();
             PreparedStatement statement = conn.prepareStatement(
             "INSERT INTO users" +
             "(login, password)" +

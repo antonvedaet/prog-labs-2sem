@@ -1,6 +1,9 @@
 package ifmo.data;
 
-public class User {
+import java.io.Serializable;
+
+
+public class User implements Serializable{
     String login;
     String password;
 

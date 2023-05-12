@@ -4,6 +4,7 @@ import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 import ifmo.utils.CollectionHandler;
+import ifmo.utils.DatabaseHandler;
 
 import java.util.Optional;
 /**
@@ -12,10 +13,12 @@ import java.util.Optional;
 public class RemoveById extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
+    private DatabaseHandler databaseHandler;
 
-    public RemoveById(CollectionHandler collectionHandler) {
+    public RemoveById(CollectionHandler collectionHandler, DatabaseHandler databaseHandler) {
         super("remove_by_id", "удалить элемент коллекции по id");
         this.collectionHandler = collectionHandler;
+        this.databaseHandler = databaseHandler;
     }
     
     @Override
@@ -41,6 +44,7 @@ public class RemoveById extends AbstractCommand{
             .findFirst();
 
             bufferedPerson.ifPresent(collectionHandler::removePerson);
+            databaseHandler.deletePerson(bufferedPerson.get().getId());
         }
         return "1";
     }
