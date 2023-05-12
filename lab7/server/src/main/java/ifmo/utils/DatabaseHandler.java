@@ -20,7 +20,7 @@ public class DatabaseHandler {
     String user = "anton";
     String password = "A9152!208-";
     // String schema = "?currentSchema=anton_schema";
-    String url = "jdbc:postgresql://localhost:5432/anton?currentSchema=anton_schema";
+    String url = "jdbc:postgresql://localhost:5432/labs";
     private Logger logger = Logger.getLogger("logger");
 
     public Connection connect(){
@@ -110,6 +110,22 @@ public class DatabaseHandler {
         return persons;
     }
 
+    public void deletePerson(int id, Connection conn){
+        try{
+            PreparedStatement statement = conn.prepareStatement(
+            "DELETE FROM person WHERE id = ?");
+            
+            statement.setInt(1, id);
+
+        int rowsAffected = statement.executeUpdate();
+        if (rowsAffected == 0) {
+            throw new SQLException("Inserting person failed, no rows affected.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        }
+    }
+
     public void register(String login, String pwd, Connection conn){
         try{
             PreparedStatement statement = conn.prepareStatement(
@@ -123,7 +139,7 @@ public class DatabaseHandler {
 
         int rowsAffected = statement.executeUpdate();
         if (rowsAffected == 0) {
-            throw new SQLException("Inserting person failed, no rows affected.");
+            throw new SQLException("Registring failed, no rows affected.");
         }
     } catch (SQLException e) {
         e.printStackTrace();

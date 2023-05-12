@@ -17,12 +17,10 @@ import java.io.StringWriter;
 public class GroupCountingById extends AbstractCommand {
 
     private CollectionHandler collectionHandler;
-    private TCPServer server;
 
-    public GroupCountingById(CollectionHandler collectionHandler, TCPServer server) {
+    public GroupCountingById(CollectionHandler collectionHandler) {
         super("group_counting_by_id", "сгруппировывает элементы коллекции по значению поля id, выводит количество элементов в каждой группе");
         this.collectionHandler = collectionHandler;
-        this.server = server;
     }
     
     @Override

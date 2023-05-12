@@ -14,12 +14,10 @@ import ifmo.requests.Request;
 public class FilterContainsName extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
-    private TCPServer server;
 
-    public FilterContainsName(CollectionHandler collectionHandler, TCPServer server) {
+    public FilterContainsName(CollectionHandler collectionHandler) {
         super("filter_contains_name", "выводит элементы, значение поля name которых содержит заданную подстроку");
         this.collectionHandler = collectionHandler;
-        this.server = server;
     }
     
     @Override

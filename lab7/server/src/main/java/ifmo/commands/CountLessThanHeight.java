@@ -14,12 +14,10 @@ import ifmo.utils.CollectionHandler;
 public class CountLessThanHeight extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
-    private TCPServer server;
 
-    public CountLessThanHeight(CollectionHandler collectionHandler, TCPServer server) {
+    public CountLessThanHeight(CollectionHandler collectionHandler) {
         super("count_less_than_height", "выводит количество элементов, значение поля height которых меньше заданного");
         this.collectionHandler = collectionHandler;
-        this.server = server;
     }
     
     @Override

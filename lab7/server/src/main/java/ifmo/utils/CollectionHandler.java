@@ -154,23 +154,7 @@ public class CollectionHandler {
             lock.readLock().unlock();
         }
     }
-    /**
-     * Загружает коллецию из json
-     * @see ifmo.utils.FileManager#readFromFile()
-     */
-    public void loadCollection(){
-        FileManager fileManager = new FileManager();
-        Person[] persons;
-        try{
-           persons = fileManager.readFromFile();
-           for (Person person : persons) {
-            addPerson(person);
-        }
-        } catch (IOException e) {
-            IOHandler.println("Ошибка при чтении файла: " + e);
-        }
-        
-    }
+
     /**
      *Выводит все объекты в коллекции в строковом представлении
      */

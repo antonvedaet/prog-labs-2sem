@@ -67,9 +67,9 @@ public class TCPClient {
             ObjectOutput objectOutput = new ObjectOutputStream(this.clientSocket.socket().getOutputStream());
             InputStream in = clientSocket.socket().getInputStream();
             if(command.equals("add") || command.equals("update")){
-                objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate(user)));
+                objectOutput.writeObject(new Request(command, argument, new PersonCreator().personCreate(user), user));
             } else {
-                objectOutput.writeObject(new Request(command, argument, null));
+                objectOutput.writeObject(new Request(command, argument, null, user));
             }
     
             byte[] buffer = new byte[1024];

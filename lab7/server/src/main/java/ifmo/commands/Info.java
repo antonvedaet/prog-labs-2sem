@@ -13,12 +13,10 @@ import ifmo.requests.Request;
 public class Info extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
-    private TCPServer server;
 
-    public Info(CollectionHandler collectionHandler, TCPServer server) {
+    public Info(CollectionHandler collectionHandler) {
         super("info", "вывести информацию о коллекции");
         this.collectionHandler = collectionHandler;
-        this.server = server;
     }
     
     @Override

@@ -3,7 +3,6 @@ package ifmo.commands;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.utils.CollectionHandler;
 import ifmo.utils.DatabaseHandler;
-import ifmo.utils.FileManager;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 
@@ -16,12 +15,10 @@ import java.sql.SQLException;
 public class Save extends AbstractCommand{
 
     private CollectionHandler collectionHandler;
-    FileManager fileManager;
     private DatabaseHandler databaseHandler;
-    public Save(CollectionHandler collectionHandler, FileManager fileManager, DatabaseHandler databaseHandler) {
+    public Save(CollectionHandler collectionHandler, DatabaseHandler databaseHandler) {
         super("save", "сохраняет коллекцию в файл");
         this.collectionHandler = collectionHandler;
-        this.fileManager = fileManager;
         this.databaseHandler = databaseHandler;
     }
     

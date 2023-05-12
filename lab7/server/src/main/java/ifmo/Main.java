@@ -13,7 +13,6 @@ import ifmo.utils.*;
 public class Main {
     public static void main(String[] args) {
         CollectionHandler collectionHandler = new CollectionHandler();
-        FileManager fileManager = new FileManager();
         PersonValidator personValidator = new PersonValidator(collectionHandler);
         Scanner scanner = new Scanner(System.in);
 
@@ -28,20 +27,20 @@ public class Main {
 
         TCPServer server = new TCPServer();
 
-        Command info = new Info(collectionHandler, server);
-        Command show = new Show(collectionHandler, server);
+        Command info = new Info(collectionHandler);
+        Command show = new Show(collectionHandler);
         Command add = new Add(collectionHandler);
         Command exit = new Exit();
         Command removeById = new RemoveById(collectionHandler);
         Command update = new Update(collectionHandler);
         Command clear = new Clear(collectionHandler);
         Command shuffle = new Shuffle(collectionHandler);
-        Command save = new Save(collectionHandler, fileManager, databaseHandler);
+        Command save = new Save(collectionHandler, databaseHandler);
         Command reorder = new Reorder(collectionHandler);
-        Command countLessThanHeight = new CountLessThanHeight(collectionHandler, server);
+        Command countLessThanHeight = new CountLessThanHeight(collectionHandler);
         Command removeGreater = new RemoveGreater(collectionHandler);
-        Command groupCountingById = new GroupCountingById(collectionHandler, server);
-        Command filterContainsName = new FilterContainsName(collectionHandler, server);
+        Command groupCountingById = new GroupCountingById(collectionHandler);
+        Command filterContainsName = new FilterContainsName(collectionHandler);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
         map.put(info.getName(), info);
@@ -65,11 +64,11 @@ public class Main {
                 String command = scanner.nextLine();
                 if(command.trim().equals(exit.getName())){
                     scanner.close();
-                    save.execute(new Request("save", "placeholderArg", null));
-                    exit.execute(new Request("exit", "placeholderArg", null));
+                    save.execute(new Request("save", "placeholderArg", null, null));
+                    exit.execute(new Request("exit", "placeholderArg", null, null));
                 }
                 if(command.trim().equals(save.getName())){
-                    save.execute(new Request("save", "placeholderArg", null));
+                    save.execute(new Request("save", "placeholderArg", null, null));
                 } else {
                     IOHandler.serverMsg("Такой команды не существует, на сервере доступны только команды save и exit");
                 }
