@@ -38,9 +38,8 @@ public class Add extends AbstractCommand {
     public String execute(Request request){
         if(argCheck(request.getArguments())){
             Person person = request.getPerson();
-            person.setId(collectionHandler.generateNextId());
+            person.setId(databaseHandler.savePerson(person));
             collectionHandler.addPerson(person);
-            new Save(collectionHandler, databaseHandler).execute(request);
         }
         return "1";
     }

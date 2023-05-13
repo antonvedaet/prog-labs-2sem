@@ -42,7 +42,7 @@ public class RemoveById extends AbstractCommand{
             Optional<Person> bufferedPerson = collectionHandler.getCollection().stream()
             .filter(person -> person.getId() == Integer.parseInt(request.getArguments()))
             .findFirst();
-            if(bufferedPerson.get().getCreator().equals(request.getUser())){
+            if(bufferedPerson.get().getCreator().equals(request.getUser().getLogin())){
             bufferedPerson.ifPresent(collectionHandler::removePerson);
             databaseHandler.deletePerson(bufferedPerson.get().getId());
             } else {

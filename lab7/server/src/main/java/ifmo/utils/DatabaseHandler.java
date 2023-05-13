@@ -32,7 +32,8 @@ public class DatabaseHandler {
           return conn;
     }
 
-    public void savePerson(Person person){
+    public int savePerson(Person person){
+        int generatedId = -1;
         if(!person.getSaved()){
             try{
                 Connection conn = connect();
@@ -62,16 +63,19 @@ public class DatabaseHandler {
               if (rowsAffected == 0) {
                   throw new SQLException("Inserting person failed, no rows affected.");
               }
-              try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                  if (generatedKeys.next()) {
-                      person.setId(generatedKeys.getInt(1));
+              Statement selectStatement = conn.createStatement();
+              try (ResultSet rs = selectStatement.executeQuery("SELECT MAX(id) FROM person")) {
+                  if (rs.next()) {
+                    generatedId = rs.getInt(1);
                   }
               }
           } catch (SQLException e) {
               e.printStackTrace();
               }
         }
+        return generatedId;
     }
+
     public LinkedList<Person> getAllPersons() throws SQLException {
         Connection conn = connect();
         LinkedList<Person> persons = new LinkedList<Person>();
