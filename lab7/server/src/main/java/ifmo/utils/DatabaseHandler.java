@@ -131,8 +131,7 @@ public class DatabaseHandler {
         }
     }
 
-    public void register(String login, String pwd){
-        try{
+    public void register(String login, String pwd) throws SQLException{
             Connection conn = connect();
             PreparedStatement statement = conn.prepareStatement(
             "INSERT INTO users" +
@@ -146,9 +145,6 @@ public class DatabaseHandler {
         int rowsAffected = statement.executeUpdate();
         if (rowsAffected == 0) {
             throw new SQLException("Registring failed, no rows affected.");
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
         }
     }
 

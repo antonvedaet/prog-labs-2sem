@@ -46,7 +46,7 @@ public class CountLessThanHeight extends AbstractCommand{
     
             return sw.toString();
         } else {
-            return "Invalid arguments";
+            return "";
         }
     }
 }

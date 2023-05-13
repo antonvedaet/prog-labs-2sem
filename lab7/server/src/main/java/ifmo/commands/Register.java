@@ -1,4 +1,6 @@
 package ifmo.commands;
+import java.sql.SQLException;
+
 import ifmo.exceptions.ElementAmountException;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
@@ -36,7 +38,11 @@ public class Register extends AbstractCommand {
         if(argCheck(request.getArguments())){
             Hasher hasher = new Hasher("SHA-256");
             if(!databaseHandler.checkIfUserExists(request.getUser().getLogin(), hasher.encode(request.getUser().getPassword()))){
+                try{
                     databaseHandler.register(request.getUser().getLogin(), request.getUser().getPassword());
+                } catch (SQLException sqle) {
+                    return "Пользователь с таким логином уже существует";
+                }
             } else {
                 return "Пользователь с таким логином уже существует";
             }

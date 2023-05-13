@@ -25,6 +25,9 @@ public class TCPServer{
     ExecutorService executorService = Executors.newCachedThreadPool();
     BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
     BlockingQueue<Request> requestQueue = new LinkedBlockingQueue<>();
+    BlockingQueue<Throwable> errorQueue = new LinkedBlockingQueue<>();
+    //Блокируюшая очередь с ошибками
+
 
     public void start(HashMap<String, Command> map, CollectionHandler collectionHandler){
         openServerSocket();
@@ -33,13 +36,9 @@ public class TCPServer{
             try{
                 this.clientSocket = serverSocketChannel.accept();
                 logger.log(Level.FINER, "Подключение успешно");
-                executorService.submit(new RequestHandler(map, clientSocket, logger, requestQueue));//1
-                new Thread(new Executor(map, clientSocket.socket(), executorService, requestQueue, messageQueue)).start();//2
-                try {
-                    executorService.submit(new OutputSocketWriter(clientSocket.socket(), messageQueue)); //3
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                executorService.submit(new RequestHandler(map, clientSocket, logger, requestQueue, errorQueue));//1
+                new Thread(new Executor(map, clientSocket.socket(), requestQueue, messageQueue, errorQueue)).start();//2
+                executorService.submit(new OutputSocketWriter(clientSocket.socket(), messageQueue, errorQueue)); //3
             } catch (IOException ioe) {
                 logger.log(Level.SEVERE,"Не удалось подключиться к клиенту: ", ioe.getMessage());
             }
@@ -74,20 +73,28 @@ public class TCPServer{
         private SocketChannel clientSocket;
         private Logger logger;
         BlockingQueue<Request> requestQueue;
+        BlockingQueue<Throwable> errorQueue;
 
-        public RequestHandler(HashMap<String, Command> map, SocketChannel clientSocket, Logger logger, BlockingQueue<Request> requestQueue) {
+        public RequestHandler(HashMap<String, Command> map, SocketChannel clientSocket, Logger logger, BlockingQueue<Request> requestQueue, BlockingQueue<Throwable> errorQueue) {
             this.map = map;
             this.clientSocket = clientSocket;
             this.logger = logger;
             this.requestQueue = requestQueue;
+            this.errorQueue = errorQueue;
         }
     
         @Override
         public void run() {
             try {
                 processRequest(map);
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (Throwable e) {
                 logger.log(Level.SEVERE, "Ошибка при обработке запроса: ", e.getMessage());
+                try {
+                    errorQueue.put(e);
+                    requestQueue.put(new Request("err", "err", null, null));
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     

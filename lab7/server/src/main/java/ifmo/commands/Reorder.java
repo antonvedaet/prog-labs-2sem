@@ -31,6 +31,6 @@ public class Reorder extends AbstractCommand{
         if(argCheck(request.getArguments())){
             collectionHandler.reorder();
         }
-        return "1";
+        return "";
     }
 }

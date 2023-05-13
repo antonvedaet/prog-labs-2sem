@@ -47,7 +47,7 @@ public class Save extends AbstractCommand{
         if(argCheck(request.getArguments())){
                 collectionHandler.getCollection().stream().forEach(person -> databaseHandler.savePerson(person));
         }
-        return "1";
+        return "";
     }
 }
 //класс который будет просто ранить экзекут каждой команды

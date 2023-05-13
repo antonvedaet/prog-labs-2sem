@@ -76,6 +76,6 @@ public class UserHelper {
                 ask(scanner);
             }
         }      
-        return false; 
+        return ask(scanner); 
     }
 }

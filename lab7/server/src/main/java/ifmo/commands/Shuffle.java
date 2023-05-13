@@ -31,6 +31,6 @@ public class Shuffle extends AbstractCommand{
         if(argCheck(request.getArguments())){
             collectionHandler.shuffle();
         }
-        return "1";
+        return "";
     }
 }

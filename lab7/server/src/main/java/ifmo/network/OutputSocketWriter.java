@@ -8,26 +8,28 @@ import java.util.concurrent.BlockingQueue;
 public class OutputSocketWriter implements Runnable {
 
     private final Socket socket;
-    private final String msg;
+    private String msg;
     BlockingQueue<String> messageQueue;
+    BlockingQueue<Throwable> errorQueue;
 
-    public OutputSocketWriter(Socket socket, BlockingQueue<String> messageQueue) throws InterruptedException{
+    public OutputSocketWriter(Socket socket, BlockingQueue<String> messageQueue, BlockingQueue<Throwable> errorQueue){
         this.socket = socket;
         this.messageQueue = messageQueue;
-        this.msg = messageQueue.take();
+        this.errorQueue = errorQueue;
     }
 
     @Override
     public void run() {
         try {
+            this.msg = messageQueue.take();
             if (!socket.isClosed()) {
                 PrintWriter outputStream = new PrintWriter(socket.getOutputStream(), true);
                 outputStream.println(msg);
             } else {
                 System.out.println("Сокет закрыт");
             }
-        } catch (IOException e) {
-            System.out.println("Ошибка при отправке ответа: " + e.getMessage());
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
         }
     }
 }

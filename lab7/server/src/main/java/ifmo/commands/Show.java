@@ -35,7 +35,7 @@ public class Show extends AbstractCommand {
     
             return sw.toString();
         } else {
-            return "Invalid arguments";
+            return "";
         }
     }
     

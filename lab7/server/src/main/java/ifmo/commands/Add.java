@@ -41,6 +41,6 @@ public class Add extends AbstractCommand {
             person.setId(databaseHandler.savePerson(person));
             collectionHandler.addPerson(person);
         }
-        return "1";
+        return "";
     }
 }

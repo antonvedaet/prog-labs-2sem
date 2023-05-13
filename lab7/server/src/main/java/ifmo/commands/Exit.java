@@ -25,6 +25,6 @@ public class Exit extends AbstractCommand {
         if(argCheck(request.getArguments())){
             System.exit(0);
         }
-        return "1";
+        return "";
     }//WIP
 }

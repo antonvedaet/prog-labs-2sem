@@ -64,12 +64,12 @@ public class ExecuteScript extends AbstractCommand {
                     }
                 }
             } catch (IOException e) {
-                IOHandler.println("Ошибка при выполнении скрипта: " + request.getArguments());
+                return "Ошибка при выполнении скрипта: " + request.getArguments();
             } catch (RecursionException re){
-                IOHandler.println("Скрипт или цепочка скриптов не могут выполнять сами себя.");
+                return ("Скрипт или цепочка скриптов не могут выполнять сами себя.");
             }
         }
         prevScripts.clear();
-        return "1";
+        return "";
     }
 }

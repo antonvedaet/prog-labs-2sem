@@ -35,6 +35,6 @@ public class Clear extends AbstractCommand{
         if(argCheck(request.getArguments())){
             collectionHandler.clear();
         }
-        return "1";
+        return "";
     }
 }
