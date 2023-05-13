@@ -42,6 +42,14 @@ public class UserHelper {
         String login = scanner.nextLine();
         System.out.println("Введите пароль:");
         String pwd = scanner.nextLine();
+        if(login.trim().isBlank()){
+            IOHandler.println("Логин не может быть пустой строкой");
+            return createUser(scanner);
+        }
+        if(pwd.trim().isBlank()){
+            IOHandler.println("Пароль не может быть пустой строкой");
+            return createUser(scanner);
+        }
         return new User(login, pwd);
     }
 
