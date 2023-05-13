@@ -1,7 +1,5 @@
 package ifmo.commands;
 
-import java.net.Socket;
-
 import ifmo.requests.Request;
 
 public interface  Command {

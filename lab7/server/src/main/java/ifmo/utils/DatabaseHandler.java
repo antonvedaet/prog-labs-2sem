@@ -7,14 +7,10 @@ import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
-import javax.sql.ConnectionEvent;
-
 import ifmo.data.Color;
-import ifmo.utils.Hasher;
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
 import ifmo.data.Person;
-import ifmo.data.User;
 
 public class DatabaseHandler {
 

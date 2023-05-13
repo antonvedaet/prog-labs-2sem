@@ -5,10 +5,6 @@ import ifmo.utils.CollectionHandler;
 import ifmo.utils.DatabaseHandler;
 import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 /**
  * Класс отвечающий за команду save
  */

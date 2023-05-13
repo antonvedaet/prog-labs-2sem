@@ -1,11 +1,7 @@
 package ifmo.commands;
-import java.sql.SQLException;
-
-import ifmo.data.Person;
 import ifmo.exceptions.ElementAmountException;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
-import ifmo.utils.CollectionHandler;
 import ifmo.utils.DatabaseHandler;
 import ifmo.utils.Hasher;
 /**

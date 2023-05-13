@@ -1,12 +1,10 @@
 package ifmo.utils;
-import java.io.IOException;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 
 import ifmo.commands.Command;
-import ifmo.network.OutputSocketWriter;
 import ifmo.requests.Request;;
 
 public class Executor implements Runnable {

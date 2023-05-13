@@ -1,12 +1,9 @@
 package ifmo.commands;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import ifmo.exceptions.ElementAmountException;
-import ifmo.network.TCPServer;
 import ifmo.utils.CollectionHandler;
-import ifmo.utils.IOHandler;
 import ifmo.requests.Request;
 /**
  * Класс отвечающий за команду show
