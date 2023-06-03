@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifmo.gui.controllers.AuthController">
+   <children>
+      <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="125.0" promptText="Password" />
+      <TextField fx:id="loginField" layoutX="226.0" layoutY="94.0" promptText="Login" />
+      <Button fx:id="loginButton" layoutX="226.0" layoutY="188.0" mnemonicParsing="false" text="Вход" onAction="#handleButton" />
+      <Button  fx:id="registerButton" layoutX="290.0" layoutY="188.0" mnemonicParsing="false" text="Регистрация" onAction="#handleButton" />
+   </children>
+</AnchorPane>
