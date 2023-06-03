@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="AnchorPane" prefHeight="150" prefWidth="300"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="Auth">
+    <VBox alignment="CENTER" layoutX="50" layoutY="30" spacing="10">
+        <Label text="Login" />
+        <TextField fx:id="emailField" promptText="Email" />
+        <PasswordField fx:id="passwordField" promptText="Password" />
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="registerButton" text="Register" />
+            <Button fx:id="loginButton" text="Login" />
+        </HBox>
+    </VBox>
+</fx:root>
+

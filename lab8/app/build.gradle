@@ -38,7 +38,7 @@ run {
 
 
 javafx {
-    modules = [ 'javafx.controls' ]
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 test {
