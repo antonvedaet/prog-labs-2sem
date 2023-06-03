@@ -7,14 +7,21 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-import ifmo.view.*;
+import ifmo.gui.controllers.AuthController;
+import ifmo.network.TCPClient;
 import javafx.stage.Stage;
 
-public class App extends Application {
+public class App extends Application { 
+
     @Override
     public void start(Stage primaryStage) {
+        TCPClient tcpClient = new TCPClient();
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Auth.fxml"));
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Auth.fxml"));
+            fxmlLoader.setController(new AuthController(tcpClient));
+            Parent root = fxmlLoader.load();
+            
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
