@@ -1,7 +1,7 @@
 package ifmo.data;
 
 import java.io.Serializable;
-
+import javafx.beans.property.*;
 /**
  * Класс который является одним из полей Person
  * @see Person
@@ -12,11 +12,15 @@ public class Location  implements Serializable {
     private Double z;
     private String name; //Длина строки не должна быть больше 869, Поле может быть null
 
+
+    private StringProperty nameProperty = new SimpleStringProperty();
     public Location(Integer x, Double y, Double z, String name){
         this.x = x;
         this.y = y;
         this.z = z;
         this.name = name;
+
+        nameProperty.bindBidirectional(new SimpleStringProperty(name));
     }
 
     public Location(){}
@@ -51,5 +55,9 @@ public class Location  implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public StringProperty getNameProperty() {
+        return nameProperty;
     }
 }

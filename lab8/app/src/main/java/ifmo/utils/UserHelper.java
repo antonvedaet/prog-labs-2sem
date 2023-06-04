@@ -9,6 +9,7 @@ import ifmo.requests.Request;
 
 public class UserHelper {
     TCPClient client;
+    static String login;
     
     public UserHelper(TCPClient client){
         this.client = client;
@@ -34,6 +35,14 @@ public class UserHelper {
             e.printStackTrace();
         }
         return "Ошибка при получении ответа";
+    }
+
+    public boolean verify(String req, User user){
+        if(req.trim().equals("Пользователь успешно зарегестрирован!".trim()) || req.trim().equals("Теперь вам доступны комманды, используйте help для их просмотра".trim())){
+            login = user.getLogin();
+            return true;
+        }
+        return false;
     }
 
     // public boolean ask(Scanner scanner){
