@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1337.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="371.0" prefWidth="110.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Command_1" />
+            <Button mnemonicParsing="false" text="Command_2" />
+            <Button mnemonicParsing="false" text="Command_3" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <TableView fx:id="tableView" prefHeight="736.0" prefWidth="1357.0" BorderPane.alignment="CENTER">
+        <columns>
+      <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />
+      <TableColumn fx:id="latitudeColumn" prefWidth="158.0" text="Широта местоположения" />
+      <TableColumn fx:id="longitudeColumn" prefWidth="164.0" text="Долгота местоположения" />
+      <TableColumn fx:id="creationDateColumn" prefWidth="91.0" text="Дата создания" />
+      <TableColumn fx:id="heightColumn" prefWidth="68.0" text="Рост" />
+      <TableColumn fx:id="birthdayColumn" prefWidth="98.0" text="Дата рождения" />
+      <TableColumn fx:id="eyeColorColumn" prefWidth="72.0" text="Цвет глаз" />
+      <TableColumn fx:id="hairColorColumn" prefWidth="94.0" text="Цвет волос" />
+      <TableColumn fx:id="locationColumn" prefWidth="132.0" text="Место жительства" />
+      <TableColumn fx:id="creatorColumn" prefWidth="75.0" text="Создатель" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="39.0" prefWidth="624.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Профиль" />
+            <Button mnemonicParsing="false" text="Визуализация " />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

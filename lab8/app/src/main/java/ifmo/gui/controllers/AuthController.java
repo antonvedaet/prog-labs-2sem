@@ -40,7 +40,7 @@ public class AuthController {
             //     //transfer to next page
             // }
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Table.fxml"));
-            loader.setController(new TableController());
+            loader.setController(new TableController(_tcpClient));
             Parent root;
             try {
                 root = loader.load();

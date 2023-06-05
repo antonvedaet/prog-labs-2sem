@@ -35,6 +35,12 @@ public class Coordinates  implements Serializable {
         this.y = y;
     }
 
+    
+    public void bindProperties(){
+        xProperty.bindBidirectional(new SimpleIntegerProperty(x));
+        yProperty.bindBidirectional(new SimpleLongProperty(y));
+    }
+    
     public IntegerProperty getXProperty() {
         return xProperty;
     }

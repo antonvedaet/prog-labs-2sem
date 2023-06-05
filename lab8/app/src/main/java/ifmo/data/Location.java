@@ -57,6 +57,10 @@ public class Location  implements Serializable {
         this.name = name;
     }
 
+    public void bindProperties(){
+        nameProperty.bindBidirectional(new SimpleStringProperty(name));
+    }
+
     public StringProperty getNameProperty() {
         return nameProperty;
     }

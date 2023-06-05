@@ -6,15 +6,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
 import ifmo.data.Person;
+import ifmo.network.TCPClient;
+import ifmo.requests.Request;
+import ifmo.utils.Deserializator;
 import ifmo.data.Color;
 
 public class TableController {
+
+    TCPClient tcpClient;
     
     // Reference the TableView from the FXML file
     @FXML
@@ -42,36 +49,21 @@ public class TableController {
     @FXML
     private TableColumn<Person, String> creatorColumn;
 
+    TableController(TCPClient tcpClient){
+        this.tcpClient = tcpClient;
+    }
+
     // Set up the table with sample data
     public void initialize() {
-        // Create some sample person objects to display in the table
-        Person person1 = new Person(
-            1,
-            "DOD",
-            new Coordinates(47, 123),
-            LocalDate.of(2021, 6, 3),
-            5.5f,
-            LocalDateTime.of(1985, 9, 3, 0, 0),
-            Color.GREEN,
-            Color.BLACK,
-            new Location(1,2D,2D,"London"),
-            "asd"
-        );
-        Person person2 = new Person(
-            2,
-            "Jane Doe",
-            new Coordinates(47, 123),
-            LocalDate.of(2021, 6, 3),
-            5.5f,
-            LocalDateTime.of(1985, 9, 3, 0, 0),
-            Color.GREEN,
-            Color.BLACK,
-            new Location(1,2D,2D,"London"),
-            "asd"
-        );
 
-        // Add the person objects to a list
-        var people = FXCollections.observableArrayList(person1, person2);
+        LinkedList<Person> linkedList = null;
+        try {
+            linkedList = tcpClient.loadCollection();
+            System.out.println(linkedList.getLast().getNameProperty());
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        var people = FXCollections.observableArrayList(linkedList);
 
         // Set up each TableColumn to display the relevant data from the Person objects
         nameColumn.setCellValueFactory(data -> data.getValue().getNameProperty());

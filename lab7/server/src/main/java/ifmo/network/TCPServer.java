@@ -3,8 +3,10 @@ package ifmo.network;
 import ifmo.requests.Request;
 import ifmo.utils.*;
 import ifmo.commands.Command;
+import ifmo.data.Person;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

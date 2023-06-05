@@ -130,6 +130,23 @@ public class Person implements Serializable{
         return saved;
     }
 
+    public void bindProperties(){
+
+        coordinates.bindProperties();
+        location.bindProperties();
+        idProperty.bindBidirectional(new SimpleIntegerProperty(id));
+        nameProperty.bindBidirectional(new SimpleStringProperty(name));
+        coordinatesProperty.bindBidirectional(new SimpleObjectProperty<>(coordinates));
+        creationDateProperty.bindBidirectional(new SimpleObjectProperty<>(creationDate));
+        heightProperty.bindBidirectional(new SimpleFloatProperty(height));
+        birthdayProperty.bindBidirectional(new SimpleObjectProperty<>(birthday));
+        eyeColorProperty.bindBidirectional(new SimpleObjectProperty<>(eyeColor));
+        hairColorProperty.bindBidirectional(new SimpleObjectProperty<>(hairColor));
+        locationProperty.bindBidirectional(new SimpleObjectProperty<>(location));
+        creatorProperty.bindBidirectional(new SimpleStringProperty(creator));
+        savedProperty.bindBidirectional(new SimpleBooleanProperty(saved));
+    }
+
     //JAVAFX
     public IntegerProperty getIdProperty() {
         return idProperty;

@@ -43,6 +43,7 @@ public class Main {
         Command filterContainsName = new FilterContainsName(collectionHandler);
         Command register = new Register(databaseHandler);
         Command login = new Login(databaseHandler);
+        Command load = new Load(collectionHandler);
 
         HashMap<String, Command> map= new HashMap<String, Command>();
         map.put(info.getName(), info);
@@ -59,6 +60,7 @@ public class Main {
         map.put(filterContainsName.getName(), filterContainsName);
         map.put(register.getName(), register);
         map.put(login.getName(), login);
+        map.put(load.getName(), load);
 
         Command executeScript = new ExecuteScript(map);
         map.put(executeScript.getName(), executeScript);

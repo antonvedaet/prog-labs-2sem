@@ -2,14 +2,17 @@ package ifmo.network;
 
 import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
+import ifmo.data.Person;
 import ifmo.data.User;
 import ifmo.commands.Exit;
 import ifmo.requests.Request;
 import ifmo.utils.IOHandler;
 import ifmo.utils.PersonCreator;
 import ifmo.utils.CommandHelper;
+import ifmo.utils.Deserializator;
 
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedList;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
 import java.io.*;
@@ -72,7 +75,7 @@ public class TCPClient {
                 objectOutput.writeObject(new Request(command, argument, null, user));
             }
     
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[2048];
             int bytesRead = in.read(buffer);
             String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
             closeConnection();
@@ -95,6 +98,12 @@ public class TCPClient {
             return(message.trim()+ "\n");  
         }
         return "";
+    }
+
+    public LinkedList<Person> loadCollection() throws IOException, InterruptedException{
+        LinkedList<Person> linkedList = (LinkedList<Person>) new Deserializator().deserializeFromJson(this.sendRequest(new Request("load", "placeholderArg", null, null)));
+        linkedList.stream().forEach(Person::bindProperties);
+        return linkedList;
     }
 
 }
