@@ -5,11 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import ifmo.data.Coordinates;
 import ifmo.data.Location;
@@ -53,44 +56,45 @@ public class TableController {
         this.tcpClient = tcpClient;
     }
 
-    // Set up the table with sample data
     public void initialize() {
 
-        LinkedList<Person> linkedList = null;
-        try {
-            linkedList = tcpClient.loadCollection();
-            System.out.println(linkedList.getLast().getNameProperty());
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        var people = FXCollections.observableArrayList(linkedList);
+        Timer timer = new Timer();
 
-        // Set up each TableColumn to display the relevant data from the Person objects
-        nameColumn.setCellValueFactory(data -> data.getValue().getNameProperty());
-        latitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getXProperty().asString());
-        longitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getYProperty().asString());
-        creationDateColumn.setCellValueFactory(data -> data.getValue().getCreationDateProperty());
-        heightColumn.setCellValueFactory(data -> data.getValue().getHeightProperty().asObject());
-        birthdayColumn.setCellValueFactory(data -> data.getValue().getBirthdayProperty());
-        eyeColorColumn.setCellValueFactory(data -> data.getValue().getEyeColorProperty());
-        hairColorColumn.setCellValueFactory(data -> data.getValue().getHairColorProperty());
-        locationColumn.setCellValueFactory(data -> data.getValue().getLocationProperty().getValue().getNameProperty());
-        creatorColumn.setCellValueFactory(data -> data.getValue().getCreatorProperty());
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                LinkedList<Person> linkedList = null;
+                try {
+                    linkedList = tcpClient.loadCollection();
 
-        // Add the list of person objects to the TableView
-        tableView.setItems(people);
+                    var people = FXCollections.observableArrayList(linkedList);
+
+                    nameColumn.setCellValueFactory(data -> data.getValue().getNameProperty());
+                    latitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getXProperty().asString());
+                    longitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getYProperty().asString());
+                    creationDateColumn.setCellValueFactory(data -> data.getValue().getCreationDateProperty());
+                    heightColumn.setCellValueFactory(data -> data.getValue().getHeightProperty().asObject());
+                    birthdayColumn.setCellValueFactory(data -> data.getValue().getBirthdayProperty());
+                    eyeColorColumn.setCellValueFactory(data -> data.getValue().getEyeColorProperty());
+                    hairColorColumn.setCellValueFactory(data -> data.getValue().getHairColorProperty());
+                    locationColumn.setCellValueFactory(data -> data.getValue().getLocationProperty().getValue().getNameProperty());
+                    creatorColumn.setCellValueFactory(data -> data.getValue().getCreatorProperty());
+
+                    tableView.setItems(people);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 0, 5000);
     }
 
-    // Handle button events
     @FXML
     private void handleProfileButton() {
-        // Code to open the user's profile could go here
         System.out.println("Opening user profile...");
     }
 
     @FXML
     private void handleVisualizationButton() {
-        // Code to open the visualization could go here
         System.out.println("Opening visualization...");
     }
 }
