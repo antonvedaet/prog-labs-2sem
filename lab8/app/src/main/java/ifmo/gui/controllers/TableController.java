@@ -25,12 +25,10 @@ import ifmo.data.Color;
 public class TableController {
 
     TCPClient tcpClient;
-    
-    // Reference the TableView from the FXML file
+
     @FXML
     private TableView<Person> tableView;
 
-    // Reference each TableColumn from the FXML file
     @FXML
     private TableColumn<Person, String> nameColumn;
     @FXML
