@@ -12,7 +12,7 @@
       <VBox prefHeight="371.0" prefWidth="110.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton"/>
-            <Button mnemonicParsing="false" text="Command_2" />
+            <Button fx:id="remove_by_id" mnemonicParsing="false" text="Удалить" onAction="#handleRemoveById"/>
             <Button mnemonicParsing="false" text="Command_3" />
          </children>
       </VBox>
@@ -20,6 +20,7 @@
    <center>
       <TableView fx:id="tableView" prefHeight="736.0" prefWidth="1357.0" BorderPane.alignment="CENTER">
         <columns>
+      <TableColumn fx:id="idColumn" prefWidth="75.0" text="id"/>
       <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />
       <TableColumn fx:id="latitudeColumn" prefWidth="158.0" text="Широта местоположения" />
       <TableColumn fx:id="longitudeColumn" prefWidth="164.0" text="Долгота местоположения" />

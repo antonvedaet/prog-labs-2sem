@@ -35,10 +35,14 @@ public class TableController {
 
     @FXML
     private Button addButton;
+    @FXML
+    private Button removeButton;
 
     @FXML
     private TableView<DisplayPerson> tableView;
 
+    @FXML
+    private TableColumn<DisplayPerson, String> idColumn;
     @FXML
     private TableColumn<DisplayPerson, String> nameColumn;
     @FXML
@@ -76,7 +80,7 @@ public class TableController {
                     linkedList = tcpClient.loadCollection();
 
                     var people = FXCollections.observableArrayList(linkedList);
-
+                    idColumn.setCellValueFactory(data -> data.getValue().getIdProperty().asString());
                     nameColumn.setCellValueFactory(data -> data.getValue().getNameProperty());
                     latitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getXProperty().asString());
                     longitudeColumn.setCellValueFactory(data -> data.getValue().getCoordinatesProperty().getValue().getYProperty().asString());
@@ -104,6 +108,31 @@ public class TableController {
     @FXML
     private void handleVisualizationButton() {
         System.out.println("Opening visualization...");
+    }
+
+    //Remove
+    @FXML
+    private void handleRemoveById() {
+
+        TextInputDialog toRemove = new TextInputDialog();
+        toRemove.setHeaderText(null);
+        toRemove.setContentText("Введите id элемента который вы хотите удалить");
+        Optional<String> res = toRemove.showAndWait();
+
+        if (!res.isPresent() || res.get().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Введите id.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            tcpClient.sendRequest(new Request("remove_by_id", res.get(), null, UserHelper.logged_user));
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     //ADD
