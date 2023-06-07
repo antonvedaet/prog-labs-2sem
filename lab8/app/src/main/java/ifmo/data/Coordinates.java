@@ -10,15 +10,10 @@ public class Coordinates  implements Serializable {
     private int x; //Значение поля должно быть больше -72
     private long y; //Значение поля должно быть больше -647
 
-    private IntegerProperty xProperty = new SimpleIntegerProperty();
-    private LongProperty yProperty = new SimpleLongProperty();
-
     public Coordinates(int x, long y){
         this.x = x;
         this.y = y;
-
-        xProperty.bindBidirectional(new SimpleIntegerProperty(x));
-        yProperty.bindBidirectional(new SimpleLongProperty(y));
+        
     }
     public Coordinates(){}
 
@@ -35,16 +30,4 @@ public class Coordinates  implements Serializable {
         this.y = y;
     }
 
-    
-    public void bindProperties(){
-        xProperty.bindBidirectional(new SimpleIntegerProperty(x));
-        yProperty.bindBidirectional(new SimpleLongProperty(y));
-    }
-    
-    public IntegerProperty getXProperty() {
-        return xProperty;
-    }
-    public LongProperty getYProperty() {
-        return yProperty;
-    }
 }

@@ -11,7 +11,7 @@
    <left>
       <VBox prefHeight="371.0" prefWidth="110.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Command_1" />
+            <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton"/>
             <Button mnemonicParsing="false" text="Command_2" />
             <Button mnemonicParsing="false" text="Command_3" />
          </children>

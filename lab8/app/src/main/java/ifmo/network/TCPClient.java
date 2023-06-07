@@ -2,6 +2,7 @@ package ifmo.network;
 
 import ifmo.commands.ExecuteScript;
 import ifmo.commands.Help;
+import ifmo.data.DisplayPerson;
 import ifmo.data.Person;
 import ifmo.data.User;
 import ifmo.commands.Exit;
@@ -13,6 +14,7 @@ import ifmo.utils.Deserializator;
 
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 import java.net.InetSocketAddress;
 import java.nio.channels.SocketChannel;
 import java.io.*;
@@ -75,7 +77,7 @@ public class TCPClient {
                 objectOutput.writeObject(new Request(command, argument, null, user));
             }
     
-            byte[] buffer = new byte[2048];
+            byte[] buffer = new byte[4096];
             int bytesRead = in.read(buffer);
             String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
             closeConnection();
@@ -91,7 +93,7 @@ public class TCPClient {
             InputStream in = clientSocket.socket().getInputStream();
             objectOutput.writeObject(request);
     
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[4096];
             int bytesRead = in.read(buffer);
             String message = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
             closeConnection();
@@ -100,9 +102,13 @@ public class TCPClient {
         return "";
     }
 
-    public LinkedList<Person> loadCollection() throws IOException, InterruptedException{
-        LinkedList<Person> linkedList = (LinkedList<Person>) new Deserializator().deserializeFromJson(this.sendRequest(new Request("load", "placeholderArg", null, null)));
-        linkedList.stream().forEach(Person::bindProperties);
+    public LinkedList<DisplayPerson> loadCollection() throws IOException, InterruptedException{
+        String json = this.sendRequest(new Request("load", "placeholderArg", null, null));
+        System.out.println(json);
+        LinkedList<Person> buffList = (LinkedList<Person>) new Deserializator().deserializeFromJson(json);
+
+        LinkedList<DisplayPerson> linkedList = buffList.stream().map(person -> new DisplayPerson(person)).collect(Collectors.toCollection(LinkedList::new));
+        
         return linkedList;
     }
 

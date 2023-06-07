@@ -9,7 +9,7 @@ import ifmo.requests.Request;
 
 public class UserHelper {
     TCPClient client;
-    static String login;
+    public static User logged_user = null;
     
     public UserHelper(TCPClient client){
         this.client = client;
@@ -39,7 +39,7 @@ public class UserHelper {
 
     public boolean verify(String req, User user){
         if(req.trim().equals("Пользователь успешно зарегестрирован!".trim()) || req.trim().equals("Теперь вам доступны комманды, используйте help для их просмотра".trim())){
-            login = user.getLogin();
+            logged_user = user;
             return true;
         }
         return false;
