@@ -90,7 +90,7 @@ public class TCPServer{
             try {
                 processRequest(map);
             } catch (Throwable e) {
-                logger.log(Level.SEVERE, "Ошибка при обработке запроса: ", e.getMessage());
+                logger.log(Level.SEVERE, "Ошибка при обработке запроса: " + e.getMessage());
                 try {
                     errorQueue.put(e);
                     requestQueue.put(new Request("err", "err", null, null));

@@ -111,7 +111,6 @@ public class TableController {
         @FXML
     private void handleAddButton() {
         TextInputDialog nameDialog = new TextInputDialog();
-        nameDialog.setTitle("Enter Name");
         nameDialog.setHeaderText(null);
         nameDialog.setContentText("Please enter a name:");
         Optional<String> nameResult = nameDialog.showAndWait();
@@ -129,13 +128,11 @@ public class TableController {
         boolean isCoordinatesEntered = false;
         while (!isCoordinatesEntered) {
             TextInputDialog xCoordDialog = new TextInputDialog();
-            xCoordDialog.setTitle("Enter X Coordinate");
             xCoordDialog.setHeaderText(null);
             xCoordDialog.setContentText("Please enter the X coordinate:");
             Optional<String> xCoordResult = xCoordDialog.showAndWait();
 
             TextInputDialog yCoordDialog = new TextInputDialog();
-            yCoordDialog.setTitle("Enter Y Coordinate");
             yCoordDialog.setHeaderText(null);
             yCoordDialog.setContentText("Please enter the Y coordinate:");
             Optional<String> yCoordResult = yCoordDialog.showAndWait();
@@ -167,7 +164,6 @@ public class TableController {
         boolean isHeightEntered = false;
         while (!isHeightEntered) {
             TextInputDialog heightDialog = new TextInputDialog();
-            heightDialog.setTitle("Enter Height");
             heightDialog.setHeaderText(null);
             heightDialog.setContentText("Please enter the height:");
             Optional<String> heightResult = heightDialog.showAndWait();
@@ -205,7 +201,6 @@ public class TableController {
         boolean isBirthdayEntered = false;
         while (!isBirthdayEntered) {
             TextInputDialog birthdayDialog = new TextInputDialog();
-            birthdayDialog.setTitle("Enter Birthday");
             birthdayDialog.setHeaderText(null);
             birthdayDialog.setContentText("Please enter the birthday in the format yyyy-MM-ddTHH:mm:ss:");
             Optional<String> birthdayResult = birthdayDialog.showAndWait();
@@ -232,7 +227,6 @@ public class TableController {
         }
 
         ChoiceDialog<Color> eyeColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
-        eyeColorDialog.setTitle("Choose Eye Color");
         eyeColorDialog.setHeaderText(null);
         eyeColorDialog.setContentText("Please choose the eye color:");
         Optional<Color> eyeColorResult = eyeColorDialog.showAndWait();
@@ -247,7 +241,6 @@ public class TableController {
         }
         
         ChoiceDialog<Color> hairColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
-        hairColorDialog.setTitle("Choose Hair Color");
         hairColorDialog.setHeaderText(null);
         hairColorDialog.setContentText("Please choose the hair color (optional):");
         Optional<Color> hairColorResult = hairColorDialog.showAndWait();
@@ -256,27 +249,23 @@ public class TableController {
         boolean isLocationEntered = false;
         while (!isLocationEntered) {
             TextInputDialog xLocDialog = new TextInputDialog();
-            xLocDialog.setTitle("Enter X Location");
             xLocDialog.setHeaderText(null);
             xLocDialog.setContentText("Please enter the X location:");
             Optional<String> xLocResult = xLocDialog.showAndWait();
         
             TextInputDialog yLocDialog = new TextInputDialog();
-            yLocDialog.setTitle("Enter Y Location");
             yLocDialog.setHeaderText(null);
             yLocDialog.setContentText("Please enter the Y location:");
             Optional<String> yLocResult = yLocDialog.showAndWait();
         
             TextInputDialog zLocDialog = new TextInputDialog();
-            zLocDialog.setTitle("Enter Z Location");
             zLocDialog.setHeaderText(null);
             zLocDialog.setContentText("Please enter the Z location:");
             Optional<String> zLocResult = zLocDialog.showAndWait();
 
             TextInputDialog nameLocDialog = new TextInputDialog();
-            nameLocDialog.setTitle("Enter location name");
             nameLocDialog.setHeaderText(null);
-            zLocDialog.setContentText("Please enter the location name:");
+            nameLocDialog.setContentText("Please enter the location name:");
             Optional<String> nameLocResult = nameLocDialog.showAndWait();
         
             if (xLocResult.isPresent() && !xLocResult.get().isEmpty() &&
