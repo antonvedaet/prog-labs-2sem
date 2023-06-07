@@ -2,12 +2,20 @@ package ifmo.gui.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -137,198 +145,304 @@ public class TableController {
 
     //ADD
 
-        @FXML
-    private void handleAddButton() {
-        TextInputDialog nameDialog = new TextInputDialog();
-        nameDialog.setHeaderText(null);
-        nameDialog.setContentText("Please enter a name:");
-        Optional<String> nameResult = nameDialog.showAndWait();
+    //     @FXML
+    // private void handleAddButton() {
+    //     TextInputDialog nameDialog = new TextInputDialog();
+    //     nameDialog.setHeaderText(null);
+    //     nameDialog.setContentText("Please enter a name:");
+    //     Optional<String> nameResult = nameDialog.showAndWait();
 
-        if (!nameResult.isPresent() || nameResult.get().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Name cannot be null or empty.");
-            alert.showAndWait();
-            return;
-        }
+    //     if (!nameResult.isPresent() || nameResult.get().isEmpty()) {
+    //         Alert alert = new Alert(Alert.AlertType.ERROR);
+    //         alert.setTitle("Error");
+    //         alert.setHeaderText(null);
+    //         alert.setContentText("Name cannot be null or empty.");
+    //         alert.showAndWait();
+    //         return;
+    //     }
 
-        Coordinates coordinates = null;
-        boolean isCoordinatesEntered = false;
-        while (!isCoordinatesEntered) {
-            TextInputDialog xCoordDialog = new TextInputDialog();
-            xCoordDialog.setHeaderText(null);
-            xCoordDialog.setContentText("Please enter the X coordinate:");
-            Optional<String> xCoordResult = xCoordDialog.showAndWait();
+    //     Coordinates coordinates = null;
+    //     boolean isCoordinatesEntered = false;
+    //     while (!isCoordinatesEntered) {
+    //         TextInputDialog xCoordDialog = new TextInputDialog();
+    //         xCoordDialog.setHeaderText(null);
+    //         xCoordDialog.setContentText("Please enter the X coordinate:");
+    //         Optional<String> xCoordResult = xCoordDialog.showAndWait();
 
-            TextInputDialog yCoordDialog = new TextInputDialog();
-            yCoordDialog.setHeaderText(null);
-            yCoordDialog.setContentText("Please enter the Y coordinate:");
-            Optional<String> yCoordResult = yCoordDialog.showAndWait();
+    //         TextInputDialog yCoordDialog = new TextInputDialog();
+    //         yCoordDialog.setHeaderText(null);
+    //         yCoordDialog.setContentText("Please enter the Y coordinate:");
+    //         Optional<String> yCoordResult = yCoordDialog.showAndWait();
 
-            if (xCoordResult.isPresent() && !xCoordResult.get().isEmpty() &&
-                    yCoordResult.isPresent() && !yCoordResult.get().isEmpty()) {
-                try {
-                    int x = Integer.parseInt(xCoordResult.get());
-                    long y = Long.parseLong(yCoordResult.get());
-                    coordinates = new Coordinates(x, y);
-                    isCoordinatesEntered = true;
-                } catch (NumberFormatException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Invalid coordinate values entered. Please enter numeric values.");
-                    alert.showAndWait();
-                }
-            } else {
+    //         if (xCoordResult.isPresent() && !xCoordResult.get().isEmpty() &&
+    //                 yCoordResult.isPresent() && !yCoordResult.get().isEmpty()) {
+    //             try {
+    //                 int x = Integer.parseInt(xCoordResult.get());
+    //                 long y = Long.parseLong(yCoordResult.get());
+    //                 coordinates = new Coordinates(x, y);
+    //                 isCoordinatesEntered = true;
+    //             } catch (NumberFormatException e) {
+    //                 Alert alert = new Alert(Alert.AlertType.ERROR);
+    //                 alert.setTitle("Error");
+    //                 alert.setHeaderText(null);
+    //                 alert.setContentText("Invalid coordinate values entered. Please enter numeric values.");
+    //                 alert.showAndWait();
+    //             }
+    //         } else {
+    //             Alert alert = new Alert(Alert.AlertType.ERROR);
+    //             alert.setTitle("Error");
+    //             alert.setHeaderText(null);
+    //             alert.setContentText("Both X and Y coordinates are required.");
+    //             alert.showAndWait();
+    //         }
+    //     }
+
+    //     Float height = null;
+    //     boolean isHeightEntered = false;
+    //     while (!isHeightEntered) {
+    //         TextInputDialog heightDialog = new TextInputDialog();
+    //         heightDialog.setHeaderText(null);
+    //         heightDialog.setContentText("Please enter the height:");
+    //         Optional<String> heightResult = heightDialog.showAndWait();
+
+    //         if (heightResult.isPresent() && !heightResult.get().isEmpty()) {
+    //             try {
+    //                 float h = Float.parseFloat(heightResult.get());
+    //                 if (h > 0) {
+    //                     height = h;
+    //                     isHeightEntered = true;
+    //                 } else {
+    //                     Alert alert = new Alert(Alert.AlertType.ERROR);
+    //                     alert.setTitle("Error");
+    //                     alert.setHeaderText(null);
+    //                     alert.setContentText("Height must be greater than 0.");
+    //                     alert.showAndWait();
+    //                 }
+    //             } catch (NumberFormatException e) {
+    //                 Alert alert = new Alert(Alert.AlertType.ERROR);
+    //                 alert.setTitle("Error");
+    //                 alert.setHeaderText(null);
+    //                 alert.setContentText("Invalid height value entered. Please enter a numeric value.");
+    //                 alert.showAndWait();
+    //             }
+    //         } else {
+    //             Alert alert = new Alert(Alert.AlertType.ERROR);
+    //             alert.setTitle("Error");
+    //             alert.setHeaderText(null);
+    //             alert.setContentText("Height is required.");
+    //             alert.showAndWait();
+    //         }
+    //     }
+
+    //     LocalDateTime birthday = null;
+    //     boolean isBirthdayEntered = false;
+    //     while (!isBirthdayEntered) {
+    //         TextInputDialog birthdayDialog = new TextInputDialog();
+    //         birthdayDialog.setHeaderText(null);
+    //         birthdayDialog.setContentText("Please enter the birthday in the format yyyy-MM-ddTHH:mm:ss:");
+    //         Optional<String> birthdayResult = birthdayDialog.showAndWait();
+
+    //         if (birthdayResult.isPresent() && !birthdayResult.get().isEmpty()) {
+    //             try {
+    //                 LocalDateTime bday = LocalDateTime.parse(birthdayResult.get());
+    //                 birthday = bday;
+    //                 isBirthdayEntered = true;
+    //             } catch (DateTimeParseException e) {
+    //                 Alert alert = new Alert(Alert.AlertType.ERROR);
+    //                 alert.setTitle("Error");
+    //                 alert.setHeaderText(null);
+    //                 alert.setContentText("Invalid birthday value entered. Please enter a valid date and time in the format yyyy-MM-ddTHH:mm:ss.");
+    //                 alert.showAndWait();
+    //             }
+    //         } else {
+    //             Alert alert = new Alert(Alert.AlertType.ERROR);
+    //             alert.setTitle("Error");
+    //             alert.setHeaderText(null);
+    //             alert.setContentText("Birthday is required.");
+    //             alert.showAndWait();
+    //         }
+    //     }
+
+    //     ChoiceDialog<Color> eyeColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
+    //     eyeColorDialog.setHeaderText(null);
+    //     eyeColorDialog.setContentText("Please choose the eye color:");
+    //     Optional<Color> eyeColorResult = eyeColorDialog.showAndWait();
+
+    //     if (!eyeColorResult.isPresent()) {
+    //         Alert alert = new Alert(Alert.AlertType.ERROR);
+    //         alert.setTitle("Error");
+    //         alert.setHeaderText(null);
+    //         alert.setContentText("Eye color is required.");
+    //         alert.showAndWait();
+    //         return;
+    //     }
+        
+    //     ChoiceDialog<Color> hairColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
+    //     hairColorDialog.setHeaderText(null);
+    //     hairColorDialog.setContentText("Please choose the hair color (optional):");
+    //     Optional<Color> hairColorResult = hairColorDialog.showAndWait();
+        
+    //     Location location = null;
+    //     boolean isLocationEntered = false;
+    //     while (!isLocationEntered) {
+    //         TextInputDialog xLocDialog = new TextInputDialog();
+    //         xLocDialog.setHeaderText(null);
+    //         xLocDialog.setContentText("Please enter the X location:");
+    //         Optional<String> xLocResult = xLocDialog.showAndWait();
+        
+    //         TextInputDialog yLocDialog = new TextInputDialog();
+    //         yLocDialog.setHeaderText(null);
+    //         yLocDialog.setContentText("Please enter the Y location:");
+    //         Optional<String> yLocResult = yLocDialog.showAndWait();
+        
+    //         TextInputDialog zLocDialog = new TextInputDialog();
+    //         zLocDialog.setHeaderText(null);
+    //         zLocDialog.setContentText("Please enter the Z location:");
+    //         Optional<String> zLocResult = zLocDialog.showAndWait();
+
+    //         TextInputDialog nameLocDialog = new TextInputDialog();
+    //         nameLocDialog.setHeaderText(null);
+    //         nameLocDialog.setContentText("Please enter the location name:");
+    //         Optional<String> nameLocResult = nameLocDialog.showAndWait();
+        
+    //         if (xLocResult.isPresent() && !xLocResult.get().isEmpty() &&
+    //                 yLocResult.isPresent() && !yLocResult.get().isEmpty() &&
+    //                 zLocResult.isPresent() && !zLocResult.get().isEmpty() && nameLocResult.isPresent()) {
+    //             try {
+    //                 int x = Integer.parseInt(xLocResult.get());
+    //                 Double y = Double.parseDouble(yLocResult.get());
+    //                 Double z = Double.parseDouble(zLocResult.get());
+    //                 String name =nameLocResult.get();
+
+    //                 location = new Location(x, y, z, name);
+    //                 isLocationEntered = true;
+    //             } catch (NumberFormatException e) {
+    //                 Alert alert = new Alert(Alert.AlertType.ERROR);
+    //                 alert.setTitle("Error");
+    //                 alert.setHeaderText(null);
+    //                 alert.setContentText("Invalid location values entered. Please enter numeric values.");
+    //                 alert.showAndWait();
+    //             }
+    //         } else {
+    //             Alert alert = new Alert(Alert.AlertType.ERROR);
+    //             alert.setTitle("Error");
+    //             alert.setHeaderText(null);
+    //             alert.setContentText("All X, Y, and Z locations are required.");
+    //             alert.showAndWait();
+    //         }
+    //     }
+    //     try {
+    //         tcpClient.sendRequest(new Request("add", "placeholderArg", new Person(0 ,nameResult.get(), coordinates, LocalDate.now(), height, birthday, eyeColorResult.get(), hairColorResult.get(), location, UserHelper.logged_user.getLogin()), UserHelper.logged_user));
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     } catch (InterruptedException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+    
+    @FXML
+private void handleAddButton() {
+    Dialog<Person> dialog = new Dialog<>();
+    dialog.setTitle("Add Person");
+    dialog.setHeaderText(null);
+
+    // Set up the grid pane to hold the input fields
+    GridPane grid = new GridPane();
+    grid.setHgap(10);
+    grid.setVgap(10);
+    grid.setPadding(new Insets(20, 150, 10, 10));
+
+    // Set up the input fields
+    TextField nameField = new TextField();
+    nameField.setPromptText("Name");
+    TextField xCoordField = new TextField();
+    xCoordField.setPromptText("X coordinate");
+    TextField yCoordField = new TextField();
+    yCoordField.setPromptText("Y coordinate");
+    TextField heightField = new TextField();
+    heightField.setPromptText("Height");
+    TextField birthdayField = new TextField();
+    birthdayField.setPromptText("Birthday (yyyy-MM-ddTHH:mm:ss)");
+    ChoiceBox<Color> eyeColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));
+    eyeColorBox.getSelectionModel().selectFirst();
+    ChoiceBox<Color> hairColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));
+    hairColorBox.getSelectionModel().selectFirst();
+    TextField xLocField = new TextField();
+    xLocField.setPromptText("X location");
+    TextField yLocField = new TextField();
+    yLocField.setPromptText("Y location");
+    TextField zLocField = new TextField();
+    zLocField.setPromptText("Z location");
+    TextField nameLocField = new TextField();
+    nameLocField.setPromptText("Location name");
+
+    // Add the input fields to the grid pane
+    grid.add(new Label("Name:"), 0, 0);
+    grid.add(nameField, 1, 0);
+    grid.add(new Label("Coordinates:"), 0, 1);
+    grid.add(xCoordField, 1, 1);
+    grid.add(yCoordField, 2, 1);
+    grid.add(new Label("Height:"), 0, 2);
+    grid.add(heightField, 1, 2);
+    grid.add(new Label("Birthday:"), 0, 3);
+    grid.add(birthdayField, 1, 3);
+    grid.add(new Label("Eye color:"), 0, 4);
+    grid.add(eyeColorBox, 1, 4);
+    grid.add(new Label("Hair color:"), 0, 5);
+    grid.add(hairColorBox, 1, 5);
+    grid.add(new Label("Location:"), 0, 6);
+    grid.add(xLocField, 1, 6);
+    grid.add(yLocField, 2, 6);
+    grid.add(zLocField, 3, 6);
+    grid.add(nameLocField, 4, 6);
+
+    // Add the buttons to the dialog
+    ButtonType addButton = new ButtonType("Add", ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+    dialog.getDialogPane().getButtonTypes().addAll(addButton, cancelButton);
+
+    // Set the contents of the dialog pane to the grid pane
+    dialog.getDialogPane().setContent(grid);
+
+    // Convert the user input into a Person object and return it if the Add button is pressed
+    dialog.setResultConverter(dialogButton -> {
+        if (dialogButton == addButton) {
+            try {
+                String name = nameField.getText();
+                int xCoord = Integer.parseInt(xCoordField.getText());
+                long yCoord = Long.parseLong(yCoordField.getText());
+                Float height = Float.parseFloat(heightField.getText());
+                LocalDateTime birthday = LocalDateTime.parse(birthdayField.getText());
+                Color eyeColor = eyeColorBox.getValue();
+                Color hairColor = hairColorBox.getValue();
+                int xLoc = Integer.parseInt(xLocField.getText());
+                double yLoc = Double.parseDouble(yLocField.getText());
+                double zLoc = Double.parseDouble(zLocField.getText());
+                String nameLoc = nameLocField.getText();
+                Coordinates coordinates = new Coordinates(xCoord, yCoord);
+                Location location = new Location(xLoc, yLoc, zLoc, nameLoc);
+                return new Person(0 ,name, coordinates, LocalDate.now(), height, birthday, eyeColor, hairColor, location, UserHelper.logged_user.getLogin());
+            } catch (NumberFormatException | DateTimeParseException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
-                alert.setContentText("Both X and Y coordinates are required.");
+                alert.setContentText("Invalid input values. Please enter valid input values.");
                 alert.showAndWait();
+                return null;
             }
+        } else {
+            return null;
         }
+    });
 
-        Float height = null;
-        boolean isHeightEntered = false;
-        while (!isHeightEntered) {
-            TextInputDialog heightDialog = new TextInputDialog();
-            heightDialog.setHeaderText(null);
-            heightDialog.setContentText("Please enter the height:");
-            Optional<String> heightResult = heightDialog.showAndWait();
-
-            if (heightResult.isPresent() && !heightResult.get().isEmpty()) {
-                try {
-                    float h = Float.parseFloat(heightResult.get());
-                    if (h > 0) {
-                        height = h;
-                        isHeightEntered = true;
-                    } else {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Height must be greater than 0.");
-                        alert.showAndWait();
-                    }
-                } catch (NumberFormatException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Invalid height value entered. Please enter a numeric value.");
-                    alert.showAndWait();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Height is required.");
-                alert.showAndWait();
+        // Show the dialog and send the Person object to the server if the Add button was pressed
+    Optional<Person> result = dialog.showAndWait();
+    result.ifPresent(person -> {
+            try {
+                tcpClient.sendRequest(new Request("add", "placeholderArg", person, UserHelper.logged_user));
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
-        }
-
-        LocalDateTime birthday = null;
-        boolean isBirthdayEntered = false;
-        while (!isBirthdayEntered) {
-            TextInputDialog birthdayDialog = new TextInputDialog();
-            birthdayDialog.setHeaderText(null);
-            birthdayDialog.setContentText("Please enter the birthday in the format yyyy-MM-ddTHH:mm:ss:");
-            Optional<String> birthdayResult = birthdayDialog.showAndWait();
-
-            if (birthdayResult.isPresent() && !birthdayResult.get().isEmpty()) {
-                try {
-                    LocalDateTime bday = LocalDateTime.parse(birthdayResult.get());
-                    birthday = bday;
-                    isBirthdayEntered = true;
-                } catch (DateTimeParseException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Invalid birthday value entered. Please enter a valid date and time in the format yyyy-MM-ddTHH:mm:ss.");
-                    alert.showAndWait();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Birthday is required.");
-                alert.showAndWait();
-            }
-        }
-
-        ChoiceDialog<Color> eyeColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
-        eyeColorDialog.setHeaderText(null);
-        eyeColorDialog.setContentText("Please choose the eye color:");
-        Optional<Color> eyeColorResult = eyeColorDialog.showAndWait();
-
-        if (!eyeColorResult.isPresent()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Eye color is required.");
-            alert.showAndWait();
-            return;
-        }
-        
-        ChoiceDialog<Color> hairColorDialog = new ChoiceDialog<>(Color.BLUE, Color.BLACK);
-        hairColorDialog.setHeaderText(null);
-        hairColorDialog.setContentText("Please choose the hair color (optional):");
-        Optional<Color> hairColorResult = hairColorDialog.showAndWait();
-        
-        Location location = null;
-        boolean isLocationEntered = false;
-        while (!isLocationEntered) {
-            TextInputDialog xLocDialog = new TextInputDialog();
-            xLocDialog.setHeaderText(null);
-            xLocDialog.setContentText("Please enter the X location:");
-            Optional<String> xLocResult = xLocDialog.showAndWait();
-        
-            TextInputDialog yLocDialog = new TextInputDialog();
-            yLocDialog.setHeaderText(null);
-            yLocDialog.setContentText("Please enter the Y location:");
-            Optional<String> yLocResult = yLocDialog.showAndWait();
-        
-            TextInputDialog zLocDialog = new TextInputDialog();
-            zLocDialog.setHeaderText(null);
-            zLocDialog.setContentText("Please enter the Z location:");
-            Optional<String> zLocResult = zLocDialog.showAndWait();
-
-            TextInputDialog nameLocDialog = new TextInputDialog();
-            nameLocDialog.setHeaderText(null);
-            nameLocDialog.setContentText("Please enter the location name:");
-            Optional<String> nameLocResult = nameLocDialog.showAndWait();
-        
-            if (xLocResult.isPresent() && !xLocResult.get().isEmpty() &&
-                    yLocResult.isPresent() && !yLocResult.get().isEmpty() &&
-                    zLocResult.isPresent() && !zLocResult.get().isEmpty() && nameLocResult.isPresent()) {
-                try {
-                    int x = Integer.parseInt(xLocResult.get());
-                    Double y = Double.parseDouble(yLocResult.get());
-                    Double z = Double.parseDouble(zLocResult.get());
-                    String name =nameLocResult.get();
-
-                    location = new Location(x, y, z, name);
-                    isLocationEntered = true;
-                } catch (NumberFormatException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Invalid location values entered. Please enter numeric values.");
-                    alert.showAndWait();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText(null);
-                alert.setContentText("All X, Y, and Z locations are required.");
-                alert.showAndWait();
-            }
-        }
-        try {
-            tcpClient.sendRequest(new Request("add", "placeholderArg", new Person(0 ,nameResult.get(), coordinates, LocalDate.now(), height, birthday, eyeColorResult.get(), hairColorResult.get(), location, UserHelper.logged_user.getLogin()), UserHelper.logged_user));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        });
     }
 }
