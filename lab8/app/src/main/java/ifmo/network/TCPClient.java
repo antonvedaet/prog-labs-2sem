@@ -105,7 +105,7 @@ public class TCPClient {
     public LinkedList<DisplayPerson> loadCollection() throws IOException, InterruptedException{
         String json = this.sendRequest(new Request("load", "placeholderArg", null, null));
         LinkedList<Person> buffList = (LinkedList<Person>) new Deserializator().deserializeFromJson(json);
-
+        
         LinkedList<DisplayPerson> linkedList = buffList.stream().map(person -> new DisplayPerson(person)).collect(Collectors.toCollection(LinkedList::new));
         
         return linkedList;

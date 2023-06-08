@@ -50,8 +50,8 @@ sourceSets {
                         srcDirs= ["src/main/java"]
                 }
                 resources {
-                        srcDirs= ["src/main/resources"]
-                        include "Auth.fxml", "Table.fxml"
+                        srcDirs= ["src/main/resources", "src/main/resources/styles"]
+                        include "Auth.fxml", "Table.fxml", "table.css", "auth.css", "Map.fxml"
                 }
         }
 }

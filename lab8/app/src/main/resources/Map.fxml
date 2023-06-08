@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="rootPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" prefWidth="800.0" prefHeight="600.0">
+    <ImageView fx:id="mapView" fitWidth="800.0" fitHeight="600.0" />
+</Pane>

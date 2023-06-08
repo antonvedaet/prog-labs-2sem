@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,13 +8,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1337.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1337.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="table.css">
    <left>
       <VBox prefHeight="371.0" prefWidth="110.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton"/>
-            <Button fx:id="remove_by_id" mnemonicParsing="false" text="Удалить" onAction="#handleRemoveById"/>
-            <Button mnemonicParsing="false" text="Command_3" />
+            <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton">
+            <tooltip>
+                <Tooltip text="Добавить элемент"/>
+            </tooltip>
+            </Button>
+            <Button fx:id="remove_by_id" mnemonicParsing="false" text="Удалить" onAction="#handleRemoveById">
+            <tooltip>
+                <Tooltip text="Удалить элемент коллекции по ID"/>
+            </tooltip>
+            </Button>
          </children>
       </VBox>
    </left>

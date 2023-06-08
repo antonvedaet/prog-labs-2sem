@@ -1,0 +1,35 @@
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+}
+
+.text-field {
+    -fx-font-size: 16px;
+    -fx-padding: 5px;
+    -fx-background-color: #f1f1f1;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+.password-field {
+    -fx-font-size: 16px;
+    -fx-padding: 5px;
+    -fx-background-color: #f1f1f1;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+}
+
+.popup-pane {
+    -fx-alignment: center;
+    -fx-background-color: rgba(255, 0, 0, 0.7);
+}
+
+.popup-text {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+}
