@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1337.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" stylesheets="table.css">
    <left>
-      <VBox prefHeight="371.0" prefWidth="110.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="371.0" prefWidth="140.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton">
             <tooltip>
@@ -22,11 +22,26 @@
                 <Tooltip text="Удалить элемент коллекции по ID"/>
             </tooltip>
             </Button>
+            <Button fx:id="remove_greater" mnemonicParsing="false" text="Удалить больше" onAction="#handleRemoveGreater">
+            <tooltip>
+                <Tooltip text="Удалить элементы коллекции чьи значения поля ID превышают заданный"/>
+            </tooltip>
+            </Button>
+            <Button fx:id="reorder" mnemonicParsing="false" text="Развернуть" onAction="#handleReorder">
+            <tooltip>
+                <Tooltip text="Развернуть коллекцию"/>
+            </tooltip>
+            </Button>
+            <Button fx:id="shuffle" mnemonicParsing="false" text="Перемешать" onAction="#handleShuffle">
+            <tooltip>
+                <Tooltip text="Перемешать коллекцию"/>
+            </tooltip>
+            </Button>
          </children>
       </VBox>
    </left>
    <center>
-      <TableView fx:id="tableView" prefHeight="736.0" prefWidth="1357.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" prefHeight="736.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
         <columns>
       <TableColumn fx:id="idColumn" prefWidth="75.0" text="id"/>
       <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />

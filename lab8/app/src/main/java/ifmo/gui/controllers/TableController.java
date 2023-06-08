@@ -49,6 +49,8 @@ public class TableController {
     private Button addButton;
     @FXML
     private Button removeButton;
+    @FXML
+    private Button removeGreaterButton;
 
     @FXML
     private TableView<DisplayPerson> tableView;
@@ -112,6 +114,7 @@ public class TableController {
         }, 0, 5000);
     }
 
+
     @FXML
     private void handleLogoutButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Auth.fxml"));
@@ -131,11 +134,7 @@ public class TableController {
     @FXML
     private void handleVisualizationButton(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Map.fxml"));
-        try {
-            loader.setController(new VisualizationController(tcpClient, tcpClient.loadCollection()));
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        loader.setController(new VisualizationController(tcpClient));
         Parent root;
         try {
             root = loader.load();
@@ -148,6 +147,49 @@ public class TableController {
         };
     }
 
+    @FXML
+    private void handleShuffle() {
+        try {
+            tcpClient.sendRequest(new Request("shuffle", "placeholderArg", null, UserHelper.logged_user));
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleReorder() {
+        try {
+            tcpClient.sendRequest(new Request("reorder", "placeholderArg", null, UserHelper.logged_user));
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //removegreater
+    @FXML
+    private void handleRemoveGreater() {
+
+        TextInputDialog toRemove = new TextInputDialog();
+        toRemove.setHeaderText(null);
+        toRemove.setContentText("Введите id");
+        Optional<String> res = toRemove.showAndWait();
+
+        if (!res.isPresent() || res.get().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Введите id.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            tcpClient.sendRequest(new Request("remove_greater", res.get(), null, UserHelper.logged_user));
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }    
+    
     //Remove
     @FXML
     private void handleRemoveById() {

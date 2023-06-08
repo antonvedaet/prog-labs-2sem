@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
-      <Button fx:id="backToTable" mnemonicParsing="false" onAction="#handleBackToTable" prefHeight="0.0" prefWidth="600.0" text="Вернуться" BorderPane.alignment="CENTER" />
+      <Button fx:id="backToTable" mnemonicParsing="false" onAction="#handleBackToTable" prefHeight="20.0" prefWidth="1450.0" text="Вернуться" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <ImageView fx:id="mapView" fitHeight="375.0" fitWidth="598.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+      <ImageView fx:id="mapView" fitHeight="625.0" fitWidth="1450.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

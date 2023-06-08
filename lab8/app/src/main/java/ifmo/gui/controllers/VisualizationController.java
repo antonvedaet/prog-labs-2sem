@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.scene.Group;
 import javafx.scene.Node;
 
 public class VisualizationController {
@@ -25,11 +26,40 @@ public class VisualizationController {
     @FXML private Button backToTable;
 
     TCPClient tcpClient;
-    LinkedList<DisplayPerson> persons;
 
-    VisualizationController(TCPClient tcpClient, LinkedList<DisplayPerson> persons){
+    VisualizationController(TCPClient tcpClient){
         this.tcpClient = tcpClient;
-        this.persons = persons;
+    }
+
+
+    public void initialize() {
+        LinkedList<DisplayPerson> persons = null;
+        try {
+            persons = tcpClient.loadCollection();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        Image image = new Image(getClass().getClassLoader().getResource("map.png").toExternalForm());
+
+        setImage(image);
+
+        for (DisplayPerson person : persons) {
+            drawCircles(person);
+        }
+    }
+
+
+    public void drawCircles(DisplayPerson person) {
+        double x = person.getCoordinates().getX();
+        double y = person.getCoordinates().getY();
+        Circle circle = new Circle(x, y, 20, Color.RED);
+        Pane parent = (Pane) mapView.getParent();
+        circle.setTranslateZ(100);
+        parent.getChildren().add(circle);
+    }
+
+    public void setImage(Image image) {
+        mapView.setImage(image);
     }
     
     @FXML

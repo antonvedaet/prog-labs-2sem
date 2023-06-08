@@ -3,7 +3,7 @@ package ifmo.data;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class DisplayLocation {
+public class DisplayLocation extends Location{
     private Integer x; //Поле не может быть null
     private Double y; //Поле не может быть null
     private Double z;

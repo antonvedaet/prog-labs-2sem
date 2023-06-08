@@ -19,6 +19,7 @@ public class DisplayPerson extends Person {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private DisplayCoordinates coordinates; //Поле не может быть null
+
     private LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Float height; //Поле не может быть null, Значение поля должно быть больше 0
     private LocalDateTime birthday; //Поле не может быть null
@@ -83,6 +84,14 @@ public class DisplayPerson extends Person {
         locationProperty.bindBidirectional(new SimpleObjectProperty<>(location));
         creatorProperty.bindBidirectional(new SimpleStringProperty(creator));
         savedProperty.bindBidirectional(new SimpleBooleanProperty(saved));
+    }
+
+    public DisplayCoordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public DisplayLocation geLocation(){
+        return location;
     }
 
     //JAVAFX

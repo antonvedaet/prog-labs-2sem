@@ -5,7 +5,7 @@ import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 
-public class DisplayCoordinates {
+public class DisplayCoordinates extends Coordinates{
     private int x; //Значение поля должно быть больше -72
     private long y; //Значение поля должно быть больше -647
 
