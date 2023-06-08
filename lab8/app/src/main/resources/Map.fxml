@@ -10,6 +10,6 @@
       <Button fx:id="backToTable" mnemonicParsing="false" onAction="#handleBackToTable" prefHeight="0.0" prefWidth="600.0" text="Вернуться" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <ImageView fitHeight="375.0" fitWidth="598.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+      <ImageView fx:id="mapView" fitHeight="375.0" fitWidth="598.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

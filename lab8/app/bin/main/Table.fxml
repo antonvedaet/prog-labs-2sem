@@ -45,7 +45,7 @@
    <bottom>
       <HBox prefHeight="39.0" prefWidth="624.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleProfileButton" text="Профиль" />
+            <Button mnemonicParsing="false" onAction="#handleLogoutButton" text="Выйти" />
             <Button mnemonicParsing="false" onAction="#handleVisualizationButton" text="Визуализация " />
          </children>
       </HBox>

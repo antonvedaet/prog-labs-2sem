@@ -113,8 +113,19 @@ public class TableController {
     }
 
     @FXML
-    private void handleProfileButton() {
-        System.out.println("Opening user profile...");
+    private void handleLogoutButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Auth.fxml"));
+        loader.setController(new AuthController(tcpClient));
+        Parent root;
+        try {
+            root = loader.load();
+            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene nextScene = new Scene(root);
+            primaryStage.setScene(nextScene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        };
     }
 
     @FXML
