@@ -36,6 +36,7 @@ public class VisualizationController {
 
     @FXML private ImageView mapView;
     @FXML private Button backToTable;
+    private ResourceBundle bundle;
 
     TCPClient tcpClient;
     Locale locale;
@@ -43,6 +44,7 @@ public class VisualizationController {
     VisualizationController(TCPClient tcpClient, Locale locale){
         this.locale = locale;
         this.tcpClient = tcpClient;
+        this.bundle = ResourceBundle.getBundle("visualization", locale);
     }
 
 
@@ -98,7 +100,7 @@ public class VisualizationController {
             header.setStyle("-fx-font-weight: bold; -fx-padding: 5px;");
             borderPane.setTop(header);
 
-            Label content = new Label("ID: " + clickedPerson.getId() + "\n" + "Creator: " + clickedPerson.getCreator());
+            Label content = new Label("ID: " + clickedPerson.getId() + "\n" + bundle.getString("creator") + clickedPerson.getCreator());
             content.setStyle("-fx-padding: 5px;");
             borderPane.setCenter(content);
     

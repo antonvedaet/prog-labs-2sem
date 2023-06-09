@@ -37,6 +37,11 @@
                 <Tooltip text="%shuffleTooltip"/>
             </tooltip>
             </Button>
+            <Button fx:id="update" mnemonicParsing="false" text="%updateButtonText" onAction="#handleUpdate">
+            <tooltip>
+                <Tooltip text="%updateTooltip"/>
+            </tooltip>
+            </Button>
          </children>
       </VBox>
    </left>

@@ -1,0 +1,318 @@
+Date : 2023-06-09 19:40:32
+Directory : /home/anton/itmo/sem2/prog-labs-2sem/lab8
+Total : 206 files,  1895 codes, 183 comments, 408 blanks, all 2486 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         89 |      3,150 |        209 |        347 |      3,706 |
+| Log             |         23 |        652 |          0 |        213 |        865 |
+| XML             |          5 |        180 |          0 |         16 |        196 |
+| Java Properties |          6 |         84 |         12 |         14 |        110 |
+| Batch           |          1 |         71 |          0 |         22 |         93 |
+| CSS             |          2 |         42 |          0 |          6 |         48 |
+| Gradle          |          4 |        -14 |         14 |          0 |          0 |
+| java            |         76 |     -2,270 |        -52 |       -210 |     -2,532 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                          | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                             |        206 |      1,895 |        183 |        408 |      2,486 |
+| . (Files)                                                                                                     |          2 |         73 |         12 |         25 |        110 |
+| ..                                                                                                            |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../..                                                                                                         |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../..                                                                                                      |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../..                                                                                                   |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../..                                                                                                |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../..                                                                                             |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt                                                                                         |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt/d                                                                                       |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt/d/ITMO                                                                                  |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem                                                                   |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8                                                              |         79 |     -2,340 |        -52 |       -222 |     -2,614 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8 (Files)                                                      |          1 |        -14 |          0 |         -3 |        -17 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app                                                          |         77 |     -2,320 |        -52 |       -218 |     -2,590 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app (Files)                                                  |          1 |        -50 |          0 |         -8 |        -58 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin                                                      |         38 |       -790 |          0 |         -2 |       -792 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main                                                 |         38 |       -790 |          0 |         -2 |       -792 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo                                            |         38 |       -790 |          0 |         -2 |       -792 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo (Files)                                    |          1 |         -9 |          0 |          0 |         -9 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/app                                        |          1 |        -24 |          0 |          0 |        -24 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands                                   |         17 |       -220 |          0 |         -1 |       -221 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data                                       |          5 |       -117 |          0 |         -1 |       -118 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions                                 |          3 |        -15 |          0 |          0 |        -15 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/gui                                        |          2 |       -112 |          0 |          0 |       -112 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers                            |          2 |       -112 |          0 |          0 |       -112 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/network                                    |          1 |        -55 |          0 |          0 |        -55 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/requests                                   |          1 |         -9 |          0 |          0 |         -9 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils                                      |          7 |       -229 |          0 |          0 |       -229 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src                                                      |         38 |     -1,480 |        -52 |       -208 |     -1,740 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main                                                 |         38 |     -1,480 |        -52 |       -208 |     -1,740 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java                                            |         38 |     -1,480 |        -52 |       -208 |     -1,740 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo                                       |         38 |     -1,480 |        -52 |       -208 |     -1,740 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo (Files)                               |          1 |        -15 |        -12 |         -7 |        -34 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/app                                   |          1 |        -26 |          0 |         -7 |        -33 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands                              |         17 |       -431 |          0 |        -51 |       -482 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data                                  |          5 |       -280 |         -1 |        -37 |       -318 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions                            |          3 |         -9 |          0 |         -8 |        -17 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui                                   |          2 |       -132 |        -14 |        -18 |       -164 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers                       |          2 |       -132 |        -14 |        -18 |       -164 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/network                               |          1 |        -82 |          0 |        -19 |       -101 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/requests                              |          1 |        -28 |          0 |         -8 |        -36 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils                                 |          7 |       -477 |        -25 |        -53 |       -555 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/gradle                                                       |          1 |         -6 |          0 |         -1 |         -7 |
+| ../../../../../../mnt/d/ITMO/prog-labs-2sem/lab8/gradle/wrapper                                               |          1 |         -6 |          0 |         -1 |         -7 |
+| app                                                                                                           |        124 |      4,156 |        223 |        604 |      4,983 |
+| app (Files)                                                                                                   |         24 |        700 |          2 |        221 |        923 |
+| app/bin                                                                                                       |         48 |      1,320 |         20 |         10 |      1,350 |
+| app/bin/main                                                                                                  |         47 |      1,306 |         20 |          9 |      1,335 |
+| app/bin/main (Files)                                                                                          |          2 |         84 |          0 |          6 |         90 |
+| app/bin/main/ifmo                                                                                             |         45 |      1,222 |         20 |          3 |      1,245 |
+| app/bin/main/ifmo (Files)                                                                                     |          1 |          9 |          0 |          0 |          9 |
+| app/bin/main/ifmo/app                                                                                         |          1 |         56 |          0 |          0 |         56 |
+| app/bin/main/ifmo/commands                                                                                    |         17 |        220 |          0 |          1 |        221 |
+| app/bin/main/ifmo/data                                                                                        |          8 |        152 |         20 |          1 |        173 |
+| app/bin/main/ifmo/exceptions                                                                                  |          3 |         15 |          0 |          0 |         15 |
+| app/bin/main/ifmo/gui                                                                                         |          4 |        436 |          0 |          1 |        437 |
+| app/bin/main/ifmo/gui/controllers                                                                             |          4 |        436 |          0 |          1 |        437 |
+| app/bin/main/ifmo/network                                                                                     |          1 |         71 |          0 |          0 |         71 |
+| app/bin/main/ifmo/requests                                                                                    |          1 |          9 |          0 |          0 |          9 |
+| app/bin/main/ifmo/utils                                                                                       |          9 |        254 |          0 |          0 |        254 |
+| app/bin/test                                                                                                  |          1 |         14 |          0 |          1 |         15 |
+| app/bin/test/ifmo                                                                                             |          1 |         14 |          0 |          1 |         15 |
+| app/src                                                                                                       |         52 |      2,136 |        201 |        373 |      2,710 |
+| app/src/main                                                                                                  |         52 |      2,136 |        201 |        373 |      2,710 |
+| app/src/main/java                                                                                             |         43 |      1,914 |        189 |        343 |      2,446 |
+| app/src/main/java/ifmo                                                                                        |         43 |      1,914 |        189 |        343 |      2,446 |
+| app/src/main/java/ifmo (Files)                                                                                |          1 |         16 |         12 |          5 |         33 |
+| app/src/main/java/ifmo/app                                                                                    |          1 |         70 |          0 |         26 |         96 |
+| app/src/main/java/ifmo/commands                                                                               |         17 |        373 |         58 |         51 |        482 |
+| app/src/main/java/ifmo/data                                                                                   |          8 |        378 |         17 |         68 |        463 |
+| app/src/main/java/ifmo/exceptions                                                                             |          3 |          9 |          0 |          8 |         17 |
+| app/src/main/java/ifmo/gui                                                                                    |          3 |        521 |          3 |         96 |        620 |
+| app/src/main/java/ifmo/gui/controllers                                                                        |          3 |        521 |          3 |         96 |        620 |
+| app/src/main/java/ifmo/network                                                                                |          1 |         93 |          0 |         22 |        115 |
+| app/src/main/java/ifmo/requests                                                                               |          1 |         28 |          0 |          8 |         36 |
+| app/src/main/java/ifmo/utils                                                                                  |          8 |        426 |         99 |         59 |        584 |
+| app/src/main/resources                                                                                        |          9 |        222 |         12 |         30 |        264 |
+| app/src/main/resources (Files)                                                                                |          7 |        180 |         12 |         24 |        216 |
+| app/src/main/resources/styles                                                                                 |          2 |         42 |          0 |          6 |         48 |
+| gradle                                                                                                        |          1 |          6 |          0 |          1 |          7 |
+| gradle/wrapper                                                                                                |          1 |          6 |          0 |          1 |          7 |
++---------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                                      | language        | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/Auth.fxml                                              | XML             |         18 |          0 |          3 |         21 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/Table.fxml                                             | XML             |         66 |          0 |          3 |         69 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/Main.class                                        | Java            |          9 |          0 |          0 |          9 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/app/App.class                                     | Java            |         56 |          0 |          0 |         56 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/AbstractCommand.class                    | Java            |          8 |          0 |          0 |          8 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Add.class                                | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Clear.class                              | Java            |         12 |          0 |          0 |         12 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Command.class                            | Java            |          3 |          0 |          1 |          4 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/CountLessThanHeight.class                | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/ExecuteScript.class                      | Java            |         37 |          0 |          0 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Exit.class                               | Java            |         16 |          0 |          0 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/FilterContainsName.class                 | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/GroupCountingById.class                  | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Help.class                               | Java            |         20 |          0 |          0 |         20 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Info.class                               | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/RemoveById.class                         | Java            |         12 |          0 |          0 |         12 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/RemoveGreater.class                      | Java            |         12 |          0 |          0 |         12 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Reorder.class                            | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Show.class                               | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Shuffle.class                            | Java            |         11 |          0 |          0 |         11 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Update.class                             | Java            |         12 |          0 |          0 |         12 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Color.class                                  | Java            |         16 |          0 |          0 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Coordinates.class                            | Java            |         16 |          0 |          0 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/DisplayCoordinates.class                     | Java            |         18 |          0 |          0 |         18 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/DisplayLocation.class                        | Java            |         15 |          0 |          0 |         15 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/DisplayPerson.class                          | Java            |         44 |          0 |          1 |         45 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Location.class                               | Java            |         21 |          0 |          0 |         21 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Person.class                                 | Java            |         13 |         20 |          0 |         33 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/data/User.class                                   | Java            |          9 |          0 |          0 |          9 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/ElementAmountException.class           | Java            |          5 |          0 |          0 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/RecursionException.class               | Java            |          5 |          0 |          0 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/ValueException.class                   | Java            |          5 |          0 |          0 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/AuthController.class              | Java            |         55 |          0 |          0 |         55 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/TableController$1.class           | Java            |         77 |          0 |          0 |         77 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/TableController.class             | Java            |        197 |          0 |          0 |        197 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/VisualizationController.class     | Java            |        107 |          0 |          1 |        108 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/network/TCPClient.class                           | Java            |         71 |          0 |          0 |         71 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/requests/Request.class                            | Java            |          9 |          0 |          0 |          9 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/CollectionHandler.class                     | Java            |         64 |          0 |          0 |         64 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/CommandHelper.class                         | Java            |         23 |          0 |          0 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/Deserializator$1.class                      | Java            |          8 |          0 |          0 |          8 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/Deserializator.class                        | Java            |         16 |          0 |          0 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/FileManager.class                           | Java            |         22 |          0 |          0 |         22 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/IOHandler.class                             | Java            |         14 |          0 |          0 |         14 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/PersonCreator.class                         | Java            |         56 |          0 |          0 |         56 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/PersonValidator.class                       | Java            |         34 |          0 |          0 |         34 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/UserHelper.class                            | Java            |         17 |          0 |          0 |         17 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/bin/test/ifmo/AppTest.class                                     | Java            |         14 |          0 |          1 |         15 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/build.gradle                                                    | Gradle          |         48 |          2 |          8 |         58 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid10066.log                                             | Log             |         27 |          0 |          9 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid11385.log                                             | Log             |         29 |          0 |          9 |         38 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid11876.log                                             | Log             |         24 |          0 |          7 |         31 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid13829.log                                             | Log             |         27 |          0 |         10 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid18059.log                                             | Log             |         31 |          0 |         10 |         41 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid4140.log                                              | Log             |         26 |          0 |         10 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid5324.log                                              | Log             |         30 |          0 |         10 |         40 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid5627.log                                              | Log             |         28 |          0 |          9 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid5851.log                                              | Log             |         19 |          0 |          4 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid6217.log                                              | Log             |         28 |          0 |          9 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid6651.log                                              | Log             |         27 |          0 |          9 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid6723.log                                              | Log             |         28 |          0 |          9 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid7105.log                                              | Log             |         27 |          0 |         10 |         37 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid7281.log                                              | Log             |         25 |          0 |         10 |         35 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid7578.log                                              | Log             |         39 |          0 |         11 |         50 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid7983.log                                              | Log             |         37 |          0 |         10 |         47 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid8428.log                                              | Log             |         29 |          0 |         10 |         39 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid8871.log                                              | Log             |         35 |          0 |         10 |         45 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid9144.log                                              | Log             |         24 |          0 |          8 |         32 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid9298.log                                              | Log             |         32 |          0 |         11 |         43 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid9550.log                                              | Log             |         25 |          0 |          9 |         34 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid9679.log                                              | Log             |         27 |          0 |          9 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/hs_err_pid9958.log                                              | Log             |         28 |          0 |         10 |         38 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/Main.java                                    | Java            |         16 |         12 |          5 |         33 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/app/App.java                                 | Java            |         70 |          0 |         26 |         96 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/AbstractCommand.java                | Java            |         17 |          0 |          6 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Add.java                            | Java            |         18 |          8 |          2 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Clear.java                          | Java            |         18 |          3 |          2 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Command.java                        | Java            |          7 |          8 |          3 |         18 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/CountLessThanHeight.java            | Java            |         21 |          3 |          4 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/ExecuteScript.java                  | Java            |         68 |          3 |          4 |         75 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Exit.java                           | Java            |         24 |          3 |          1 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/FilterContainsName.java             | Java            |         18 |          3 |          2 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/GroupCountingById.java              | Java            |         18 |          3 |          3 |         24 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Help.java                           | Java            |         29 |          3 |          4 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Info.java                           | Java            |         18 |          3 |          3 |         24 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/RemoveById.java                     | Java            |         21 |          3 |          4 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/RemoveGreater.java                  | Java            |         21 |          3 |          4 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Reorder.java                        | Java            |         18 |          3 |          3 |         24 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Show.java                           | Java            |         18 |          3 |          1 |         22 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Shuffle.java                        | Java            |         18 |          3 |          2 |         23 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Update.java                         | Java            |         21 |          3 |          3 |         27 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Color.java                              | Java            |          9 |          4 |          3 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Coordinates.java                        | Java            |         24 |          4 |          5 |         33 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/DisplayCoordinates.java                 | Java            |         35 |          0 |         12 |         47 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/DisplayLocation.java                    | Java            |         23 |          0 |          9 |         32 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/DisplayPerson.java                      | Java            |        126 |          1 |         17 |        144 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Location.java                           | Java            |         40 |          4 |         11 |         55 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Person.java                             | Java            |         99 |          4 |          5 |        108 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/User.java                               | Java            |         22 |          0 |          6 |         28 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/ElementAmountException.java       | Java            |          3 |          0 |          3 |          6 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/RecursionException.java           | Java            |          3 |          0 |          3 |          6 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/ValueException.java               | Java            |          3 |          0 |          2 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers/AuthController.java          | Java            |         80 |          0 |         12 |         92 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers/TableController.java         | Java            |        325 |          3 |         53 |        381 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers/VisualizationController.java | Java            |        116 |          0 |         31 |        147 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/network/TCPClient.java                       | Java            |         93 |          0 |         22 |        115 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/requests/Request.java                        | Java            |         28 |          0 |          8 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/CollectionHandler.java                 | Java            |         94 |         27 |         14 |        135 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/CommandHelper.java                     | Java            |         42 |          3 |          6 |         51 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/Deserializator.java                    | Java            |         23 |          0 |          6 |         29 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/FileManager.java                       | Java            |         33 |          3 |          7 |         43 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/IOHandler.java                         | Java            |         12 |          3 |          2 |         17 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/PersonCreator.java                     | Java            |        146 |         34 |          9 |        189 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/PersonValidator.java                   | Java            |         36 |          4 |          6 |         46 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/UserHelper.java                        | Java            |         40 |         25 |          9 |         74 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/Auth.fxml                                    | XML             |         18 |          0 |          3 |         21 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/Map.fxml                                     | XML             |         12 |          0 |          4 |         16 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/Table.fxml                                   | XML             |         66 |          0 |          3 |         69 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/auth_en_UK.properties                        | Java Properties |          5 |          0 |          0 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/auth_ru_RU.properties                        | Java Properties |          5 |          0 |          0 |          5 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/styles/auth.css                              | CSS             |         31 |          0 |          5 |         36 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/styles/table.css                             | CSS             |         11 |          0 |          1 |         12 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/table_en_UK.properties                       | Java Properties |         37 |          6 |          7 |         50 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/app/src/main/resources/table_ru_RU.properties                       | Java Properties |         37 |          6 |          7 |         50 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/gradle/wrapper/gradle-wrapper.properties                            | Java Properties |          6 |          0 |          1 |          7 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/gradlew.bat                                                         | Batch           |         71 |          0 |         22 |         93 |
+| /home/anton/itmo/sem2/prog-labs-2sem/lab8/settings.gradle                                                     | Gradle          |          2 |         12 |          3 |         17 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/Main.class                                                  | java            |         -9 |          0 |          0 |         -9 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/app/App.class                                               | java            |        -24 |          0 |          0 |        -24 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/AbstractCommand.class                              | java            |         -8 |          0 |          0 |         -8 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Add.class                                          | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Clear.class                                        | java            |        -12 |          0 |          0 |        -12 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Command.class                                      | java            |         -3 |          0 |         -1 |         -4 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/CountLessThanHeight.class                          | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/ExecuteScript.class                                | java            |        -37 |          0 |          0 |        -37 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Exit.class                                         | java            |        -16 |          0 |          0 |        -16 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/FilterContainsName.class                           | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/GroupCountingById.class                            | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Help.class                                         | java            |        -20 |          0 |          0 |        -20 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Info.class                                         | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/RemoveById.class                                   | java            |        -12 |          0 |          0 |        -12 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/RemoveGreater.class                                | java            |        -12 |          0 |          0 |        -12 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Reorder.class                                      | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Show.class                                         | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Shuffle.class                                      | java            |        -11 |          0 |          0 |        -11 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/commands/Update.class                                       | java            |        -12 |          0 |          0 |        -12 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Color.class                                            | java            |        -16 |          0 |          0 |        -16 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Coordinates.class                                      | java            |        -18 |          0 |         -1 |        -19 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Location.class                                         | java            |        -22 |          0 |          0 |        -22 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data/Person.class                                           | java            |        -52 |          0 |          0 |        -52 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/data/User.class                                             | java            |         -9 |          0 |          0 |         -9 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/ElementAmountException.class                     | java            |         -5 |          0 |          0 |         -5 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/RecursionException.class                         | java            |         -5 |          0 |          0 |         -5 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/exceptions/ValueException.class                             | java            |         -5 |          0 |          0 |         -5 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/AuthController.class                        | java            |        -34 |          0 |          0 |        -34 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/gui/controllers/TableController.class                       | java            |        -78 |          0 |          0 |        -78 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/network/TCPClient.class                                     | java            |        -55 |          0 |          0 |        -55 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/requests/Request.class                                      | java            |         -9 |          0 |          0 |         -9 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/CollectionHandler.class                               | java            |        -64 |          0 |          0 |        -64 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/CommandHelper.class                                   | java            |        -23 |          0 |          0 |        -23 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/FileManager.class                                     | java            |        -22 |          0 |          0 |        -22 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/IOHandler.class                                       | java            |        -14 |          0 |          0 |        -14 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/PersonCreator.class                                   | java            |        -56 |          0 |          0 |        -56 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/PersonValidator.class                                 | java            |        -34 |          0 |          0 |        -34 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/bin/main/ifmo/utils/UserHelper.class                                      | java            |        -16 |          0 |          0 |        -16 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/build.gradle                                                              | Gradle          |        -50 |          0 |         -8 |        -58 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/Main.java                                              | java            |        -15 |        -12 |         -7 |        -34 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/app/App.java                                           | java            |        -26 |          0 |         -7 |        -33 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/AbstractCommand.java                          | java            |        -17 |          0 |         -6 |        -23 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Add.java                                      | java            |        -26 |          0 |         -2 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Clear.java                                    | java            |        -21 |          0 |         -2 |        -23 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Command.java                                  | java            |        -15 |          0 |         -3 |        -18 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/CountLessThanHeight.java                      | java            |        -24 |          0 |         -4 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/ExecuteScript.java                            | java            |        -71 |          0 |         -4 |        -75 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Exit.java                                     | java            |        -27 |          0 |         -1 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/FilterContainsName.java                       | java            |        -21 |          0 |         -2 |        -23 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/GroupCountingById.java                        | java            |        -21 |          0 |         -3 |        -24 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Help.java                                     | java            |        -32 |          0 |         -4 |        -36 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Info.java                                     | java            |        -21 |          0 |         -3 |        -24 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/RemoveById.java                               | java            |        -24 |          0 |         -4 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/RemoveGreater.java                            | java            |        -24 |          0 |         -4 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Reorder.java                                  | java            |        -21 |          0 |         -3 |        -24 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Show.java                                     | java            |        -21 |          0 |         -1 |        -22 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Shuffle.java                                  | java            |        -21 |          0 |         -2 |        -23 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/commands/Update.java                                   | java            |        -24 |          0 |         -3 |        -27 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Color.java                                        | java            |        -13 |          0 |         -3 |        -16 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Coordinates.java                                  | java            |        -38 |          0 |         -6 |        -44 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Location.java                                     | java            |        -49 |          0 |        -14 |        -63 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/Person.java                                       | java            |       -158 |         -1 |         -8 |       -167 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/data/User.java                                         | java            |        -22 |          0 |         -6 |        -28 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/ElementAmountException.java                 | java            |         -3 |          0 |         -3 |         -6 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/RecursionException.java                     | java            |         -3 |          0 |         -3 |         -6 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/exceptions/ValueException.java                         | java            |         -3 |          0 |         -2 |         -5 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers/AuthController.java                    | java            |        -50 |         -4 |         -6 |        -60 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/gui/controllers/TableController.java                   | java            |        -82 |        -10 |        -12 |       -104 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/network/TCPClient.java                                 | java            |        -82 |          0 |        -19 |       -101 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/requests/Request.java                                  | java            |        -28 |          0 |         -8 |        -36 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/CollectionHandler.java                           | java            |       -121 |          0 |        -14 |       -135 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/CommandHelper.java                               | java            |        -45 |          0 |         -6 |        -51 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/FileManager.java                                 | java            |        -36 |          0 |         -7 |        -43 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/IOHandler.java                                   | java            |        -15 |          0 |         -2 |        -17 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/PersonCreator.java                               | java            |       -180 |          0 |         -9 |       -189 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/PersonValidator.java                             | java            |        -40 |          0 |         -6 |        -46 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/app/src/main/java/ifmo/utils/UserHelper.java                                  | java            |        -40 |        -25 |         -9 |        -74 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/gradle/wrapper/gradle-wrapper.properties                                      | Java Properties |         -6 |          0 |         -1 |         -7 |
+| /mnt/d/ITMO/prog-labs-2sem/lab8/settings.gradle                                                               | Gradle          |        -14 |          0 |         -3 |        -17 |
+| Total                                                                                                         |                 |      1,895 |        183 |        408 |      2,486 |
++---------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
