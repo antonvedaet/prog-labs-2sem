@@ -21,6 +21,16 @@ public class DisplayCoordinates extends Coordinates{
         
     }
 
+    @Override
+    public int getX(){
+        return x;
+    }
+
+    @Override
+    public long getY(){
+        return y;
+    }
+
     
     public void bindProperties(){
         xProperty.bindBidirectional(new SimpleIntegerProperty(x));

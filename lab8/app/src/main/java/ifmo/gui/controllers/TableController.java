@@ -236,7 +236,7 @@ private void handleAddButton() {
     TextField heightField = new TextField();
     heightField.setPromptText("Height");
     TextField birthdayField = new TextField();
-    birthdayField.setPromptText("Birthday (yyyy-MM-ddTHH:mm:ss)");
+    birthdayField.setPromptText("yyyy-MM-ddTHH:mm:ss");
     ChoiceBox<Color> eyeColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));
     eyeColorBox.getSelectionModel().selectFirst();
     ChoiceBox<Color> hairColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));

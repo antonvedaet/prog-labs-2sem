@@ -86,6 +86,14 @@ public class DisplayPerson extends Person {
         savedProperty.bindBidirectional(new SimpleBooleanProperty(saved));
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public DisplayCoordinates getCoordinates() {
         return coordinates;
     }
