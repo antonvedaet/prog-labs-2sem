@@ -1,6 +1,9 @@
 package ifmo.gui.controllers;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 import ifmo.data.User;
 import ifmo.network.TCPClient;
@@ -31,6 +34,7 @@ public class AuthController {
         _tcpClient = tcpClient;
         this.userHelper = new UserHelper(_tcpClient);
     }
+    
 
     @FXML
     public void showErrorPopup() {

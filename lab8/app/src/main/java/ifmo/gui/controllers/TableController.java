@@ -219,7 +219,7 @@ public class TableController {
     @FXML
 private void handleAddButton() {
     Dialog<Person> dialog = new Dialog<>();
-    dialog.setTitle("Add Person");
+    dialog.setTitle("Добавить");
     dialog.setHeaderText(null);
 
     GridPane grid = new GridPane();
@@ -228,40 +228,40 @@ private void handleAddButton() {
     grid.setPadding(new Insets(20, 150, 10, 10));
 
     TextField nameField = new TextField();
-    nameField.setPromptText("Name");
+    nameField.setPromptText("Имя");
     TextField xCoordField = new TextField();
-    xCoordField.setPromptText("X coordinate");
+    xCoordField.setPromptText("X Координата");
     TextField yCoordField = new TextField();
-    yCoordField.setPromptText("Y coordinate");
+    yCoordField.setPromptText("Y Координата");
     TextField heightField = new TextField();
-    heightField.setPromptText("Height");
+    heightField.setPromptText("Рост");
     TextField birthdayField = new TextField();
     birthdayField.setPromptText("yyyy-MM-ddTHH:mm:ss");
-    ChoiceBox<Color> eyeColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));
+    ChoiceBox<Color> eyeColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK, Color.ORANGE, Color.BROWN, Color.GREEN, Color.WHITE));
     eyeColorBox.getSelectionModel().selectFirst();
-    ChoiceBox<Color> hairColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK));
+    ChoiceBox<Color> hairColorBox = new ChoiceBox<>(FXCollections.observableArrayList(Color.BLUE, Color.BLACK, Color.ORANGE, Color.BROWN, Color.GREEN, Color.WHITE));
     hairColorBox.getSelectionModel().selectFirst();
     TextField xLocField = new TextField();
-    xLocField.setPromptText("X location");
+    xLocField.setPromptText("X местоположения");
     TextField yLocField = new TextField();
-    yLocField.setPromptText("Y location");
+    yLocField.setPromptText("Y местоположения");
     TextField zLocField = new TextField();
-    zLocField.setPromptText("Z location");
+    zLocField.setPromptText("Z местоположения");
     TextField nameLocField = new TextField();
-    nameLocField.setPromptText("Location name");
+    nameLocField.setPromptText("Местоположение");
 
-    grid.add(new Label("Name:"), 0, 0);
+    grid.add(new Label("Имя:"), 0, 0);
     grid.add(nameField, 1, 0);
-    grid.add(new Label("Coordinates:"), 0, 1);
+    grid.add(new Label("Координаты:"), 0, 1);
     grid.add(xCoordField, 1, 1);
     grid.add(yCoordField, 2, 1);
-    grid.add(new Label("Height:"), 0, 2);
+    grid.add(new Label("Рост:"), 0, 2);
     grid.add(heightField, 1, 2);
-    grid.add(new Label("Birthday:"), 0, 3);
+    grid.add(new Label("День рождения:"), 0, 3);
     grid.add(birthdayField, 1, 3);
-    grid.add(new Label("Eye color:"), 0, 4);
+    grid.add(new Label("Цвет глаз:"), 0, 4);
     grid.add(eyeColorBox, 1, 4);
-    grid.add(new Label("Hair color:"), 0, 5);
+    grid.add(new Label("Цвет Волос:"), 0, 5);
     grid.add(hairColorBox, 1, 5);
     grid.add(new Label("Location:"), 0, 6);
     grid.add(xLocField, 1, 6);
@@ -269,8 +269,8 @@ private void handleAddButton() {
     grid.add(zLocField, 3, 6);
     grid.add(nameLocField, 4, 6);
 
-    ButtonType addButton = new ButtonType("Add", ButtonData.OK_DONE);
-    ButtonType cancelButton = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+    ButtonType addButton = new ButtonType("Добавить", ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Отмена", ButtonData.CANCEL_CLOSE);
     dialog.getDialogPane().getButtonTypes().addAll(addButton, cancelButton);
 
 

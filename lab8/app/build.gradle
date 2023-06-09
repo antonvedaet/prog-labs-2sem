@@ -51,7 +51,7 @@ sourceSets {
                 }
                 resources {
                         srcDirs= ["src/main/resources", "src/main/resources/styles"]
-                        include "Auth.fxml", "Table.fxml", "table.css", "auth.css", "Map.fxml", "map.png"
+                        include "Auth.fxml", "Table.fxml", "table.css", "auth.css", "Map.fxml", "map.png", "*.properties"
                 }
         }
 }
