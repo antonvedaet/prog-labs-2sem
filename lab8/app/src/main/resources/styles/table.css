@@ -1,12 +1,14 @@
 .button {
     -fx-pref-width: 160px;
-    -fx-pref-height: 40px;
+    -fx-pref-height: 30px;
     -fx-padding: 10px;
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-size: 14px;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
 }
 
 .vbox > .button {
-    -fx-spacing: 20px;
+    -fx-spacing: 50;
 }
