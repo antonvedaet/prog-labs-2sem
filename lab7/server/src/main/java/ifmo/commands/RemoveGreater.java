@@ -44,7 +44,7 @@ public class RemoveGreater extends AbstractCommand{
 
             boolean checkList = collectionHandler.getCollection()
         .stream()
-        .filter(person -> !person.getCreator().equals(request.getUser()))
+        .filter(person -> !person.getCreator().equals(request.getUser().getLogin()))
         .filter(person -> person.getId() >= Integer.parseInt(request.getArguments()))
         .collect(Collectors.toCollection(LinkedList::new)).size() > 0;
         if(checkList){

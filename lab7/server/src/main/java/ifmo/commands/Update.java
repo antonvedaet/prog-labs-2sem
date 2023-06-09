@@ -43,7 +43,7 @@ public class Update extends AbstractCommand {
                 if(person.getId()==(Integer.parseInt(request.getArguments()))){
                     Person nPerson = request.getPerson();
                     nPerson.setId(Integer.parseInt(request.getArguments()));
-                    if(person.getCreator().equals(request.getUser())){
+                    if(person.getCreator().equals(request.getUser().getLogin())){
                         collectionHandler.removePerson(person);
                         collectionHandler.addPerson(nPerson);
                     } else {
