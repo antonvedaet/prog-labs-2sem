@@ -90,6 +90,10 @@ public class DisplayPerson extends Person {
         return id;
     }
 
+    public String getCreator(){
+        return creator;
+    }
+
     public String getName() {
         return name;
     }

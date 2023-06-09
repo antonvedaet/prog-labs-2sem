@@ -95,6 +95,10 @@ public class VisualizationController {
             Label content = new Label("ID: " + clickedPerson.getId());
             content.setStyle("-fx-padding: 5px;");
             borderPane.setCenter(content);
+
+            Label creator = new Label("Creator: " + clickedPerson.getCreator());
+            creator.setStyle("-fx-padding: 5px;");
+            borderPane.setCenter(creator);
     
             popup.getContent().add(borderPane);
     
