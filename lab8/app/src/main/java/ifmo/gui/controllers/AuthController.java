@@ -52,7 +52,9 @@ public class AuthController {
     @FXML
     public void showTable(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Table.fxml"));
+        ResourceBundle bundle = ResourceBundle.getBundle("table", locale);
         loader.setController(new TableController(_tcpClient, locale));
+        loader.setResources(bundle);
         Parent root;
         try {
             root = loader.load();

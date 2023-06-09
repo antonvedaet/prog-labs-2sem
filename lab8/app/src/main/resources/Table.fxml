@@ -12,29 +12,29 @@
    <left>
       <VBox prefHeight="371.0" prefWidth="140.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="add" mnemonicParsing="false" text="Добавить" onAction="#handleAddButton">
+            <Button fx:id="add" mnemonicParsing="false" text="%addButtonText" onAction="#handleAddButton">
             <tooltip>
-                <Tooltip text="Добавить элемент"/>
+                <Tooltip text="%addTooltip"/>
             </tooltip>
             </Button>
-            <Button fx:id="remove_by_id" mnemonicParsing="false" text="Удалить" onAction="#handleRemoveById">
+            <Button fx:id="remove_by_id" mnemonicParsing="false" text="%removeButtonText" onAction="#handleRemoveById">
             <tooltip>
-                <Tooltip text="Удалить элемент коллекции по ID"/>
+                <Tooltip text="%removeTooltip"/>
             </tooltip>
             </Button>
-            <Button fx:id="remove_greater" mnemonicParsing="false" text="Удалить больше" onAction="#handleRemoveGreater">
+            <Button fx:id="remove_greater" mnemonicParsing="false" text="%removeGreaterButtonText" onAction="#handleRemoveGreater">
             <tooltip>
-                <Tooltip text="Удалить элементы коллекции чьи значения поля ID превышают заданный"/>
+                <Tooltip text="%removeGreaterTooltip"/>
             </tooltip>
             </Button>
-            <Button fx:id="reorder" mnemonicParsing="false" text="Развернуть" onAction="#handleReorder">
+            <Button fx:id="reorder" mnemonicParsing="false" text="%reorderButtonText" onAction="#handleReorder">
             <tooltip>
-                <Tooltip text="Развернуть коллекцию"/>
+                <Tooltip text="%reorderTooltip"/>
             </tooltip>
             </Button>
-            <Button fx:id="shuffle" mnemonicParsing="false" text="Перемешать" onAction="#handleShuffle">
+            <Button fx:id="shuffle" mnemonicParsing="false" text="%shuffleButtonText" onAction="#handleShuffle">
             <tooltip>
-                <Tooltip text="Перемешать коллекцию"/>
+                <Tooltip text="%shuffleTooltip"/>
             </tooltip>
             </Button>
          </children>
@@ -43,25 +43,25 @@
    <center>
       <TableView fx:id="tableView" prefHeight="736.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
         <columns>
-      <TableColumn fx:id="idColumn" prefWidth="75.0" text="id"/>
-      <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />
-      <TableColumn fx:id="latitudeColumn" prefWidth="158.0" text="Широта местоположения" />
-      <TableColumn fx:id="longitudeColumn" prefWidth="164.0" text="Долгота местоположения" />
-      <TableColumn fx:id="creationDateColumn" prefWidth="91.0" text="Дата создания" />
-      <TableColumn fx:id="heightColumn" prefWidth="68.0" text="Рост" />
-      <TableColumn fx:id="birthdayColumn" prefWidth="98.0" text="Дата рождения" />
-      <TableColumn fx:id="eyeColorColumn" prefWidth="72.0" text="Цвет глаз" />
-      <TableColumn fx:id="hairColorColumn" prefWidth="94.0" text="Цвет волос" />
-      <TableColumn fx:id="locationColumn" prefWidth="132.0" text="Место жительства" />
-      <TableColumn fx:id="creatorColumn" prefWidth="75.0" text="Создатель" />
+      <TableColumn fx:id="idColumn" prefWidth="75.0" text="%idColumnHeader"/>
+      <TableColumn fx:id="nameColumn" prefWidth="75.0" text="%nameColumnHeader" />
+      <TableColumn fx:id="latitudeColumn" prefWidth="158.0" text="%latitudeColumnHeader" />
+      <TableColumn fx:id="longitudeColumn" prefWidth="164.0" text="%longitudeColumnHeader" />
+      <TableColumn fx:id="creationDateColumn" prefWidth="91.0" text="%creationDateColumnHeader" />
+      <TableColumn fx:id="heightColumn" prefWidth="68.0" text="%heightColumnHeader" />
+      <TableColumn fx:id="birthdayColumn" prefWidth="98.0" text="%birthdayColumnHeader" />
+      <TableColumn fx:id="eyeColorColumn" prefWidth="72.0" text="%eyeColorColumnHeader" />
+      <TableColumn fx:id="hairColorColumn" prefWidth="94.0" text="%hairColorColumnHeader" />
+      <TableColumn fx:id="locationColumn" prefWidth="132.0" text="%locationColumnHeader" />
+      <TableColumn fx:id="creatorColumn" prefWidth="75.0" text="%creatorColumnHeader" />
         </columns>
       </TableView>
    </center>
    <bottom>
       <HBox prefHeight="39.0" prefWidth="624.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleLogoutButton" text="Выйти" />
-            <Button mnemonicParsing="false" onAction="#handleVisualizationButton" text="Визуализация " />
+            <Button mnemonicParsing="false" onAction="#handleLogoutButton" text="%logoutButtonText" />
+            <Button mnemonicParsing="false" onAction="#handleVisualizationButton" text="%visualizationButtonText" />
          </children>
       </HBox>
    </bottom>

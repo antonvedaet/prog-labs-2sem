@@ -3,6 +3,7 @@ package ifmo.gui.controllers;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import ifmo.data.DisplayPerson;
 import ifmo.network.TCPClient;
@@ -128,7 +129,9 @@ public class VisualizationController {
     @FXML
     public void handleBackToTable(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Table.fxml"));
+        ResourceBundle bundle = ResourceBundle.getBundle("table", locale);
         loader.setController(new TableController(tcpClient, locale));
+        loader.setResources(bundle);
         Parent root;
         try {
             root = loader.load();
