@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class AuthController {
+
+    Locale locale;
+
     @FXML private Button loginButton;
     @FXML private Button registerButton;
     @FXML private TextField loginField;
@@ -29,8 +32,9 @@ public class AuthController {
     private TCPClient _tcpClient;
     private UserHelper userHelper;
 
-    public AuthController(TCPClient tcpClient)
+    public AuthController(TCPClient tcpClient, Locale locale)
     {
+        this.locale = locale;
         _tcpClient = tcpClient;
         this.userHelper = new UserHelper(_tcpClient);
     }
@@ -48,7 +52,7 @@ public class AuthController {
     @FXML
     public void showTable(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Table.fxml"));
-        loader.setController(new TableController(_tcpClient));
+        loader.setController(new TableController(_tcpClient, locale));
         Parent root;
         try {
             root = loader.load();

@@ -2,6 +2,7 @@ package ifmo.gui.controllers;
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Locale;
 
 import ifmo.data.DisplayPerson;
 import ifmo.network.TCPClient;
@@ -30,12 +31,16 @@ import javafx.scene.Node;
 
 public class VisualizationController {
 
+
+
     @FXML private ImageView mapView;
     @FXML private Button backToTable;
 
     TCPClient tcpClient;
+    Locale locale;
 
-    VisualizationController(TCPClient tcpClient){
+    VisualizationController(TCPClient tcpClient, Locale locale){
+        this.locale = locale;
         this.tcpClient = tcpClient;
     }
 
@@ -123,7 +128,7 @@ public class VisualizationController {
     @FXML
     public void handleBackToTable(ActionEvent event){
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Table.fxml"));
-        loader.setController(new TableController(tcpClient));
+        loader.setController(new TableController(tcpClient, locale));
         Parent root;
         try {
             root = loader.load();

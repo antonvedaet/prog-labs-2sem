@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -20,6 +21,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -28,7 +31,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.LinkedList;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -44,6 +49,8 @@ import ifmo.data.Color;
 public class TableController {
 
     TCPClient tcpClient;
+
+    Locale locale;
 
     @FXML
     private Button addButton;
@@ -78,7 +85,8 @@ public class TableController {
     @FXML
     private TableColumn<DisplayPerson, String> creatorColumn;
 
-    TableController(TCPClient tcpClient){
+    TableController(TCPClient tcpClient, Locale locale){
+        this.locale = locale;
         this.tcpClient = tcpClient;
     }
 
@@ -117,13 +125,31 @@ public class TableController {
 
     @FXML
     private void handleLogoutButton(ActionEvent event) throws IOException {
+        ResourceBundle bundle = ResourceBundle.getBundle("auth", locale);
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Auth.fxml"));
-        loader.setController(new AuthController(tcpClient));
+        loader.setController(new AuthController(tcpClient, locale));
+        loader.setResources(bundle);
         Parent root;
         try {
             root = loader.load();
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene nextScene = new Scene(root);
+
+            Button englishButton = new Button("English");
+            englishButton.setOnAction(pressEvent -> changeLocale(Locale.forLanguageTag("en-UK"), primaryStage, nextScene));
+    
+            
+            Button russianButton = new Button("Русский");
+            russianButton.setOnAction(pressEvent -> changeLocale(new Locale("ru_RU"), primaryStage, nextScene));
+    
+            HBox buttonBox = new HBox(10, englishButton, russianButton);
+            buttonBox.setPadding(new Insets(10));
+            buttonBox.setAlignment(Pos.CENTER_LEFT);
+    
+            if (root instanceof Pane) {
+                
+                ((Pane) root).getChildren().addAll(buttonBox);
+            }
             primaryStage.setScene(nextScene);
             primaryStage.show();
         } catch (IOException e) {
@@ -131,10 +157,47 @@ public class TableController {
         };
     }
 
+    private void changeLocale(Locale newLocale, Stage stage, Scene scene) {
+        if (!newLocale.equals(locale)) {
+            locale = newLocale;
+            ResourceBundle newBundle = ResourceBundle.getBundle("auth", locale);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource("Auth.fxml"), newBundle);
+            AuthController authController = new AuthController(tcpClient, locale);
+            fxmlLoader.setController(authController);
+
+            try {
+                Parent root = fxmlLoader.load();
+
+                
+                Button englishButton = new Button("English");
+                englishButton.setOnAction(event -> changeLocale(Locale.forLanguageTag("en-UK"), stage, scene));
+
+                
+                Button russianButton = new Button("Русский");
+                russianButton.setOnAction(event -> changeLocale(new Locale("ru_RU"), stage, scene));
+
+                HBox buttonBox = new HBox(10, englishButton, russianButton);
+                buttonBox.setPadding(new Insets(10));
+                buttonBox.setAlignment(Pos.CENTER_LEFT);
+        
+                if (root instanceof Pane) {
+                     
+                    ((Pane) root).getChildren().addAll(buttonBox);
+                }
+
+                scene.setRoot(root);
+
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @FXML
     private void handleVisualizationButton(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Map.fxml"));
-        loader.setController(new VisualizationController(tcpClient));
+        loader.setController(new VisualizationController(tcpClient, locale));
         Parent root;
         try {
             root = loader.load();
