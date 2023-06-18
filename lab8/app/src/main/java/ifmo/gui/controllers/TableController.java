@@ -85,6 +85,10 @@ public class TableController {
     @FXML
     private TableColumn<DisplayPerson, String> creatorColumn;
 
+    @FXML
+    private HBox bottomHBox;
+
+
     TableController(TCPClient tcpClient, Locale locale){
         this.locale = locale;
         this.tcpClient = tcpClient;
@@ -92,6 +96,12 @@ public class TableController {
     }
 
     public void initialize() {
+
+        Label label = new Label(UserHelper.logged_user.getLogin());
+        label.setAlignment(Pos.CENTER);
+        label.setStyle("-fx-font-size: 24;");
+        bottomHBox.getChildren().add(label);
+
 
         Timer timer = new Timer();
 

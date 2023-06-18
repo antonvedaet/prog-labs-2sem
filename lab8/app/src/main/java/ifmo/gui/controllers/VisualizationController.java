@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import ifmo.data.DisplayPerson;
 import ifmo.network.TCPClient;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.Group;
 import javafx.scene.Node;
 
@@ -64,32 +66,29 @@ public class VisualizationController {
         }
     }
 
-
     public void drawCircles(DisplayPerson person, LinkedList<DisplayPerson> persons) {
-        double x =(double) person.getCoordinates().getX();
-        double y =(double) person.getCoordinates().getY();
-        System.out.println(x);
-        System.out.println(y);
-
+        double x = (double) person.getCoordinates().getX();
+        double y = (double) person.getCoordinates().getY();
+    
         double viewX = mapView.getLayoutX();
         double viewY = mapView.getLayoutY();
     
         double circleX = x - viewX;
         double circleY = y - viewY;
-
+    
         Circle circle = new Circle(circleX, circleY, 10, Color.RED);
         Pane parent = (Pane) mapView.getParent();
         circle.setTranslateZ(100);
-
+    
         int personId = person.getId();
         circle.setId(Integer.toString(personId));
-
+    
         circle.setOnMouseClicked(event -> {
-
+    
             String circleId = ((Circle) event.getSource()).getId();
-
+    
             DisplayPerson clickedPerson = getPerson(persons, Integer.parseInt(circleId));
-
+    
             Popup popup = new Popup();
             BorderPane borderPane = new BorderPane();
             borderPane.setStyle("-fx-background-color: white; -fx-padding: 10px;");
@@ -99,7 +98,7 @@ public class VisualizationController {
             Label header = new Label(clickedPerson.getName());
             header.setStyle("-fx-font-weight: bold; -fx-padding: 5px;");
             borderPane.setTop(header);
-
+    
             Label content = new Label("ID: " + clickedPerson.getId() + "\n" + bundle.getString("creator") + clickedPerson.getCreator());
             content.setStyle("-fx-padding: 5px;");
             borderPane.setCenter(content);
@@ -111,9 +110,15 @@ public class VisualizationController {
             popup.setAutoHide(true);
             popup.show(parent.getScene().getWindow());
         });
-
+    
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), circle);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    
         parent.getChildren().add(circle);
     }
+    
 
     public void setImage(Image image) {
         mapView.setImage(image);

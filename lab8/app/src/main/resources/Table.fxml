@@ -63,7 +63,7 @@
       </TableView>
    </center>
    <bottom>
-      <HBox prefHeight="39.0" prefWidth="624.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="bottomHBox" prefHeight="39.0" prefWidth="624.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#handleLogoutButton" text="%logoutButtonText" />
             <Button mnemonicParsing="false" onAction="#handleVisualizationButton" text="%visualizationButtonText" />
